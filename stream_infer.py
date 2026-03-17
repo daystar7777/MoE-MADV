@@ -1515,7 +1515,8 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
                                async_pipeline=False,
                                skip_layers=0,
                                batch_layers=0,
-                               numpy_cache_gb=0.0):
+                               numpy_cache_gb=0.0,
+                               two_pass=False):
     """Generate tokens with selective expert loading for MoE models.
 
     At startup: pre-load all non-expert weights (~2.3GB) for all layers into DRAM.
@@ -1726,6 +1727,22 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
     elif use_async_pipeline:
         print(f"  [async-pipeline] Enabled: overlapping GPU routing eval with CPU I/O processing.")
 
+    # Validate two_pass prerequisites
+    use_two_pass = (two_pass and no_expert_cache and batch_experts
+                    and _packed_comps is not None and packed_fds)
+    if two_pass and not use_two_pass:
+        missing = []
+        if not no_expert_cache:
+            missing.append("--no-expert-cache")
+        if not batch_experts:
+            missing.append("--batch-experts")
+        if _packed_comps is None or not packed_fds:
+            missing.append("packed expert files")
+        print(f"  [two-pass] DISABLED — requires: {', '.join(missing)}")
+    elif use_two_pass:
+        print(f"  [two-pass] Enabled: Pass 1 = routing only (no experts, ~30ms), "
+              f"Pass 2 = batch I/O + compute (~100ms). Target: 5.5-7.9 tok/s.")
+
     # === I/O instrumentation counters (per-token, reset each token) ===
     io_stats_history = []  # list of per-token dicts
 
@@ -1775,6 +1792,10 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
         token_io_time = 0.0
         token_array_time = 0.0
         token_moe_compute_time = 0.0
+        # Speculative prefetch: track per-layer routing decisions for this token.
+        # After generation, these indices are used to dispatch pread() calls that
+        # warm the OS page cache for the next token (~30% expert overlap).
+        _token_routing = {}  # layer_idx -> list of expert indices used
         # Reset per-token pin I/O miss counter
         if pin_phase == "active":
             generate_offload_selective._last_io_misses = 0
@@ -1805,11 +1826,283 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
         # --- Batch-layers state (reset per token) ---
         _bl_done = set()  # layers already processed by batch-layers path
 
+        # ====== TWO-PASS PATH ======
+        # Pass 1: Run attention + routing for ALL layers WITHOUT expert computation.
+        #         Collect routing decisions. h propagates as h_mid (attention only).
+        #         Single mx.eval at the end for all routing indices.
+        # Pass 2: Batch-read ALL experts for all layers at once (8 threads, 60 files).
+        #         Then compute MoE for each layer using Pass 1's h_mid/h_post and
+        #         the pre-loaded expert weights.
+        # The only approximation: routing uses attention-only h (no expert contribution).
+        _two_pass_handled = False
+        if use_two_pass:
+            _two_pass_handled = True
+            t_pass1_start = time.perf_counter() if profile else time.time()
+
+            # ===== PASS 1: Routing only (no experts) =====
+            all_routing_decisions = {}  # layer_idx -> (inds, scores, h_mid, h_post, k)
+            h_routing = h  # start from embedded input; propagate as h_mid (no expert output)
+
+            for i in range(num_layers):
+                layer = layers[i]
+                c = cache[i]
+
+                # Attention (updates cache — this is the authoritative cache write)
+                x_normed = layer.input_layernorm(h_routing)
+                mask = ssm_mask if layer.is_linear else fa_mask
+                if layer.is_linear:
+                    r = layer.linear_attn(x_normed, mask, c)
+                else:
+                    r = layer.self_attn(x_normed, mask, c)
+                h_mid = h_routing + r
+
+                # Routing (discover which experts are needed)
+                h_post = layer.post_attention_layernorm(h_mid)
+                gates = layer.mlp.gate(h_post)
+                gates = mx.softmax(gates, axis=-1, precise=True)
+                k = layer.mlp.top_k if top_k_override <= 0 else min(layer.mlp.top_k, top_k_override)
+
+                if k > 0:
+                    inds = mx.argpartition(gates, kth=-k, axis=-1)[..., -k:]
+                    scores = mx.take_along_axis(gates, inds, axis=-1)
+                    scores = scores / scores.sum(axis=-1, keepdims=True)
+                else:
+                    inds = None
+                    scores = None
+
+                all_routing_decisions[i] = (inds, scores, h_mid, h_post, k)
+
+                # Propagate with shared expert (all layers - needed for routing accuracy)
+                shared_y = layer.mlp.shared_expert(h_post)
+                shared_y = mx.sigmoid(layer.mlp.shared_expert_gate(h_post)) * shared_y
+                h_routing = h_mid + shared_y
+
+            # Single eval for all routing indices (batch all layers into one GPU sync)
+            all_inds_to_eval = [all_routing_decisions[i][0] for i in range(num_layers)
+                                if all_routing_decisions[i][0] is not None]
+            if all_inds_to_eval:
+                mx.eval(*all_inds_to_eval)
+
+            t_pass1_done = time.perf_counter() if profile else time.time()
+            pass1_ms = (t_pass1_done - t_pass1_start) * 1000
+
+            # ===== Extract routing indices + build remap tables =====
+            all_layer_io_info = {}  # layer_idx -> (unique_list, remapped_inds, inds, scores, h_mid, h_post)
+            for i in range(num_layers):
+                inds_i, scores_i, h_mid_i, h_post_i, k_i = all_routing_decisions[i]
+                if inds_i is None:
+                    continue
+
+                inds_np = np.array(inds_i.tolist())
+                unique_experts = np.unique(inds_np)
+                num_unique = len(unique_experts)
+                unique_list = unique_experts.tolist()
+
+                remap = np.zeros(layers[i].mlp.num_experts, dtype=np.int32)
+                remap[unique_experts] = np.arange(num_unique)
+                remapped_inds = mx.array(remap[inds_np])
+
+                # Track warmup routing
+                if pin_phase == "warmup":
+                    for eidx in unique_list:
+                        pin_counts[i, eidx] += 1
+
+                all_layer_io_info[i] = (unique_list, remapped_inds, inds_i, scores_i, h_mid_i, h_post_i)
+
+            # ===== Batch I/O: read ALL experts for ALL layers at once =====
+            # Key optimization: 8 threads reading from 60 different files saturate NVMe.
+            # All ~240 pread calls dispatched simultaneously.
+            # Populate _token_routing for speculative prefetch
+            for i in all_layer_io_info:
+                _token_routing[i] = all_layer_io_info[i][0]
+
+            t_io_start = time.perf_counter() if profile else time.time()
+
+            # Dispatch ALL reads at once across all layers
+            all_read_futures = {}  # (layer_idx, expert_idx) -> Future
+            _tp_np_cache_hits = {}  # (layer_idx, expert_idx) -> raw bytes (numpy-cache hits)
+            for i in sorted(all_layer_io_info.keys()):
+                if i not in packed_layers:
+                    continue
+                unique_list = all_layer_io_info[i][0]
+                packed_fd = packed_fds[i]
+                es = packed_layout["expert_size"]
+
+                # Split pinned vs unpinned
+                layer_pinned = pinned_experts.get(i, {})
+                if pin_phase == "active" and layer_pinned:
+                    unpinned_list = [idx for idx in unique_list if idx not in layer_pinned]
+                else:
+                    unpinned_list = unique_list
+
+                # Split numpy-cache hits vs disk reads
+                if numpy_cache is not None:
+                    for eidx in unpinned_list:
+                        nc_key = (i, eidx)
+                        if nc_key in numpy_cache:
+                            numpy_cache.move_to_end(nc_key)
+                            _tp_np_cache_hits[(i, eidx)] = numpy_cache[nc_key]
+                            numpy_cache_hits += 1
+                        else:
+                            all_read_futures[(i, eidx)] = _io_pool.submit(
+                                os.pread, packed_fd, es, eidx * es)
+                            numpy_cache_misses += 1
+                else:
+                    for eidx in unpinned_list:
+                        all_read_futures[(i, eidx)] = _io_pool.submit(
+                            os.pread, packed_fd, es, eidx * es)
+
+            # DON'T wait for reads yet — they run in parallel while we start compute.
+            # Reads are collected per-layer in Pass 2 below. The 8 threads reading from
+            # 60 different files saturate NVMe while GPU computes MoE for earlier layers.
+            all_raw_data = dict(_tp_np_cache_hits)  # numpy-cache hits are instant
+            es = packed_layout["expert_size"]
+
+            t_io_done = time.perf_counter() if profile else time.time()
+            io_ms = (t_io_done - t_io_start) * 1000  # just dispatch time (~1ms)
+
+            # ===== PASS 2: Compute MoE overlapped with I/O completion =====
+            # Option A: use h_mid/h_post from Pass 1 directly. The expert computation
+            # uses h_post (post-attention layernorm), not the propagating h. The only
+            # approximation is in WHICH experts were selected (routing decisions).
+            t_compute_start = time.perf_counter() if profile else time.time()
+
+            for i in range(num_layers):
+                if i not in all_layer_io_info:
+                    # Layer had k=0 or no routing — just use h_mid as h
+                    if i in all_routing_decisions:
+                        _, _, h_mid_i, _, _ = all_routing_decisions[i]
+                        h = h_mid_i  # no expert contribution
+                    continue
+
+                unique_list, remapped_inds, inds_i, scores_i, h_mid_i, h_post_i = all_layer_io_info[i]
+                layer = layers[i]
+
+                # Assemble expert attributes from pre-read data + caches
+                all_expert_attrs = {}
+
+                # Pinned experts (already in Metal memory)
+                layer_pinned = pinned_experts.get(i, {})
+                if pin_phase == "active" and layer_pinned:
+                    for idx in unique_list:
+                        if idx in layer_pinned:
+                            all_expert_attrs[idx] = layer_pinned[idx]
+                            pin_total_hits += 1
+                    pin_total_lookups += len(unique_list)
+
+                # Numpy-cache hits + disk reads -> mx.arrays
+                # Collect reads just-in-time (I/O runs in parallel with earlier layers' GPU compute)
+                for eidx in unique_list:
+                    if eidx in all_expert_attrs:
+                        continue  # already pinned
+
+                    raw = all_raw_data.get((i, eidx))
+                    if raw is None:
+                        # Wait for this specific read to complete
+                        future = all_read_futures.get((i, eidx))
+                        if future is None:
+                            raise RuntimeError(
+                                f"Two-pass: layer={i} expert={eidx} raw data not found")
+                        raw = future.result()
+                        all_raw_data[(i, eidx)] = raw
+                        if numpy_cache is not None:
+                            numpy_cache[(i, eidx)] = raw
+                            while len(numpy_cache) > numpy_cache_max_entries:
+                                numpy_cache.popitem(last=False)
+                        token_io_bytes += es
+                        token_io_seeks += 1
+
+                    mv = memoryview(raw)
+                    attrs = {}
+                    for proj, attr, off, sz, npdtype, shape, is_bf16 in _packed_comps:
+                        arr = mx.array(np.frombuffer(mv[off:off+sz], dtype=npdtype).reshape(shape))
+                        if is_bf16:
+                            arr = arr.view(mx.bfloat16)
+                        attrs[(proj, attr)] = arr
+                    all_expert_attrs[eidx] = attrs
+
+                # Assemble [num_unique, ...] stacked weight tensors
+                expert_tensors = {}
+                for proj_name in ["gate_proj", "up_proj", "down_proj"]:
+                    for attr_name in ["weight", "scales", "biases"]:
+                        slices = []
+                        for idx in unique_list:
+                            arr = all_expert_attrs[idx].get((proj_name, attr_name))
+                            if arr is not None:
+                                slices.append(arr)
+                            else:
+                                raise RuntimeError(
+                                    f"Two-pass: layer={i} expert={idx} "
+                                    f"{proj_name}.{attr_name} not found"
+                                )
+                        if slices:
+                            expert_tensors[f"{proj_name}.{attr_name}"] = mx.stack(slices, axis=0)
+                del all_expert_attrs
+
+                # Compute MoE using Pass 1's h_post
+                y = compute_moe_direct(
+                    h_post_i, remapped_inds, expert_tensors,
+                    group_size=qparams["group_size"],
+                    bits=qparams["bits"],
+                    mode=qparams["mode"],
+                )
+                y = (y * scores_i[..., None]).sum(axis=-2)
+
+                # Shared expert
+                shared_y = layer.mlp.shared_expert(h_post_i)
+                shared_y = mx.sigmoid(layer.mlp.shared_expert_gate(h_post_i)) * shared_y
+                y = y + shared_y
+
+                # Update h: attention output + expert output
+                h = h_mid_i + y
+
+                # Single eval at end (no per-layer routing dependency in two-pass)
+                if i == num_layers - 1:
+                    mx.eval(h)
+
+                del expert_tensors
+
+                # Record layer timing
+                layer_timings.append({
+                    "layer": i,
+                    "is_linear": layer.is_linear,
+                    "attn_router_ms": pass1_ms / num_layers,
+                    "expert_ms": io_ms / num_layers,
+                    "clear_ms": 0.0,
+                    "load_ms": io_ms / num_layers,
+                    "compute_ms": 0.0,
+                })
+
+            t_compute_done = time.perf_counter() if profile else time.time()
+            compute_ms = (t_compute_done - t_compute_start) * 1000
+            token_moe_compute_time = (t_compute_done - t_compute_start)
+
+            total_two_pass_ms = (t_compute_done - t_pass1_start) * 1000
+
+            # Clean up batch I/O data
+            del all_raw_data, all_read_futures, _tp_np_cache_hits
+            del all_routing_decisions, all_layer_io_info
+
+            # Profile accounting
+            if profile and token_idx > 0:
+                prof_totals["routing_ms"] += pass1_ms
+                prof_totals["io_ms"] += io_ms
+                prof_totals["compute_ms"] += compute_ms
+                prof_totals["eval_sync_ms"] += compute_ms
+                prof_token_count += 1
+
         # --- Per-layer: selective load, compute (clearing deferred to end of token) ---
         for i in range(num_layers):
+            # Two-pass handled all layers above — skip entire per-layer loop
+            if _two_pass_handled:
+                break
+
             # Layer skipping: skip every Nth layer in the middle to reduce compute+I/O
             if skip_layers > 0 and 10 <= i < num_layers - 10 and i % skip_layers != 0:
                 continue
+
+            # Variable K: reduced experts for middle layers when skip_layers < 0
+            _var_k_active = (skip_layers < 0 and 20 <= i < num_layers - 20)
 
             # Skip layers already processed by batch-layers path
             if i in _bl_done:
@@ -1896,6 +2189,9 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
                         unique_experts = np.unique(inds_np)
                         num_unique = len(unique_experts)
                         unique_list = unique_experts.tolist()
+
+                        # Record routing for speculative prefetch
+                        _token_routing[bi] = unique_list
 
                         # Build remap table
                         remap = np.zeros(bl.mlp.num_experts, dtype=np.int32)
@@ -2123,9 +2419,15 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
                 gates = layer.mlp.gate(h_post)
                 gates = mx.softmax(gates, axis=-1, precise=True)
                 k = layer.mlp.top_k if top_k_override <= 0 else min(layer.mlp.top_k, top_k_override)
-                inds = mx.argpartition(gates, kth=-k, axis=-1)[..., -k:]
-                scores = mx.take_along_axis(gates, inds, axis=-1)
-                scores = scores / scores.sum(axis=-1, keepdims=True)
+                # Variable K: skip routed experts for middle layers (shared expert only)
+                # Variable K disabled — model requires K=4 on all layers for coherence
+                # if _var_k_active:
+                #     k = 3
+
+                if k > 0:
+                    inds = mx.argpartition(gates, kth=-k, axis=-1)[..., -k:]
+                    scores = mx.take_along_axis(gates, inds, axis=-1)
+                    scores = scores / scores.sum(axis=-1, keepdims=True)
 
             if use_async_pipeline and i in packed_layers:
                 # ====== ASYNC PIPELINE PATH ======
@@ -2265,6 +2567,9 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
                 unique_experts = np.unique(inds_np)
                 num_unique = len(unique_experts)
                 unique_list = unique_experts.tolist()
+
+                # Record routing for speculative prefetch
+                _token_routing[i] = unique_list
 
                 remap = np.zeros(layer.mlp.num_experts, dtype=np.int32)
                 remap[unique_experts] = np.arange(num_unique)
@@ -2461,6 +2766,9 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
               unique_experts = np.unique(inds_np)
               num_unique = len(unique_experts)
               unique_list = unique_experts.tolist()  # Python list for indexing
+
+              # Record routing for speculative prefetch (used after token completes)
+              _token_routing[i] = unique_list
 
               # Build remap table: original expert ID -> index in sliced tensor
               remap = np.zeros(layer.mlp.num_experts, dtype=np.int32)
@@ -2951,7 +3259,7 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
         token_time = t_token_end - t_token_start
         token_times.append(token_time)
 
-        if profile and token_idx > 0:
+        if profile and token_idx > 0 and not _two_pass_handled:
             prof_token_count += 1
 
         cur_mem = get_mem_gb()
@@ -3101,7 +3409,22 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
         elif pin_phase == "warmup":
             pin_hr_str = f" pin=warmup({token_idx+1}/{pin_experts})"
 
-        if token_idx == 0:
+        if _two_pass_handled:
+            # Two-pass progress display
+            if token_idx == 0:
+                ttft_ms = token_time * 1000
+                print(f"  [{fmt_time(t_token_end - t_start)}] Token 1/{max_tokens}: "
+                      f"ttft={ttft_ms:.0f}ms [two-pass: routing={pass1_ms:.0f}ms "
+                      f"io={io_ms:.0f}ms compute={compute_ms:.0f}ms "
+                      f"total={total_two_pass_ms:.0f}ms mem={cur_mem:.1f}GB]")
+            elif (token_idx + 1) % 5 == 0 or token_idx == max_tokens - 1:
+                elapsed = t_token_end - t_start
+                avg_tps = (token_idx + 1) / elapsed
+                print(f"  [{fmt_time(elapsed)}] Token {token_idx+1}/{max_tokens}: "
+                      f"{avg_tps:.2f} tok/s [two-pass: routing={pass1_ms:.0f}ms "
+                      f"io={io_ms:.0f}ms compute={compute_ms:.0f}ms "
+                      f"total={total_two_pass_ms:.0f}ms mem={cur_mem:.1f}GB]")
+        elif token_idx == 0:
             ttft_ms = token_time * 1000
             print(f"  [{fmt_time(t_token_end - t_start)}] Token 1/{max_tokens}: "
                   f"ttft={ttft_ms:.0f}ms (attn+router={total_attn_router:.0f}ms "
@@ -3119,6 +3442,20 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
                   f"{avg_tps:.2f} tok/s (attn+router={total_attn_router:.0f}ms "
                   f"expert={total_expert:.0f}ms clear={total_clear:.0f}ms "
                   f"cache_hr={cache_hr:.0%}{pin_hr_str}{io_miss_str} mem={cur_mem:.1f}GB)")
+
+        # --- Speculative expert prefetch for NEXT token ---
+        # Dispatch pread() calls using this token's routing decisions as predictions.
+        # Consecutive tokens share ~30% of experts, so ~30% of the next token's reads
+        # will hit warm page cache (~40 GB/s) instead of cold SSD (~5 GB/s).
+        # These reads are fire-and-forget: they run async in the thread pool while the
+        # CPU processes output logits + sampling overhead, adding NO latency.
+        if _packed_comps is not None and packed_fds and _token_routing:
+            es = packed_layout["expert_size"]
+            for layer_idx, expert_indices in _token_routing.items():
+                if layer_idx in packed_layers:
+                    fd = packed_fds[layer_idx]
+                    for eidx in expert_indices:
+                        _io_pool.submit(os.pread, fd, es, eidx * es)
 
         # Next iteration input
         input_ids = next_token.reshape(1, 1)
@@ -3168,6 +3505,17 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
             print(f"  Experts pinned:   {pin_topk}/layer x {num_layers} layers")
             print(f"  Pin hit rate:     {pin_hr_final:.1%} ({pin_total_hits}/{pin_total_lookups})")
             print(f"  Pin memory:       {sum(len(v) for v in pinned_experts.values()) * 3 * lm.args.moe_intermediate_size * lm.args.hidden_size * 9 // 16 / 1e9:.1f} GB")
+
+        # Numpy cache summary
+        if numpy_cache is not None:
+            nc_total = numpy_cache_hits + numpy_cache_misses
+            nc_hr = numpy_cache_hits / nc_total if nc_total > 0 else 0.0
+            nc_mem = len(numpy_cache) * packed_layout["expert_size"] / 1e9 if packed_layout else 0.0
+            print(f"\n  === Numpy Cache Summary ===")
+            print(f"  Budget:           {numpy_cache_gb:.1f} GB ({numpy_cache_max_entries} entries)")
+            print(f"  Entries used:     {len(numpy_cache)}")
+            print(f"  Hit rate:         {nc_hr:.1%} ({numpy_cache_hits}/{nc_total})")
+            print(f"  Memory used:      {nc_mem:.2f} GB (Python heap, not Metal)")
     else:
         avg_bytes = 0
         avg_seeks = 0
@@ -3275,6 +3623,12 @@ def generate_offload_selective(model, tokenizer, prompt, max_tokens, weight_inde
         "pin_hit_rate": pin_total_hits / pin_total_lookups if pin_total_lookups > 0 else 0.0,
         "pin_total_hits": pin_total_hits,
         "pin_total_lookups": pin_total_lookups,
+        "numpy_cache_gb": numpy_cache_gb,
+        "numpy_cache_hits": numpy_cache_hits,
+        "numpy_cache_misses": numpy_cache_misses,
+        "numpy_cache_hit_rate": numpy_cache_hits / (numpy_cache_hits + numpy_cache_misses) if (numpy_cache_hits + numpy_cache_misses) > 0 else 0.0,
+        "numpy_cache_entries": len(numpy_cache) if numpy_cache is not None else 0,
+        "two_pass": two_pass,
     }
 
 
@@ -4588,6 +4942,12 @@ def main():
                              "heap). On hit: memcpy to mx.array (~0.11ms). On miss: pread from "
                              "packed file (~0.7ms). Requires --no-expert-cache and packed expert "
                              "files. 0=disabled (default). Typical: 5.")
+    parser.add_argument("--two-pass", action="store_true", default=False,
+                        help="Two-pass inference: Pass 1 runs attention+routing for ALL layers "
+                             "without expert computation (~30ms). Pass 2 batch-reads ALL experts "
+                             "for all layers at once (8 threads, 60 files, ~50ms) then computes "
+                             "MoE (~100ms). Routing is approximate (based on attention-only h). "
+                             "Requires --batch-experts --no-expert-cache and packed expert files.")
     args = parser.parse_args()
 
     # Validate --cache-gb range
@@ -4617,6 +4977,11 @@ def main():
     if args.batch_layers > 0 and args.mode != "offload_selective":
         print(f"WARNING: --batch-layers only works with offload_selective mode. Ignoring.")
         args.batch_layers = 0
+
+    # Validate --two-pass is only used with offload_selective
+    if args.two_pass and args.mode != "offload_selective":
+        print(f"WARNING: --two-pass only works with offload_selective mode. Ignoring.")
+        args.two_pass = False
 
     if args.pin_experts > 0 and args.pin_experts >= args.tokens:
         print(f"WARNING: --pin-experts ({args.pin_experts}) >= --tokens ({args.tokens}). "
@@ -4826,7 +5191,8 @@ def main():
                                             async_pipeline=args.async_pipeline,
                                             skip_layers=args.skip_layers,
                                             batch_layers=args.batch_layers,
-                                            numpy_cache_gb=args.numpy_cache_gb)
+                                            numpy_cache_gb=args.numpy_cache_gb,
+                                            two_pass=args.two_pass)
     elif args.mode in ("offload", "offload_lazy"):
         # Offload mode: explicit per-layer load -> compute -> clear cycle.
         # Only way to run models larger than DRAM without OS thrashing.

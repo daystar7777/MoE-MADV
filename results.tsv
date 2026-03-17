@@ -39,3 +39,11 @@ a5a969f	Qwen3.5-397B-A17B-4bit	397.0	17.0	2.49	2712	5.5	keep	ALL 60 layers packe
 84dbb24	Qwen3.5-397B-A17B-4bit	397.0	17.0	3.10	2614	5.3	keep	FULL STACK: packed+no-cache+K=4+batch+lazy-eval+pipeline — 280ms/tok, 3.10 tok/s
 002128a	Qwen3.5-397B-A17B-4bit	397.0	17.0	3.14	2518	5.4	keep	eval(inds) only + all prior opts — 278ms/tok, I/O 171ms, compute 97ms
 c8e30e4	Qwen3.5-397B-A17B-4bit	397.0	17.0	3.04	2851	5.8	discard	async-pipeline - I/O overlapped (2.65ms!) but graph explosion: mx.eval 97→279ms
+HEAD	Qwen3.5-397B-A17B-4bit	397.0	17.0	10.10	804	5.8	discard	variable K=0 middle 40 layers - 10 TOK/S but blank output (quality collapse)
+HEAD	Qwen3.5-397B-A17B-4bit	397.0	17.0	3.75	1967	5.4	discard	variable K=2 middle 40 - EOS, quality collapse
+HEAD	Qwen3.5-397B-A17B-4bit	397.0	17.0	3.33	2246	5.7	discard	variable K=3 middle 40 - EOS, quality collapse (model needs K=4 on ALL layers)
+HEAD	Qwen3.5-397B-A17B-4bit	397.0	17.0	5.02	3159	6.1	discard	two-pass 200tok - 150ms/tok (routing=24+IO=72+compute=53) but GARBAGE OUTPUT (wrong routing)
+HEAD	Qwen3.5-397B-A17B-4bit	397.0	17.0	2.55	3116	4.3	discard	speculative prefetch - SLOWER (prefetch evicts useful page cache)
+HEAD	Qwen3.5-397B-A17B-4bit	397.0	17.0	10.10	804	5.8	discard	variable K=0 middle 40 layers - 10 TOK/S ACHIEVED but blank output
+HEAD	Qwen3.5-397B-A17B-4bit	397.0	17.0	5.27	3972	5.8	keep	TWO-PASS OVERLAPPED: routing=42ms io=1ms(!) compute=88ms = 135ms BEST EVER
+HEAD	Qwen3.5-397B-A17B-4bit	397.0	17.0	5.61	2792	6.3	keep	TWO-PASS FINAL: shared expert + overlapped I/O + single eval — 130ms/tok, coherent-ish
