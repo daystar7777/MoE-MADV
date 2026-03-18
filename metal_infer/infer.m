@@ -605,64 +605,57 @@ static PromptTokens *load_prompt_tokens(const char *path) {
     return pt;
 }
 
-static const char *find_encode_prompt_script(void) {
-    if (access("metal_infer/encode_prompt.py", R_OK) == 0) return "metal_infer/encode_prompt.py";
-    if (access("encode_prompt.py", R_OK) == 0) return "encode_prompt.py";
-    return NULL;
-}
+// ============================================================================
+// C BPE tokenizer (replaces Python encode_prompt.py)
+// ============================================================================
+#define TOKENIZER_IMPL
+#include "tokenizer.h"
 
-static int run_encode_prompt_script(const char *text_path, const char *tok_path) {
-    const char *script = find_encode_prompt_script();
-    if (!script) return -1;
+static bpe_tokenizer g_tokenizer;
+static int g_tokenizer_loaded = 0;
 
-    pid_t pid = fork();
-    if (pid < 0) return -1;
-    if (pid == 0) {
-        execlp("python3", "python3", script,
-               "--input-file", text_path,
-               "--output", tok_path,
-               (char *)NULL);
-        _exit(127);
+static void init_tokenizer(void) {
+    if (g_tokenizer_loaded) return;
+    const char *paths[] = {
+        "tokenizer.bin",
+        "metal_infer/tokenizer.bin",
+        NULL
+    };
+    for (int i = 0; paths[i]; i++) {
+        if (access(paths[i], R_OK) == 0) {
+            if (bpe_load(&g_tokenizer, paths[i]) == 0) {
+                g_tokenizer_loaded = 1;
+                return;
+            }
+        }
     }
-
-    int status = 0;
-    if (waitpid(pid, &status, 0) < 0) return -1;
-    if (!WIFEXITED(status)) return -1;
-    return WEXITSTATUS(status);
+    fprintf(stderr, "WARNING: tokenizer.bin not found, tokenization will fail\n");
 }
 
 static PromptTokens *encode_prompt_text_to_tokens(const char *text) {
-    char text_template[] = "/tmp/metal_infer_prompt_text_XXXXXX";
-    char tok_template[] = "/tmp/metal_infer_prompt_tokens_XXXXXX";
+    init_tokenizer();
+    if (!g_tokenizer_loaded) return NULL;
 
-    int text_fd = mkstemp(text_template);
-    if (text_fd < 0) return NULL;
+    // Allocate output buffer (generous: 4 tokens per character worst case)
+    int max_ids = (int)strlen(text) * 4 + 256;
+    uint32_t *ids = malloc(max_ids * sizeof(uint32_t));
+    if (!ids) return NULL;
 
-    FILE *tf = fdopen(text_fd, "w");
-    if (!tf) {
-        close(text_fd);
-        unlink(text_template);
-        return NULL;
+    int n = bpe_encode(&g_tokenizer, text, ids, max_ids);
+    if (n < 0) { free(ids); return NULL; }
+
+    PromptTokens *pt = calloc(1, sizeof(PromptTokens));
+    pt->ids = ids;
+    pt->count = n;
+
+    fprintf(stderr, "Tokens (%d): [", n);
+    for (int i = 0; i < n && i < 20; i++) {
+        if (i > 0) fprintf(stderr, ", ");
+        fprintf(stderr, "%u", ids[i]);
     }
-    if (fputs(text, tf) == EOF || fclose(tf) != 0) {
-        unlink(text_template);
-        return NULL;
-    }
+    if (n > 20) fprintf(stderr, ", ...");
+    fprintf(stderr, "]\n");
 
-    int tok_fd = mkstemp(tok_template);
-    if (tok_fd < 0) {
-        unlink(text_template);
-        return NULL;
-    }
-    close(tok_fd);
-
-    PromptTokens *pt = NULL;
-    if (run_encode_prompt_script(text_template, tok_template) == 0) {
-        pt = load_prompt_tokens(tok_template);
-    }
-
-    unlink(text_template);
-    unlink(tok_template);
     return pt;
 }
 
