@@ -1,0 +1,67 @@
+# AIMemory work.log
+#
+# Append-only event log. Newest events at the bottom.
+#
+# Event grammar:
+#
+#   ### YYYY-MM-DD HH:MM | <model-id> | <EVENT>
+#   <body, free-form>
+#
+# Events: PROMPT, WORK_START, WORK_END, FILES_CREATED, FILES_MODIFIED,
+#         FILES_MOVED, FILES_DELETED, HANDOFF, HANDOFF_RECEIVED,
+#         HANDOFF_CLOSED, NOTE, PROJECT_BOOTSTRAPPED, RE_ENGAGED, CORRECTION
+#
+# Session-start events (PROJECT_BOOTSTRAPPED, RE_ENGAGED) MUST declare
+# Vendor / Harness / Capabilities / Strengths / Context — see PROTOCOL.md.
+# Race-free append discipline — see PROTOCOL.md §6.
+#
+# Read tail before every new user turn. See AIMemory/PROTOCOL.md.
+# ============================================================
+
+### 2026-05-02 06:20 | gpt-5-codex | PROJECT_BOOTSTRAPPED
+Vendor: OpenAI
+Harness: ChatGPT Codex desktop
+Capabilities: filesystem-read, filesystem-write, shell-exec, web-fetch, web-search, code-sandbox, image-input, image-output, subagent-spawn
+Strengths: agentic coding loop, codebase analysis, local command execution, pragmatic porting work
+Context: unknown
+Notes: Installed AIMemory protocol from daystar7777/agent-work-mem at commit 57c81e42ad0779fb16e960628189999b5dd9e241. OS probe: Darwin seutoliseukweeoui-MacStudio.local 25.4.0 arm64.
+
+### 2026-05-02 06:20 | gpt-5-codex | PROMPT
+> 작업 기록이 좀 날아간거 같은데 깃헙에서 daystar7777/agent-work-mem을 이프로젝트에 설치하고 계속 진행하는 걸로하자
+
+### 2026-05-02 06:20 | gpt-5-codex | WORK_START
+Task: Install AIMemory into the flash-moe project, capture the current DeepSeek V4 Flash Q4 state, then continue the local Q4 run effort.
+
+### 2026-05-02 06:20 | gpt-5-codex | FILES_CREATED
+- /Users/storysq/Documents/New project/flash-moe/AIMemory/PROTOCOL.md
+- /Users/storysq/Documents/New project/flash-moe/AIMemory/INDEX.md
+- /Users/storysq/Documents/New project/flash-moe/AIMemory/PROJECT_OVERVIEW.md
+- /Users/storysq/Documents/New project/flash-moe/AIMemory/deepseek-q4-checkpoint.gpt-5-codex.md
+- /Users/storysq/Documents/New project/flash-moe/AIMemory/work.log
+- /Users/storysq/Documents/New project/flash-moe/AIMemory/archive/
+- /Users/storysq/Documents/New project/flash-moe/AIMemory/cold/
+
+### 2026-05-02 06:20 | gpt-5-codex | NOTE
+Current Q4 status captured: layer-0 DeepSeek V4 Flash Q4 expert pack verifies; one-expert, K=6 uniform, and hash-routed K=6 Metal probes match CPU. Full HF Q4 download is running in background and should be checked before all-layer repack.
+
+### 2026-05-02 06:28 | gpt-5-codex | FILES_CREATED
+- /Users/storysq/Documents/New project/flash-moe/scripts/download_deepseek_q4_gguf.sh
+- /Users/storysq/Documents/New project/flash-moe/scripts/run_deepseek_q4_gguf_demo.sh
+
+### 2026-05-02 06:28 | gpt-5-codex | FILES_MODIFIED
+- /Users/storysq/Documents/New project/flash-moe/AIMemory/deepseek-q4-checkpoint.gpt-5-codex.md
+
+### 2026-05-02 06:28 | gpt-5-codex | NOTE
+Official deepseek-ai/DeepSeek-V4-Flash inference/model.py confirms V4 architecture differences: Hyper-Connections, sparse/compressed attention, hash routing, sqrtsoftplus gate, shared expert. MLX upstream main still has no deepseek_v4 module, so MLX end-to-end needs a local module port; Q4 GGUF helper scripts are now available as a backup path.
+
+### 2026-05-02 06:31 | gpt-5-codex | NOTE
+Stopped an unrelated parent-directory git add process that was attempting to stage flash-moe plus very large DeepSeek GGUF/packed expert files from /Users/storysq/Documents/New project. No files were deleted and no reset was run. Parent repo status now shows those directories untracked again.
+
+### 2026-05-02 06:33 | gpt-5-codex | NOTE
+HF full Q4 download stalled with unchanged incomplete files and 0 CPU/network progress. Stopped the stalled process and restarted `scripts/download_model_assets.sh full deepseek` with `HF_HUB_ENABLE_HF_TRANSFER=0` to prefer a slower but more stable resume path.
+
+### 2026-05-02 06:35 | gpt-5-codex | WORK_END
+Status: complete. AIMemory installed, current Q4 state captured, official V4 architecture notes recorded, and Q4 GGUF helper scripts added. Continuing HF Q4 download/repack work as the next active task.
+
+### 2026-05-02 06:35 | gpt-5-codex | WORK_START
+Task: Continue DeepSeek V4 Flash Q4 local run path: monitor full HF Q4 download, repack all routed experts when complete, and prepare an end-to-end Q4 smoke path.
