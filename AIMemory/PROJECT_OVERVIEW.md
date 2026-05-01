@@ -24,12 +24,13 @@ Recent local commits:
 
 ## Current technical state
 
-The custom Q4 routed-expert path is working for layer 0:
+The custom Q4 routed-expert path is working for all 43 layers:
 
 - HF/MLX repo: `mlx-community/DeepSeek-V4-Flash-4bit`
 - Local model dir: `/Users/storysq/Documents/New project/flash-moe/models/deepseek-v4-flash-4bit`
 - Local packed Q4 expert dir: `/Users/storysq/Documents/New project/flash-moe/models/deepseek-v4-flash-4bit/packed_experts_q4`
-- Layer 0 packed file exists and verifies.
+- Full HF Q4 download is complete: 33/33 safetensors, no missing shards.
+- Full Q4 routed expert repack is complete: 43/43 layer files, about `137 GiB`.
 - One-expert Q4 Metal probe matches CPU.
 - K=6 Q4 Metal probe matches CPU.
 - Hash-routed K=6 Q4 Metal probe uses actual `tid2eid` and BF16 router weights and matches CPU.
@@ -52,19 +53,15 @@ Layer 0 token id 0 route:
 
 ## Active local work
 
-A Hugging Face full download for `mlx-community/DeepSeek-V4-Flash-4bit` was started in the background from:
+A Hugging Face full download for `mlx-community/DeepSeek-V4-Flash-4bit` completed via:
 
 ```bash
-scripts/download_model_assets.sh full deepseek
+scripts/download_deepseek_q4_shards_sequential.sh
 ```
 
-At the time AIMemory was installed, multiple shards had downloaded and the process was still running. Check it with:
+The initial multi-file download stalled twice; the sequential downloader proved stable and should be reused for resume.
 
-```bash
-ps -axo pid,etime,pcpu,pmem,command | rg "hf download mlx-community/DeepSeek-V4-Flash-4bit"
-du -sh models/deepseek-v4-flash-4bit
-ls -lh models/deepseek-v4-flash-4bit/model-*.safetensors | wc -l
-```
+The immediate active work is no longer downloading or packing experts. The next work is an end-to-end Q4 smoke path.
 
 ## Useful commands
 
@@ -86,7 +83,7 @@ Inspect Q4 layout:
 scripts/inspect_deepseek_q4_layout.py --json-out docs/deepseek-q4-layout.json
 ```
 
-Repack all Q4 routed experts after the full HF download finishes:
+Repack all Q4 routed experts:
 
 ```bash
 scripts/repack_deepseek_q4_experts.py
@@ -94,10 +91,11 @@ scripts/repack_deepseek_q4_experts.py
 
 ## Next step
 
-Keep the full HF Q4 download running. Once all 33 shards are local, repack all Q4 routed experts, then decide between:
+Decide between:
 
-- adding a local `deepseek_v4` MLX module for end-to-end Q4 generation, or
-- using a Q4 GGUF route as a temporary end-to-end smoke test while continuing the custom Metal port.
+- adding a local `deepseek_v4` MLX module for end-to-end Q4 generation;
+- using a Q4 GGUF route as a temporary end-to-end smoke test while continuing the custom Metal port;
+- porting official DeepSeek V4 architecture pieces into a separate custom engine path.
 
 ---
-Last rebuild: 2026-05-02 06:20 JST by gpt-5-codex
+Last rebuild: 2026-05-02 07:05 JST by gpt-5-codex

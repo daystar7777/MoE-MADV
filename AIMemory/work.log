@@ -71,3 +71,14 @@ Task: Continue DeepSeek V4 Flash Q4 local run path: monitor full HF Q4 download,
 
 ### 2026-05-02 06:36 | gpt-5-codex | NOTE
 Added robust sequential HF shard downloader for mlx-community/DeepSeek-V4-Flash-4bit. It defaults HF_HUB_ENABLE_HF_TRANSFER=0 and skips completed shards, so interrupted downloads can resume shard by shard.
+
+### 2026-05-02 07:02 | gpt-5-codex | NOTE
+HF Q4 full download completed via sequential downloader. Verified 33/33 safetensors present with no missing shards; total shard bytes 151,482,760,008. Starting all-layer Q4 routed expert repack next.
+
+### 2026-05-02 07:05 | gpt-5-codex | NOTE
+All-layer Q4 routed expert repack completed. Output has 43/43 layer_*.bin files under models/deepseek-v4-flash-4bit/packed_experts_q4, about 137 GiB. Every layer 0..42 verified experts 0,1,128,255. Post-pack probes passed: layer 0 token 0 hash-routed K=6 max_abs=6.91413879e-06; layer 42 uniform K=6 max_abs=5.1856041e-06. Disk free after source+pack: about 460 GiB.
+
+### 2026-05-02 07:05 | gpt-5-codex | FILES_MODIFIED
+- /Users/storysq/Documents/New project/flash-moe/AIMemory/PROJECT_OVERVIEW.md
+- /Users/storysq/Documents/New project/flash-moe/AIMemory/deepseek-q4-checkpoint.gpt-5-codex.md
+- /Users/storysq/Documents/New project/flash-moe/AIMemory/work.log

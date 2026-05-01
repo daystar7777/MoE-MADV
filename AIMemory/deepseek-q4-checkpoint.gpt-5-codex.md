@@ -38,8 +38,10 @@ Commits already made:
   - `n_routed_experts`: `256`
   - `num_experts_per_tok`: `6`
   - `num_hash_layers`: `3`
-  - `scoring_func`: `sqrtsoftplus`
-  - `routed_scaling_factor`: `1.5`
+- `scoring_func`: `sqrtsoftplus`
+- `routed_scaling_factor`: `1.5`
+- Local download is complete: 33/33 safetensors, no missing shards.
+- Verified total safetensor shard bytes: `151,482,760,008`.
 
 ## Q4 expert layout
 
@@ -80,6 +82,14 @@ Layer 0 repack:
 - Output: `models/deepseek-v4-flash-4bit/packed_experts_q4/layer_00.bin`
 - Verification passed for experts `0, 1, 128, 255`.
 
+Full repack:
+
+- Output dir: `models/deepseek-v4-flash-4bit/packed_experts_q4`
+- Layer files: 43/43
+- Packed size: about `137 GiB`
+- Repack throughput: about `0.89 GiB/s` average
+- Every layer `0..42` verified experts `0, 1, 128, 255`.
+
 One expert CPU probe:
 
 ```text
@@ -113,6 +123,15 @@ Weight sum: 1.50000012
 cpu elapsed: 0.190s
 gpu elapsed: 0.010s
 compare: max_abs=6.91413879e-06 at 3729 cpu=-2.15348911 gpu=-2.15349603
+```
+
+Layer-42 uniform K=6 Metal probe after full repack:
+
+```text
+Active experts: 0@0.166667 1@0.166667 2@0.166667 3@0.166667 4@0.166667 5@0.166667
+cpu elapsed: 0.194s
+gpu elapsed: 0.010s
+compare: max_abs=5.1856041e-06 at 1491 cpu=-0.70002228 gpu=-0.700017095
 ```
 
 ## Commands that passed
@@ -173,22 +192,24 @@ Important porting facts from that reference:
 
 ## Active background job
 
-HF full Q4 download was started with:
+There is no active HF download job now. The full Q4 source and packed routed expert files are local.
+
+The robust download command that worked was:
 
 ```bash
-scripts/download_model_assets.sh full deepseek
+scripts/download_deepseek_q4_shards_sequential.sh
 ```
 
-Do not assume it finished. Check process and file count before repacking all layers.
+The initial multi-file `scripts/download_model_assets.sh full deepseek` stalled twice. Prefer the sequential downloader for future resumes.
 
 ## Recommended continuation
 
-1. Let the HF Q4 full download finish.
-2. Repack all 43 Q4 routed expert layers with `scripts/repack_deepseek_q4_experts.py`.
-3. Decide end-to-end path:
+1. Decide end-to-end path:
    - fastest likely local text path: GGUF Q4 with a DeepSeek V4-capable llama.cpp fork;
    - cleaner MLX path: add or vendor a `deepseek_v4` model module based on `deepseek_v32` and DeepSeek V4 config;
    - custom flash-moe path: keep porting from routed expert probe into a new DeepSeek engine path, not the Qwen-specific one.
+2. For the custom engine, next milestone is replacing the deterministic probe vector with a real hidden state path.
+3. For MLX, start from official `deepseek-ai/DeepSeek-V4-Flash/inference/model.py`, not from Qwen assumptions.
 
 ## Watchouts
 
