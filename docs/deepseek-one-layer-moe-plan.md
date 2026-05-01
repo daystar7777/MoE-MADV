@@ -1,6 +1,6 @@
 # DeepSeek One-Layer MoE Probe
 
-This is the next porting checkpoint after the GGUF smoke test and expert repack.
+This is the next porting checkpoint after the Q4 and GGUF expert repacks. The final target is HF/MLX Q4 on this Mac; the GGUF path is kept as a runnable comparison point.
 
 ## Goal
 
@@ -19,7 +19,7 @@ where:
 
 Passing this checkpoint means the SSD layout and Metal dequantized matvecs agree with a CPU/ggml reference for one expert block. It does not require routing, attention, tokenizer, or end-to-end generation.
 
-The CPU side of this checkpoint is available now:
+The CPU side of this checkpoint is available now for GGUF IQ2/Q2:
 
 ```bash
 scripts/probe_deepseek_one_expert_cpu.py --layer 0 --expert 0
@@ -32,6 +32,33 @@ Current local reference for `--layer 0 --expert 0`:
 ```text
 out min=-5.60802 max=4.97482 mean=-0.00243243 rms=1.42796
 out sha256=94b8df8e5e861c8a04a54ae08e7629346fa3da8501b1684493c68e9b62d52e7e
+```
+
+The CPU side for the HF/MLX Q4 target is:
+
+```bash
+scripts/probe_deepseek_q4_one_expert_cpu.py --layer 0 --expert 0
+```
+
+Current local Q4 reference for `--layer 0 --expert 0`:
+
+```text
+out min=-4.24056 max=4.85627 mean=0.0322404 rms=1.2815
+out sha256=1f1ad59f8bccc0915a50453f5a9ad3b6e0c110cc8e61a7fc23682d13ce41df17
+```
+
+The first Metal Q4 probe is available now:
+
+```bash
+scripts/run_deepseek_q4_probe.sh --layer 0 --expert 0
+```
+
+Current local Metal-vs-CPU result:
+
+```text
+cpu elapsed: 0.032s
+gpu elapsed: 0.003s
+compare: max_abs=9.77516174e-06 at 667 cpu=2.1510272 gpu=2.15103698
 ```
 
 ## Packed Expert Layout
@@ -102,13 +129,14 @@ top mismatched indices
 
 ## Recommended Implementation
 
-Add a standalone `metal_infer/deepseek_moe_probe.m` target first instead of modifying the full Qwen inference engine. Keep the write scope narrow:
+Add standalone probe targets first instead of modifying the full Qwen inference engine. Keep the write scope narrow:
 
 - Load `layout.json` from the repacked expert directory.
 - Load one expert from one layer.
 - Use deterministic input values, for example `sin(i * 0.013)`.
 - Compare against `scripts/probe_deepseek_one_expert_cpu.py`, which implements the `IQ2_XXS` and `Q2_K` CPU reference path.
-- Port the matching Metal kernels into a separate shader file or a clearly named DeepSeek section.
+- Compare Q4 against `scripts/probe_deepseek_q4_one_expert_cpu.py` and `metal_infer/deepseek_q4_probe.m`.
+- Port the matching Metal kernels into a separate shader file or a clearly named DeepSeek section before wiring into full generation.
 
 Once the one-expert probe passes, extend it to K=6 experts with routing weights. After that, wire it into the full engine and start replacing the architecture-level Qwen assumptions.
 

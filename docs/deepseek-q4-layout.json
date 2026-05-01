@@ -1,0 +1,5375 @@
+{
+  "source": "mlx_safetensors",
+  "repo": "mlx-community/DeepSeek-V4-Flash-4bit",
+  "model_dir": "models/deepseek-v4-flash-4bit",
+  "index": "model_meta/deepseek/model.safetensors.index.json",
+  "metadata": {
+    "total_size": 151482475612,
+    "total_parameters": 284333146519
+  },
+  "block_count": 43,
+  "layers_included": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42
+  ],
+  "expert_count": 256,
+  "expert_size": 13369344,
+  "layer_size": 3422552064,
+  "total_routed_expert_bytes": 147169738752,
+  "packed_component_layout": [
+    {
+      "kind": "gate",
+      "type": "MXFP4_BLOCK",
+      "offset": 0,
+      "size": 4456448,
+      "out_dim": 2048,
+      "in_dim": 4096,
+      "groups": 128
+    },
+    {
+      "kind": "up",
+      "type": "MXFP4_BLOCK",
+      "offset": 4456448,
+      "size": 4456448,
+      "out_dim": 2048,
+      "in_dim": 4096,
+      "groups": 128
+    },
+    {
+      "kind": "down",
+      "type": "MXFP4_BLOCK",
+      "offset": 8912896,
+      "size": 4456448,
+      "out_dim": 4096,
+      "in_dim": 2048,
+      "groups": 64
+    }
+  ],
+  "files": {
+    "model-00001-of-00033.safetensors": {
+      "source": "local",
+      "header_len": 7578,
+      "data_start": 7586
+    },
+    "model-00002-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 7761,
+      "data_start": 7769
+    },
+    "model-00003-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 12563,
+      "data_start": 12571
+    },
+    "model-00004-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 5993,
+      "data_start": 6001
+    },
+    "model-00005-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 7772,
+      "data_start": 7780
+    },
+    "model-00006-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 12613,
+      "data_start": 12621
+    },
+    "model-00007-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 6065,
+      "data_start": 6073
+    },
+    "model-00008-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 7822,
+      "data_start": 7830
+    },
+    "model-00009-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 12649,
+      "data_start": 12657
+    },
+    "model-00010-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 6118,
+      "data_start": 6126
+    },
+    "model-00011-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 7837,
+      "data_start": 7845
+    },
+    "model-00012-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 12693,
+      "data_start": 12701
+    },
+    "model-00013-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 6084,
+      "data_start": 6092
+    },
+    "model-00014-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 7839,
+      "data_start": 7847
+    },
+    "model-00015-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 12719,
+      "data_start": 12727
+    },
+    "model-00016-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 6086,
+      "data_start": 6094
+    },
+    "model-00017-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 7821,
+      "data_start": 7829
+    },
+    "model-00018-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 12687,
+      "data_start": 12695
+    },
+    "model-00019-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 6118,
+      "data_start": 6126
+    },
+    "model-00020-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 7839,
+      "data_start": 7847
+    },
+    "model-00021-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 12727,
+      "data_start": 12735
+    },
+    "model-00022-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 6114,
+      "data_start": 6122
+    },
+    "model-00023-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 7839,
+      "data_start": 7847
+    },
+    "model-00024-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 12723,
+      "data_start": 12731
+    },
+    "model-00025-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 6114,
+      "data_start": 6122
+    },
+    "model-00026-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 7839,
+      "data_start": 7847
+    },
+    "model-00027-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 12725,
+      "data_start": 12733
+    },
+    "model-00028-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 6086,
+      "data_start": 6094
+    },
+    "model-00029-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 7839,
+      "data_start": 7847
+    },
+    "model-00030-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 12771,
+      "data_start": 12779
+    },
+    "model-00031-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 6042,
+      "data_start": 6050
+    },
+    "model-00032-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 7837,
+      "data_start": 7845
+    },
+    "model-00033-of-00033.safetensors": {
+      "source": "remote",
+      "header_len": 2819,
+      "data_start": 2827
+    }
+  },
+  "layers": [
+    {
+      "layer": 0,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.0.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00001-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3675915266,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.0.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00001-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4768302094,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.0.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00001-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1234161314,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.0.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00001-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4852188174,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.0.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00001-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2315288482,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.0.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00001-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1166986914,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 1,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.1.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00001-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 67116450,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.1.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00001-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 7586,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.1.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00002-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2307026777,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.1.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00002-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2239915865,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.1.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00002-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 3536564177,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.1.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00002-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 3382079321,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 2,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.2.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00002-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1140858457,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.2.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00002-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3449188185,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.2.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00002-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 67116633,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.2.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00002-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 7769,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.2.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00003-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 154873951,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.2.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00003-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 80676571,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 3,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.3.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00003-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2316063947,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.3.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00003-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3522371019,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.3.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00003-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1238315199,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.3.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00003-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3416496587,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.3.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00003-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 3589479883,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.3.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00003-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 4663223755,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 4,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.4.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00004-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2449816797,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.4.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00004-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2382707933,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.4.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00004-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3524878569,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.4.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00004-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1238449265,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.4.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00004-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 1305558129,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.4.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00004-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1171331185,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 5,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.5.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00004-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 97589361,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.5.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00004-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 6001,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.5.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00005-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1240689372,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.5.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00005-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3391091420,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.5.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00005-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2317054684,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.5.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00005-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 3458200284,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 6,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.6.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00005-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3529937628,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.6.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00005-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1171933904,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.6.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00005-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 67116644,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.6.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00005-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 7780,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.6.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00006-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 17220377,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.6.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00006-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1127662397,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 7,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.7.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00006-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2448376061,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.7.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00006-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1282839709,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.7.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00006-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3522381053,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.7.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00006-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4596647165,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.7.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00006-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 1368898813,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.7.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00006-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 4664280317,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.8.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00007-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3528861989,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.8.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00007-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3393595685,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.8.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00007-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2319853861,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.8.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00007-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2252744997,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.8.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00007-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 1111894213,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.8.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00007-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 2185636037,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.9.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00007-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 6073,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.9.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00007-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3460704549,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.9.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00008-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2230002338,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.9.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00008-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3304145570,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.9.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00008-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 3372335778,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.9.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00008-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 4447138926,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 10,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.10.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00008-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1140858518,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.10.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00008-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1073749654,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.10.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00008-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 7830,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.10.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00008-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4522316910,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.10.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00009-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 1439254049,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.10.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00009-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 185461245,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 11,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.11.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00009-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 352623113,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.11.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00009-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2512995873,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.11.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00009-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2582201889,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.11.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00009-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 43638845,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.11.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00009-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 3655943713,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.11.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00009-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 118352125,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 12,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.12.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00010-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3547489638,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.12.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00010-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3467846990,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.12.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00010-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1183720782,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.12.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00010-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3400738126,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.12.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00010-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2325947726,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.12.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00010-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 2258773326,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.13.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00010-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 6126,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.13.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00010-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1115104590,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.13.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00011-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3575010685,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.13.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00011-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1215055973,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.13.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00011-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2499138941,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.13.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00011-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1291110513,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 14,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.14.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00011-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 134225573,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.14.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00011-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 67116709,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.14.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00011-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1388424317,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.14.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00011-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 7845,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.14.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00012-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 103101677,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.14.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00012-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 3527197261,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 15,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.15.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00012-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1179989229,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.15.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00012-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2253731053,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.15.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00012-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2384151117,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.15.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00012-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3460055629,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.15.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00012-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 3594306125,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.15.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00012-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 4668211789,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 16,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.16.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00013-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3487843384,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.16.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00013-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3403957304,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.16.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00013-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2329166904,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.16.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00013-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4574045592,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.16.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00013-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 1179460652,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.16.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00013-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 2262058040,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 17,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.17.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00013-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 104014796,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.17.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00013-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 6092,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.17.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00014-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1168559231,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.17.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00014-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2247685247,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.17.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00014-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2382165119,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.17.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00014-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 2314794111,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 18,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.18.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00014-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 67116711,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.18.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00014-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 7847,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.18.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00014-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3579731327,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.18.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00014-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3470013567,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.18.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00015-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 110464335,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.18.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00015-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 40862863,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 19,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.19.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00015-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2512340583,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.19.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00015-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1193079131,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.19.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00015-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3657385575,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.19.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00015-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3586082407,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.19.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00015-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 1438336615,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.19.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00015-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1260187995,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 20,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.20.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00016-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3548848334,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.20.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00016-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3481739470,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.20.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00016-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1264197838,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.20.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00016-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1190994126,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.20.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00016-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2337939662,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.20.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00016-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 3411943630,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 21,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.21.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00016-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 72910,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.21.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00016-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1110581454,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.21.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00017-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 173026037,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.21.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00017-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2408438893,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.21.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00017-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 1326045037,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.21.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00017-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1255200597,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 22,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.22.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00017-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2504621165,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.22.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00017-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 67116693,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.22.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00017-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3579993453,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.22.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00017-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 7829,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.22.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00018-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 42210159,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.22.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00018-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1123668847,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 23,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.23.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00018-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2514961991,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.23.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00018-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2397906139,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.23.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00018-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1299053787,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.23.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00018-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3588703815,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.23.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00018-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 3655812679,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.23.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00018-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1231420539,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 24,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.24.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00019-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3391309146,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.24.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00019-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4557268422,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.24.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00019-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2310481230,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.24.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00019-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1167271150,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.24.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00019-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 1236739406,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.24.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00019-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1100162286,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 25,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.25.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00019-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 6126,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.25.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00019-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4490094010,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.25.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00020-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2371863583,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.25.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00020-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4528534559,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.25.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00020-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 3450201119,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.25.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00020-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 2304091155,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 26,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.26.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00020-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1140858535,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.26.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00020-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2220205075,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.26.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00020-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 67116711,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.26.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00020-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 7847,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.26.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00021-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 72991627,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.26.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00021-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1167560183,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 27,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.27.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00021-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1240241667,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.27.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00021-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3513239151,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.27.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00021-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3580511855,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.27.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00021-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4657137263,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.27.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00021-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2436875887,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.27.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00021-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 2367464047,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 28,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.28.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00022-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3485624770,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.28.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00022-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3398058058,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.28.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00022-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1247158250,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.28.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00022-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4559366594,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.28.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00022-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2324316234,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.28.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00022-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1180049386,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 29,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.29.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00022-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 67114986,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.29.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00022-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 6122,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.29.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00023-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2289574663,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.29.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00023-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3383020671,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.29.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00023-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 3528849535,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.29.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00023-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 3454323839,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 30,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.30.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00023-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1140858535,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.30.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00023-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2222465799,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.30.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00023-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 67116711,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.30.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00023-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 7847,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.30.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00024-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2414438751,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.30.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00024-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 2339203327,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 31,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.31.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00024-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1230317727,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.31.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00024-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3489491295,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.31.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00024-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3557719391,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.31.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00024-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4668343915,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.31.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00024-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 144243751,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.31.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00024-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 74382375,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 32,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.32.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00025-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2468554986,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.32.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00025-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2401378538,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.32.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00025-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3549112566,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.32.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00025-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2330337514,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.32.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00025-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 1254760682,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.32.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00025-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1187585258,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 33,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.33.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00025-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 67114986,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.33.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00025-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 6122,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.33.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00026-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1214803815,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.33.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00026-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4586069375,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.33.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00026-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2372431975,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.33.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00026-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1145712295,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 34,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.34.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00026-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 67116711,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.34.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00026-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 7847,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.34.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00026-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3458627687,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.34.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00026-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2305322855,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.34.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00027-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 39732289,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.34.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00027-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1135035457,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 35,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.35.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00027-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1497777773,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.35.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00027-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1380983041,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.35.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00027-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2571519597,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.35.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00027-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1222237345,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.35.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00027-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 3645261421,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.35.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00027-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1309342977,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 36,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.36.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00028-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1171069902,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.36.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00028-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3390119118,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.36.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00028-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3534637286,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.36.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00028-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3459390670,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.36.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00028-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2311920590,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.36.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00028-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 2244811726,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 37,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.37.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00028-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 71572430,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.37.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00028-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 6094,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.37.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00029-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1317818483,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.37.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00029-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2393788531,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.37.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00029-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 2466934911,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.37.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00029-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1227893779,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 38,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.38.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00029-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3577986431,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.38.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00029-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1140858535,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.38.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00029-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 67116711,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.38.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00029-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 7847,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.38.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00030-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 31852483,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.38.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00030-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 4447254683,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 39,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.39.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00030-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2285516955,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.39.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00030-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 4647232155,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.39.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00030-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1181550747,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.39.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00030-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1107691459,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.39.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00030-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 3373349019,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.39.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00030-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 4578017947,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 40,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.40.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00031-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3570691450,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.40.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00031-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 3503582586,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.40.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00031-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2407424270,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.40.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00031-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 1262371074,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.40.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00031-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 188293378,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.40.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00031-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 115810466,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 41,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.41.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00031-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 1333682446,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.41.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00031-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 6050,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.41.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00032-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 3540620157,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.41.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00032-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 2391053181,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.41.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00032-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 1227638653,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.41.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00032-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 2301380477,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    },
+    {
+      "layer": 42,
+      "components": [
+        {
+          "kind": "gate",
+          "projection": "gate_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.42.ffn.switch_mlp.gate_proj.weight",
+            "file": "model-00032-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 134225573,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.42.ffn.switch_mlp.gate_proj.scales",
+            "file": "model-00032-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 67116709,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 0
+        },
+        {
+          "kind": "up",
+          "projection": "up_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 2048,
+          "in_dim": 4096,
+          "groups": 128,
+          "packed_words": 512,
+          "weight": {
+            "name": "model.layers.42.ffn.switch_mlp.up_proj.weight",
+            "file": "model-00032-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              2048,
+              512
+            ],
+            "data_offset": 2466550653,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.42.ffn.switch_mlp.up_proj.scales",
+            "file": "model-00032-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              2048,
+              128
+            ],
+            "data_offset": 7845,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 4456448
+        },
+        {
+          "kind": "down",
+          "projection": "down_proj",
+          "type": "MXFP4_SEPARATE",
+          "experts": 256,
+          "out_dim": 4096,
+          "in_dim": 2048,
+          "groups": 64,
+          "packed_words": 256,
+          "weight": {
+            "name": "model.layers.42.ffn.switch_mlp.down_proj.weight",
+            "file": "model-00033-of-00033.safetensors",
+            "dtype": "U32",
+            "shape": [
+              256,
+              4096,
+              256
+            ],
+            "data_offset": 11131,
+            "n_bytes": 1073741824
+          },
+          "scales": {
+            "name": "model.layers.42.ffn.switch_mlp.down_proj.scales",
+            "file": "model-00033-of-00033.safetensors",
+            "dtype": "U8",
+            "shape": [
+              256,
+              4096,
+              64
+            ],
+            "data_offset": 1090562955,
+            "n_bytes": 67108864
+          },
+          "weight_expert_stride": 4194304,
+          "scale_expert_stride": 262144,
+          "packed_size": 4456448,
+          "packed_offset": 8912896
+        }
+      ]
+    }
+  ]
+}

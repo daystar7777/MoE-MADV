@@ -16,10 +16,12 @@ Usage:
   scripts/download_model_assets.sh metadata deepseek
   scripts/download_model_assets.sh full qwen
   scripts/download_model_assets.sh full deepseek
+  scripts/download_model_assets.sh shard deepseek model-00001-of-00033.safetensors
 
 Notes:
   metadata downloads config/index/tokenizer files only.
   full downloads the full Hugging Face repository into models/<name>.
+  shard downloads one named file plus the metadata files for targeted Q4 tests.
   qwen full is the source needed by the current Metal engine.
   deepseek full is useful for MLX experiments and future porting analysis.
 USAGE
@@ -27,6 +29,7 @@ USAGE
 
 MODE="${1:-}"
 MODEL="${2:-}"
+SHARD="${3:-}"
 
 if [[ -z "$MODE" || -z "$MODEL" ]]; then
   usage
@@ -60,6 +63,15 @@ case "$MODE" in
   full)
     mkdir -p "models/$TARGET"
     .venv/bin/hf download "$REPO" --local-dir "models/$TARGET"
+    ;;
+  shard)
+    if [[ -z "$SHARD" ]]; then
+      echo "ERROR: shard mode requires a filename." >&2
+      usage
+      exit 1
+    fi
+    mkdir -p "models/$TARGET"
+    .venv/bin/hf download "$REPO" "$SHARD" "${META_FILES[@]}" --local-dir "models/$TARGET"
     ;;
   *)
     usage

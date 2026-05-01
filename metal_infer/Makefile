@@ -38,7 +38,12 @@ INFER_SRC = infer.m
 CHAT_TARGET = chat
 CHAT_SRC = chat.m
 
-.PHONY: all clean run verify bench moe moebench full fullbench fast metallib infer infer-run chat-run build-chat
+# DeepSeek Q4 one-expert probe
+DEEPSEEK_Q4_PROBE_TARGET = deepseek_q4_probe
+DEEPSEEK_Q4_PROBE_SRC = deepseek_q4_probe.m
+DEEPSEEK_Q4_PROBE_SHADER = deepseek_q4_probe.metal
+
+.PHONY: all clean run verify bench moe moebench full fullbench fast metallib infer infer-run chat-run build-chat deepseek-q4-probe deepseek-q4-probe-run
 
 all: $(TARGET) $(INFER_TARGET)
 
@@ -63,8 +68,11 @@ $(INFER_TARGET): $(INFER_SRC)
 $(CHAT_TARGET): $(CHAT_SRC) linenoise.c linenoise.h
 	$(CC) -O2 -Wall -fobjc-arc -framework Foundation $(CHAT_SRC) linenoise.c -o $(CHAT_TARGET)
 
+$(DEEPSEEK_Q4_PROBE_TARGET): $(DEEPSEEK_Q4_PROBE_SRC) $(DEEPSEEK_Q4_PROBE_SHADER)
+	$(CC) $(CFLAGS) -framework Metal -framework Foundation $(DEEPSEEK_Q4_PROBE_SRC) -o $(DEEPSEEK_Q4_PROBE_TARGET)
+
 clean:
-	rm -f $(TARGET) $(INFER_TARGET) $(CHAT_TARGET) $(SHADER_AIR) $(SHADER_LIB)
+	rm -f $(TARGET) $(INFER_TARGET) $(CHAT_TARGET) $(DEEPSEEK_Q4_PROBE_TARGET) $(SHADER_AIR) $(SHADER_LIB)
 
 # Run targets
 run: $(TARGET)
@@ -101,3 +109,8 @@ infer-run: $(INFER_TARGET)
 
 chat-run: $(CHAT_TARGET)
 	./$(CHAT_TARGET) --k 4
+
+deepseek-q4-probe: $(DEEPSEEK_Q4_PROBE_TARGET)
+
+deepseek-q4-probe-run: $(DEEPSEEK_Q4_PROBE_TARGET)
+	./$(DEEPSEEK_Q4_PROBE_TARGET) --layer 0 --expert 0

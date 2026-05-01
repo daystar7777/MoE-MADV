@@ -2,6 +2,8 @@
 metal_infer/infer
 metal_infer/chat
 metal_infer/metal_infer
+metal_infer/deepseek_moe_probe
+metal_infer/deepseek_q4_probe
 metal_infer/bench_pread
 *.o
 *.air
