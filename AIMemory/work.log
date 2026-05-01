@@ -65,3 +65,9 @@ Status: complete. AIMemory installed, current Q4 state captured, official V4 arc
 
 ### 2026-05-02 06:35 | gpt-5-codex | WORK_START
 Task: Continue DeepSeek V4 Flash Q4 local run path: monitor full HF Q4 download, repack all routed experts when complete, and prepare an end-to-end Q4 smoke path.
+
+### 2026-05-02 06:36 | gpt-5-codex | FILES_CREATED
+- /Users/storysq/Documents/New project/flash-moe/scripts/download_deepseek_q4_shards_sequential.sh
+
+### 2026-05-02 06:36 | gpt-5-codex | NOTE
+Added robust sequential HF shard downloader for mlx-community/DeepSeek-V4-Flash-4bit. It defaults HF_HUB_ENABLE_HF_TRANSFER=0 and skips completed shards, so interrupted downloads can resume shard by shard.
