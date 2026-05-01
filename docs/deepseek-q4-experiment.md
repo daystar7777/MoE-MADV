@@ -13,6 +13,7 @@ The HF/MLX Q4 repository is `mlx-community/DeepSeek-V4-Flash-4bit`.
 - Q4 layer-0 repack verification passed for experts `0, 1, 128, 255`.
 - One-expert Q4 Metal probe matches CPU reference with max absolute error below `1e-5`.
 - K=6 Q4 Metal probe with experts `0,1,2,3,4,5` matches CPU reference with max absolute error below `4e-6`.
+- Layer-0 hash routing now feeds the Q4 Metal probe with model-selected experts and routing weights.
 
 ## Q4 Expert Layout
 
@@ -79,6 +80,13 @@ Run K=6 Metal probe:
 scripts/run_deepseek_q4_probe.sh --layer 0 --experts 0,1,2,3,4,5
 ```
 
+Select actual layer-0 hash-routed experts and weights for a token id, then optionally run the Metal probe:
+
+```bash
+scripts/route_deepseek_q4_probe.py --layer 0 --token-id 0
+scripts/route_deepseek_q4_probe.py --layer 0 --token-id 0 --run-probe
+```
+
 ## Current Probe Output
 
 ```text
@@ -95,6 +103,16 @@ gpu elapsed: 0.011s
 compare: max_abs=3.51667404e-06 at 1305 cpu=0.44933936 gpu=0.449335843
 ```
 
+Layer-0 token-0 hash-routed probe:
+
+```text
+Selected experts: 254,222,245,200,53,35
+Normalized scaled weights: 0.222215831,0.191317201,0.474580705,0.0883647129,0.468563139,0.0549584925 (sum=1.50000012)
+cpu elapsed: 0.198s
+gpu elapsed: 0.010s
+compare: max_abs=6.91413879e-06 at 3729 cpu=-2.15348911 gpu=-2.15349603
+```
+
 ## Next Step
 
-Replace the synthetic expert list with actual router-selected experts and routing weights for one layer. After that, the Q4 expert path can be wired into the full inference engine separately from the existing Qwen path.
+Use a real layer input vector instead of the deterministic synthetic vector. After that, the Q4 expert path can be wired into the full inference engine separately from the existing Qwen path.

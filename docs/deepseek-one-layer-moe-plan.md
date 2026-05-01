@@ -52,6 +52,7 @@ The first Metal Q4 probe is available now:
 ```bash
 scripts/run_deepseek_q4_probe.sh --layer 0 --expert 0
 scripts/run_deepseek_q4_probe.sh --layer 0 --experts 0,1,2,3,4,5
+scripts/route_deepseek_q4_probe.py --layer 0 --token-id 0 --run-probe
 ```
 
 Current local Metal-vs-CPU result:
@@ -61,7 +62,10 @@ cpu elapsed: 0.032s
 gpu elapsed: 0.003s
 compare: max_abs=9.77516174e-06 at 667 cpu=2.1510272 gpu=2.15103698
 K=6 compare: max_abs=3.51667404e-06 at 1305 cpu=0.44933936 gpu=0.449335843
+hash-routed K=6 compare: max_abs=6.91413879e-06 at 3729 cpu=-2.15348911 gpu=-2.15349603
 ```
+
+For layer 0 token id 0, the HF/MLX Q4 `tid2eid` table selects experts `254,222,245,200,53,35`. The BF16 router gate with the deterministic probe input produces scaled weights `0.222215831,0.191317201,0.474580705,0.0883647129,0.468563139,0.0549584925`, whose sum is the DeepSeek V4 routing scale `1.5`.
 
 ## Packed Expert Layout
 
@@ -138,9 +142,10 @@ Add standalone probe targets first instead of modifying the full Qwen inference 
 - Use deterministic input values, for example `sin(i * 0.013)`.
 - Compare against `scripts/probe_deepseek_one_expert_cpu.py`, which implements the `IQ2_XXS` and `Q2_K` CPU reference path.
 - Compare Q4 against `scripts/probe_deepseek_q4_one_expert_cpu.py` and `metal_infer/deepseek_q4_probe.m`.
+- Use `scripts/route_deepseek_q4_probe.py` to feed hash-routed experts and router weights into the Metal probe.
 - Port the matching Metal kernels into a separate shader file or a clearly named DeepSeek section before wiring into full generation.
 
-Once the one-expert probe passes, extend it to K=6 experts with routing weights. After that, wire it into the full engine and start replacing the architecture-level Qwen assumptions.
+Once the routed K=6 probe passes with a synthetic input, replace the synthetic vector with the real hidden state path. After that, wire it into the full engine and start replacing the architecture-level Qwen assumptions.
 
 ## Commands Around This Checkpoint
 

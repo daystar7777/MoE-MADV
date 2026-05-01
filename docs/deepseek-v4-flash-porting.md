@@ -112,19 +112,25 @@ Completed:
 - Q4 layer 0 has been packed locally from `model-00001-of-00033.safetensors` and spot verification passed.
 - Each Q4 packed expert is 13,369,344 bytes. A full 43-layer routed expert pack is 137.06 GiB.
 - `metal_infer/deepseek_q4_probe.m` validates one Q4 expert forward on Metal against a CPU reference.
+- `scripts/route_deepseek_q4_probe.py` selects layer-0 hash-routed experts from `tid2eid` and feeds normalized router weights to the Metal Q4 probe.
 
 Next validation target:
 
-1. Extend the Q4 Metal probe from one expert to K=6 experts.
-2. Add routed expert weighting and accumulation.
-3. Wire Q4 expert streaming into the full engine behind a separate DeepSeek path.
-4. Port DeepSeek attention, tokenizer, and routing details after the expert path remains stable.
-5. Only then attempt end-to-end Q4 generation.
+1. Replace the deterministic synthetic MoE input with the real hidden-state path.
+2. Wire Q4 expert streaming into the full engine behind a separate DeepSeek path.
+3. Port DeepSeek attention, tokenizer, and non-expert weights after the expert path remains stable.
+4. Only then attempt end-to-end Q4 generation.
 
 Q4 one-expert Metal probe:
 
 ```bash
 scripts/run_deepseek_q4_probe.sh --layer 0 --expert 0
+```
+
+Q4 hash-routed Metal probe:
+
+```bash
+scripts/route_deepseek_q4_probe.py --layer 0 --token-id 0 --run-probe
 ```
 
 Immediate DeepSeek GGUF smoke demo:
