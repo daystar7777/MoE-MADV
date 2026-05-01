@@ -1,0 +1,5 @@
+huggingface_hub>=1.13.0
+hf_transfer>=0.1.9
+mlx-lm>=0.31.3
+numpy>=2.4.0
+safetensors>=0.7.0

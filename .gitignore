@@ -21,6 +21,11 @@ __pycache__/
 *.so
 .python-version
 
+# Local model caches and downloaded metadata
+models/
+model_meta/
+.tmp_expert_index.json
+
 # macOS
 .DS_Store
 
