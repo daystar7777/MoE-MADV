@@ -19,6 +19,7 @@
 #define EXPERT_SIZE (COMPONENT_SIZE * 3)
 #define GROUP_SIZE 32
 #define MXFP4_BLOCK_SIZE 17
+#define MAX_ACTIVE_EXPERTS 16
 
 static const int8_t kvalues_mxfp4[16] = {
     0, 1, 2, 3, 4, 6, 8, 12, 0, -1, -2, -3, -4, -6, -8, -12,
@@ -34,7 +35,7 @@ static void init_scale_lut(void) {
 
 static void usage(const char *argv0) {
     fprintf(stderr,
-            "Usage: %s [--packed-dir PATH] [--layer N] [--expert N] [--shader PATH]\n",
+            "Usage: %s [--packed-dir PATH] [--layer N] [--expert N | --experts A,B,C] [--weights W,...] [--shader PATH]\n",
             argv0);
 }
 
@@ -46,6 +47,52 @@ static int parse_int_arg(const char *value, const char *name) {
         exit(2);
     }
     return (int)parsed;
+}
+
+static int parse_list_ints(const char *value, int *out, int max_count, const char *name) {
+    char *copy = strdup(value);
+    if (!copy) {
+        fprintf(stderr, "strdup failed\n");
+        exit(1);
+    }
+    int count = 0;
+    char *token = strtok(copy, ",");
+    while (token) {
+        if (count >= max_count) {
+            fprintf(stderr, "%s supports at most %d entries\n", name, max_count);
+            exit(2);
+        }
+        out[count++] = parse_int_arg(token, name);
+        token = strtok(NULL, ",");
+    }
+    free(copy);
+    return count;
+}
+
+static int parse_list_floats(const char *value, float *out, int max_count, const char *name) {
+    char *copy = strdup(value);
+    if (!copy) {
+        fprintf(stderr, "strdup failed\n");
+        exit(1);
+    }
+    int count = 0;
+    char *token = strtok(copy, ",");
+    while (token) {
+        if (count >= max_count) {
+            fprintf(stderr, "%s supports at most %d entries\n", name, max_count);
+            exit(2);
+        }
+        char *end = NULL;
+        float parsed = strtof(token, &end);
+        if (!token[0] || *end) {
+            fprintf(stderr, "Invalid %s: %s\n", name, token);
+            exit(2);
+        }
+        out[count++] = parsed;
+        token = strtok(NULL, ",");
+    }
+    free(copy);
+    return count;
 }
 
 static uint8_t *read_expert(const char *packed_dir, int layer, int expert) {
@@ -168,7 +215,10 @@ int main(int argc, const char **argv) {
         const char *packed_dir = "../models/deepseek-v4-flash-4bit/packed_experts_q4";
         const char *shader_path = "deepseek_q4_probe.metal";
         int layer = 0;
-        int expert = 0;
+        int experts[MAX_ACTIVE_EXPERTS] = {0};
+        float weights[MAX_ACTIVE_EXPERTS] = {1.0f};
+        int num_active = 1;
+        int weights_count = 0;
 
         for (int i = 1; i < argc; ++i) {
             if (strcmp(argv[i], "--packed-dir") == 0 && i + 1 < argc) {
@@ -178,7 +228,12 @@ int main(int argc, const char **argv) {
             } else if (strcmp(argv[i], "--layer") == 0 && i + 1 < argc) {
                 layer = parse_int_arg(argv[++i], "--layer");
             } else if (strcmp(argv[i], "--expert") == 0 && i + 1 < argc) {
-                expert = parse_int_arg(argv[++i], "--expert");
+                experts[0] = parse_int_arg(argv[++i], "--expert");
+                num_active = 1;
+            } else if (strcmp(argv[i], "--experts") == 0 && i + 1 < argc) {
+                num_active = parse_list_ints(argv[++i], experts, MAX_ACTIVE_EXPERTS, "--experts");
+            } else if (strcmp(argv[i], "--weights") == 0 && i + 1 < argc) {
+                weights_count = parse_list_floats(argv[++i], weights, MAX_ACTIVE_EXPERTS, "--weights");
             } else if (strcmp(argv[i], "--help") == 0) {
                 usage(argv[0]);
                 return 0;
@@ -188,25 +243,45 @@ int main(int argc, const char **argv) {
             }
         }
 
-        if (layer < 0 || layer >= 43 || expert < 0 || expert >= NUM_EXPERTS) {
-            fprintf(stderr, "layer must be 0..42 and expert must be 0..255\n");
+        if (weights_count == 0) {
+            for (int i = 0; i < num_active; ++i) {
+                weights[i] = 1.0f / (float)num_active;
+            }
+        } else if (weights_count != num_active) {
+            fprintf(stderr, "--weights count must match active experts\n");
             return 2;
         }
 
-        init_scale_lut();
-        uint8_t *expert_data = read_expert(packed_dir, layer, expert);
-        if (!expert_data) return 1;
+        if (layer < 0 || layer >= 43) {
+            fprintf(stderr, "layer must be 0..42\n");
+            return 2;
+        }
+        for (int i = 0; i < num_active; ++i) {
+            if (experts[i] < 0 || experts[i] >= NUM_EXPERTS) {
+                fprintf(stderr, "expert must be 0..255: %d\n", experts[i]);
+                return 2;
+            }
+        }
 
-        const uint8_t *gate_data = expert_data;
-        const uint8_t *up_data = expert_data + COMPONENT_SIZE;
-        const uint8_t *down_data = expert_data + COMPONENT_SIZE * 2;
+        init_scale_lut();
+        uint8_t *expert_data[MAX_ACTIVE_EXPERTS] = {0};
+        for (int i = 0; i < num_active; ++i) {
+            expert_data[i] = read_expert(packed_dir, layer, experts[i]);
+            if (!expert_data[i]) return 1;
+        }
+        printf("Active experts:");
+        for (int i = 0; i < num_active; ++i) {
+            printf(" %d@%.6g", experts[i], weights[i]);
+        }
+        printf("\n");
 
         float *x = (float *)calloc(HIDDEN_DIM, sizeof(float));
         float *gate_cpu = (float *)calloc(INTERMEDIATE_DIM, sizeof(float));
         float *up_cpu = (float *)calloc(INTERMEDIATE_DIM, sizeof(float));
         float *act_cpu = (float *)calloc(INTERMEDIATE_DIM, sizeof(float));
+        float *tmp_cpu = (float *)calloc(HIDDEN_DIM, sizeof(float));
         float *out_cpu = (float *)calloc(HIDDEN_DIM, sizeof(float));
-        if (!x || !gate_cpu || !up_cpu || !act_cpu || !out_cpu) {
+        if (!x || !gate_cpu || !up_cpu || !act_cpu || !tmp_cpu || !out_cpu) {
             fprintf(stderr, "calloc failed\n");
             return 1;
         }
@@ -214,15 +289,20 @@ int main(int argc, const char **argv) {
         make_input(x);
 
         CFAbsoluteTime cpu_t0 = CFAbsoluteTimeGetCurrent();
-        cpu_mxfp4_matvec(gate_data, INTERMEDIATE_DIM, HIDDEN_DIM, x, gate_cpu);
-        cpu_mxfp4_matvec(up_data, INTERMEDIATE_DIM, HIDDEN_DIM, x, up_cpu);
-        cpu_silu_mul(gate_cpu, up_cpu, act_cpu, INTERMEDIATE_DIM);
-        cpu_mxfp4_matvec(down_data, HIDDEN_DIM, INTERMEDIATE_DIM, act_cpu, out_cpu);
+        for (int i = 0; i < num_active; ++i) {
+            const uint8_t *gate_data = expert_data[i];
+            const uint8_t *up_data = expert_data[i] + COMPONENT_SIZE;
+            const uint8_t *down_data = expert_data[i] + COMPONENT_SIZE * 2;
+            cpu_mxfp4_matvec(gate_data, INTERMEDIATE_DIM, HIDDEN_DIM, x, gate_cpu);
+            cpu_mxfp4_matvec(up_data, INTERMEDIATE_DIM, HIDDEN_DIM, x, up_cpu);
+            cpu_silu_mul(gate_cpu, up_cpu, act_cpu, INTERMEDIATE_DIM);
+            cpu_mxfp4_matvec(down_data, HIDDEN_DIM, INTERMEDIATE_DIM, act_cpu, tmp_cpu);
+            for (int j = 0; j < HIDDEN_DIM; ++j) {
+                out_cpu[j] += weights[i] * tmp_cpu[j];
+            }
+        }
         CFAbsoluteTime cpu_t1 = CFAbsoluteTimeGetCurrent();
 
-        describe("cpu gate", gate_cpu, INTERMEDIATE_DIM);
-        describe("cpu up", up_cpu, INTERMEDIATE_DIM);
-        describe("cpu act", act_cpu, INTERMEDIATE_DIM);
         describe("cpu out", out_cpu, HIDDEN_DIM);
         char cpu_hash[65];
         sha256_hex(out_cpu, HIDDEN_DIM, cpu_hash);
@@ -254,6 +334,7 @@ int main(int argc, const char **argv) {
 
         id<MTLFunction> matvecFn = [lib newFunctionWithName:@"mxfp4_matvec"];
         id<MTLFunction> siluFn = [lib newFunctionWithName:@"silu_mul"];
+        id<MTLFunction> accumFn = [lib newFunctionWithName:@"accumulate_weighted"];
         id<MTLComputePipelineState> matvecPipe = [device newComputePipelineStateWithFunction:matvecFn error:&error];
         if (!matvecPipe) {
             fprintf(stderr, "matvec pipeline failed: %s\n", [[error localizedDescription] UTF8String]);
@@ -264,35 +345,60 @@ int main(int argc, const char **argv) {
             fprintf(stderr, "silu pipeline failed: %s\n", [[error localizedDescription] UTF8String]);
             return 1;
         }
+        id<MTLComputePipelineState> accumPipe = [device newComputePipelineStateWithFunction:accumFn error:&error];
+        if (!accumPipe) {
+            fprintf(stderr, "accumulate pipeline failed: %s\n", [[error localizedDescription] UTF8String]);
+            return 1;
+        }
 
-        id<MTLBuffer> gateBuf = [device newBufferWithBytes:gate_data length:COMPONENT_SIZE options:MTLResourceStorageModeShared];
-        id<MTLBuffer> upBuf = [device newBufferWithBytes:up_data length:COMPONENT_SIZE options:MTLResourceStorageModeShared];
-        id<MTLBuffer> downBuf = [device newBufferWithBytes:down_data length:COMPONENT_SIZE options:MTLResourceStorageModeShared];
+        id<MTLBuffer> gateBufs[MAX_ACTIVE_EXPERTS];
+        id<MTLBuffer> upBufs[MAX_ACTIVE_EXPERTS];
+        id<MTLBuffer> downBufs[MAX_ACTIVE_EXPERTS];
+        for (int i = 0; i < num_active; ++i) {
+            gateBufs[i] = [device newBufferWithBytes:expert_data[i] length:COMPONENT_SIZE options:MTLResourceStorageModeShared];
+            upBufs[i] = [device newBufferWithBytes:expert_data[i] + COMPONENT_SIZE length:COMPONENT_SIZE options:MTLResourceStorageModeShared];
+            downBufs[i] = [device newBufferWithBytes:expert_data[i] + COMPONENT_SIZE * 2 length:COMPONENT_SIZE options:MTLResourceStorageModeShared];
+        }
         id<MTLBuffer> xBuf = [device newBufferWithBytes:x length:HIDDEN_DIM * sizeof(float) options:MTLResourceStorageModeShared];
         id<MTLBuffer> gateOut = [device newBufferWithLength:INTERMEDIATE_DIM * sizeof(float) options:MTLResourceStorageModeShared];
         id<MTLBuffer> upOut = [device newBufferWithLength:INTERMEDIATE_DIM * sizeof(float) options:MTLResourceStorageModeShared];
         id<MTLBuffer> actOut = [device newBufferWithLength:INTERMEDIATE_DIM * sizeof(float) options:MTLResourceStorageModeShared];
+        id<MTLBuffer> tmpOut = [device newBufferWithLength:HIDDEN_DIM * sizeof(float) options:MTLResourceStorageModeShared];
         id<MTLBuffer> finalOut = [device newBufferWithLength:HIDDEN_DIM * sizeof(float) options:MTLResourceStorageModeShared];
+        memset([finalOut contents], 0, HIDDEN_DIM * sizeof(float));
 
         id<MTLCommandQueue> queue = [device newCommandQueue];
         id<MTLCommandBuffer> cb = [queue commandBuffer];
         id<MTLComputeCommandEncoder> enc = [cb computeCommandEncoder];
 
         CFAbsoluteTime gpu_t0 = CFAbsoluteTimeGetCurrent();
-        encode_mxfp4_matvec(enc, matvecPipe, gateBuf, xBuf, gateOut, INTERMEDIATE_DIM, HIDDEN_DIM);
-        encode_mxfp4_matvec(enc, matvecPipe, upBuf, xBuf, upOut, INTERMEDIATE_DIM, HIDDEN_DIM);
+        for (int i = 0; i < num_active; ++i) {
+            encode_mxfp4_matvec(enc, matvecPipe, gateBufs[i], xBuf, gateOut, INTERMEDIATE_DIM, HIDDEN_DIM);
+            encode_mxfp4_matvec(enc, matvecPipe, upBufs[i], xBuf, upOut, INTERMEDIATE_DIM, HIDDEN_DIM);
 
-        uint32_t n = INTERMEDIATE_DIM;
-        [enc setComputePipelineState:siluPipe];
-        [enc setBuffer:gateOut offset:0 atIndex:0];
-        [enc setBuffer:upOut offset:0 atIndex:1];
-        [enc setBuffer:actOut offset:0 atIndex:2];
-        [enc setBytes:&n length:sizeof(n) atIndex:3];
-        NSUInteger tpg = MIN((NSUInteger)128, siluPipe.maxTotalThreadsPerThreadgroup);
-        [enc dispatchThreads:MTLSizeMake(INTERMEDIATE_DIM, 1, 1)
-        threadsPerThreadgroup:MTLSizeMake(tpg, 1, 1)];
+            uint32_t n = INTERMEDIATE_DIM;
+            [enc setComputePipelineState:siluPipe];
+            [enc setBuffer:gateOut offset:0 atIndex:0];
+            [enc setBuffer:upOut offset:0 atIndex:1];
+            [enc setBuffer:actOut offset:0 atIndex:2];
+            [enc setBytes:&n length:sizeof(n) atIndex:3];
+            NSUInteger tpg = MIN((NSUInteger)128, siluPipe.maxTotalThreadsPerThreadgroup);
+            [enc dispatchThreads:MTLSizeMake(INTERMEDIATE_DIM, 1, 1)
+            threadsPerThreadgroup:MTLSizeMake(tpg, 1, 1)];
 
-        encode_mxfp4_matvec(enc, matvecPipe, downBuf, actOut, finalOut, HIDDEN_DIM, INTERMEDIATE_DIM);
+            encode_mxfp4_matvec(enc, matvecPipe, downBufs[i], actOut, tmpOut, HIDDEN_DIM, INTERMEDIATE_DIM);
+
+            uint32_t out_n = HIDDEN_DIM;
+            float weight = weights[i];
+            [enc setComputePipelineState:accumPipe];
+            [enc setBuffer:tmpOut offset:0 atIndex:0];
+            [enc setBuffer:finalOut offset:0 atIndex:1];
+            [enc setBytes:&weight length:sizeof(weight) atIndex:2];
+            [enc setBytes:&out_n length:sizeof(out_n) atIndex:3];
+            NSUInteger atpg = MIN((NSUInteger)128, accumPipe.maxTotalThreadsPerThreadgroup);
+            [enc dispatchThreads:MTLSizeMake(HIDDEN_DIM, 1, 1)
+            threadsPerThreadgroup:MTLSizeMake(atpg, 1, 1)];
+        }
         [enc endEncoding];
         [cb commit];
         [cb waitUntilCompleted];
@@ -325,11 +431,14 @@ int main(int argc, const char **argv) {
         printf("compare: max_abs=%.9g at %d cpu=%.9g gpu=%.9g max_rel=%.9g\n",
                max_abs, max_idx, out_cpu[max_idx], out_gpu[max_idx], max_rel);
 
-        free(expert_data);
+        for (int i = 0; i < num_active; ++i) {
+            free(expert_data[i]);
+        }
         free(x);
         free(gate_cpu);
         free(up_cpu);
         free(act_cpu);
+        free(tmp_cpu);
         free(out_cpu);
 
         return max_abs < 5e-5f ? 0 : 1;

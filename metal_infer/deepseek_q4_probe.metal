@@ -58,3 +58,17 @@ kernel void silu_mul(
     const float sigmoid = 1.0f / (1.0f + exp(-clipped));
     out[tid] = g * sigmoid * up[tid];
 }
+
+kernel void accumulate_weighted(
+    device const float * src [[buffer(0)]],
+    device float * dst       [[buffer(1)]],
+    constant float & weight  [[buffer(2)]],
+    constant uint & n        [[buffer(3)]],
+    uint tid                 [[thread_position_in_grid]]
+) {
+    if (tid >= n) {
+        return;
+    }
+
+    dst[tid] += weight * src[tid];
+}

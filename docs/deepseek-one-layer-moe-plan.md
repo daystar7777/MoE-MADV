@@ -51,6 +51,7 @@ The first Metal Q4 probe is available now:
 
 ```bash
 scripts/run_deepseek_q4_probe.sh --layer 0 --expert 0
+scripts/run_deepseek_q4_probe.sh --layer 0 --experts 0,1,2,3,4,5
 ```
 
 Current local Metal-vs-CPU result:
@@ -59,6 +60,7 @@ Current local Metal-vs-CPU result:
 cpu elapsed: 0.032s
 gpu elapsed: 0.003s
 compare: max_abs=9.77516174e-06 at 667 cpu=2.1510272 gpu=2.15103698
+K=6 compare: max_abs=3.51667404e-06 at 1305 cpu=0.44933936 gpu=0.449335843
 ```
 
 ## Packed Expert Layout
