@@ -1,4 +1,4 @@
-# MoE-MADV: 141GB DeepSeek V4 Flash Q4 on 64GB RAM
+# MoE-MADV: 150GB DeepSeek V4 Flash Q4 on 64GB RAM
 
 ![Decode speed headline](assets/deepseek-q4-decode-headline.svg)
 
@@ -16,8 +16,8 @@ same no-prewarm steady-state policy, but enables routed expert
 | optimized | off | `MADV_WILLNEED` | 1.23 tok/s | 103.1s |
 
 That is a **+25.4% decode generation throughput gain** and a **10.7% reduction
-in end-to-end decode wall time** on a 141GB DeepSeek V4 Flash Q4 GGUF model on a
-64GB Apple Silicon machine.
+in end-to-end decode wall time** on a 150 GB DeepSeek V4 Flash `MXFP4_MOE` GGUF
+model on a 64GB Apple Silicon machine.
 
 The optimization is deliberately small: after the MoE router decides which
 experts are needed, the CPU backend asks macOS to page in the selected expert
@@ -28,8 +28,8 @@ cache is added, and the model remains mmap-backed and reclaimable by the OS.
 
 DeepSeek V4 Flash is not just a larger dense model. It is a large sparse MoE
 model whose active weight set changes with the input and with each generated
-token. On a local machine where the 141GB model is larger than RAM, that changes
-the practical optimization target.
+token. On a local machine where the 150 GB model file is larger than RAM, that
+changes the practical optimization target.
 
 For a dense model, the repeated decode path tends to reuse the same mapped
 weights. For this MoE model, decode repeatedly asks for different routed expert
@@ -82,6 +82,13 @@ runtime. The goal is to separate three effects:
 - page-cache prewarm read strategy;
 - runtime expert `madvise(MADV_WILLNEED)`;
 - full generation wall time.
+
+The benchmark model is
+[`lovedheart/DeepSeek-V4-Flash-GGUF`](https://huggingface.co/lovedheart/DeepSeek-V4-Flash-GGUF),
+file `DeepSeek-V4-Flash-MXFP4_MOE.gguf`, based on
+[`deepseek-ai/DeepSeek-V4-Flash`](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash).
+See [model-sources-and-parsers.md](model-sources-and-parsers.md) for exact model
+sources, tried alternatives, and parser artifacts.
 
 The measurements are not cold-cache perfect because macOS does not expose a safe
 non-root cache purge path here. Treat them as directional, especially when
@@ -308,8 +315,8 @@ several larger ideas were measured, rejected, or postponed.
 | --- | --- | --- |
 | Port the original Qwen-focused `flash-moe` engine directly to DeepSeek V4 | Too invasive for the first working run. DeepSeek V4 uses different architecture pieces, tensor names, routing, and MXFP4 expert layout. | Keep the Qwen engine intact and use a patched llama.cpp GGUF path for the first end-to-end Q4 run. |
 | Use the full MLX 4-bit HF shard path as the primary runtime | The Q4 shards were downloaded and routed experts were repacked, but a full MLX/engine path would require a larger model implementation port. | Keep the packed experts for a future flash-moe-style engine port; do not block the first Q4 run on it. |
-| Switch to another smaller Q4 GGUF after the first load failure | A `tecaprovn` Q4_K_M download was started, then stopped after deciding not to change models. | Stay on the 141GB lovedheart MXFP4 MoE GGUF and optimize that model. |
-| Load lovedheart MXFP4 GGUF with default CPU repacking | macOS killed the process under memory pressure before token generation. The extra repacked copy was the problem. | Add `GGML_DISABLE_CPU_REPACK=1`; this made the 141GB model viable on 64GB RAM. |
+| Switch to another smaller Q4 GGUF after the first load failure | A `tecaprovn` Q4_K_M download was started, then stopped after deciding not to change models. | Stay on the 150 GB lovedheart MXFP4 MoE GGUF and optimize that model. |
+| Load lovedheart MXFP4 GGUF with default CPU repacking | macOS killed the process under memory pressure before token generation. The extra repacked copy was the problem. | Add `GGML_DISABLE_CPU_REPACK=1`; this made the 150 GB model viable on 64GB RAM. |
 
 ### Cache and I/O Strategy
 
@@ -343,7 +350,7 @@ several larger ideas were measured, rejected, or postponed.
 
 The current public result is intentionally conservative:
 
-- keep the 141GB Q4 model fixed;
+- keep the 150 GB Q4/MXFP4 model fixed;
 - keep the runtime mmap-backed so macOS can reclaim file pages;
 - disable CPU repacking to avoid an extra in-memory copy;
 - avoid mandatory static prewarm in steady state;

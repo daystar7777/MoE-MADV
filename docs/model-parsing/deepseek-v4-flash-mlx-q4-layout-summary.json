@@ -1,0 +1,41 @@
+{
+  "source": "mlx_safetensors",
+  "repo": "mlx-community/DeepSeek-V4-Flash-4bit",
+  "model_dir": "models/deepseek-v4-flash-4bit",
+  "block_count": 43,
+  "expert_count": 256,
+  "expert_size": 13369344,
+  "layer_size": 3422552064,
+  "total_routed_expert_bytes": 147169738752,
+  "total_size_bytes": null,
+  "total_parameters": null,
+  "packed_component_layout": [
+    {
+      "kind": "gate",
+      "type": "MXFP4_BLOCK",
+      "offset": 0,
+      "size": 4456448,
+      "out_dim": 2048,
+      "in_dim": 4096,
+      "groups": 128
+    },
+    {
+      "kind": "up",
+      "type": "MXFP4_BLOCK",
+      "offset": 4456448,
+      "size": 4456448,
+      "out_dim": 2048,
+      "in_dim": 4096,
+      "groups": 128
+    },
+    {
+      "kind": "down",
+      "type": "MXFP4_BLOCK",
+      "offset": 8912896,
+      "size": 4456448,
+      "out_dim": 4096,
+      "in_dim": 2048,
+      "groups": 64
+    }
+  ]
+}

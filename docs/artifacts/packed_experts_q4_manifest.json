@@ -1,0 +1,274 @@
+{
+  "format": "deepseek-v4-flash-packed-experts-q4-manifest-v1",
+  "artifact": "packed_experts_q4",
+  "source_model_repo": "mlx-community/DeepSeek-V4-Flash-4bit",
+  "source_model_url": "https://huggingface.co/mlx-community/DeepSeek-V4-Flash-4bit",
+  "source_revision_observed": "38c0bd20a6fba70f22c5ee2940ec0092b36ab936",
+  "source_local_dir": "models/deepseek-v4-flash-4bit",
+  "generator": "scripts/repack_deepseek_q4_experts.py",
+  "layout_parser": "scripts/inspect_deepseek_q4_layout.py",
+  "layers": 43,
+  "total_size_bytes": 147169738752,
+  "total_size_gib": 137.0625,
+  "file_size_note": "Checksums are intentionally omitted here because hashing the 137 GiB artifact is slow; run shasum -a 256 on layer_*.bin if release-grade verification is needed.",
+  "files": [
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_00.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:01:52Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_01.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:01:55Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_02.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:01:59Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_03.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:02Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_04.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:06Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_05.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:09Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_06.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:13Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_07.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:17Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_08.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:20Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_09.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:24Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_10.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:27Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_11.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:31Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_12.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:34Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_13.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:38Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_14.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:42Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_15.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:45Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_16.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:49Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_17.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:52Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_18.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:56Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_19.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:02:59Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_20.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:03Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_21.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:07Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_22.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:10Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_23.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:14Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_24.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:17Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_25.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:21Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_26.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:24Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_27.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:28Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_28.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:32Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_29.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:35Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_30.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:39Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_31.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:42Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_32.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:46Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_33.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:49Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_34.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:53Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_35.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:03:57Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_36.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:04:00Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_37.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:04:04Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_38.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:04:07Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_39.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:04:11Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_40.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:04:14Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_41.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:04:18Z"
+    },
+    {
+      "path": "models/deepseek-v4-flash-4bit/packed_experts_q4/layer_42.bin",
+      "size_bytes": 3422552064,
+      "size_gib": 3.1875,
+      "mtime_utc": "2026-05-01T22:04:22Z"
+    }
+  ]
+}

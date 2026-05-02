@@ -13,8 +13,8 @@ DEFAULT_GGUF = (
     ROOT.parent
     / "deepseek-v4-experiments"
     / "models"
-    / "antirez-deepseek-v4-gguf"
-    / "DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2.gguf"
+    / "lovedheart-deepseek-v4-flash-gguf"
+    / "DeepSeek-V4-Flash-MXFP4_MOE.gguf"
 )
 DEFAULT_GGUF_PY = (
     ROOT.parent
@@ -146,7 +146,10 @@ def main():
     print(f"Tensors: {summary['tensor_count']}, data_offset={summary['data_offset']}, alignment={summary['alignment']}")
     for key, value in summary["metadata"].items():
         if key == "compress_ratios":
-            print(f"{key}: {value[:10]} ... ({len(value)} entries)")
+            if value is None:
+                print(f"{key}: None")
+            else:
+                print(f"{key}: {value[:10]} ... ({len(value)} entries)")
         else:
             print(f"{key}: {value}")
 

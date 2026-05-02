@@ -1,8 +1,8 @@
 # MoE-MADV: Running a 284B MoE Model on a 64GB M1 Max
 
-DeepSeek V4 Flash Q4 is a 141GB GGUF MoE model. This repo documents a local
-inference experiment that runs it on a 64GB Apple Silicon machine by optimizing
-mmap-backed expert paging with `MADV_WILLNEED`.
+DeepSeek V4 Flash is a 284B-parameter MoE model. This repo documents a local
+inference experiment that runs the 150 GB `MXFP4_MOE` GGUF file on a 64GB Apple
+Silicon machine by optimizing mmap-backed expert paging with `MADV_WILLNEED`.
 
 ![Decode speed headline](docs/assets/deepseek-q4-decode-headline.svg)
 
@@ -21,8 +21,8 @@ in end-to-end decode wall time**, without changing the model.
 ## Thesis
 
 DeepSeek V4 Flash is not just a larger dense model. Its sparse MoE routing
-changes the local inference bottleneck. On a machine where the 141GB model is
-larger than RAM, the hard part is not only matrix multiplication:
+changes the local inference bottleneck. On a machine where the 150 GB model file
+is larger than RAM, the hard part is not only matrix multiplication:
 
 > Can the OS make the right expert pages resident before decode needs them?
 
@@ -35,7 +35,7 @@ page-in.
 
 The optimization is intentionally small:
 
-1. Keep the 141GB GGUF model mmap-backed.
+1. Keep the 150 GB GGUF model mmap-backed.
 2. Disable CPU repacking so the model is not copied into a second in-memory
    representation.
 3. Avoid mandatory static prewarm in steady state.
@@ -63,6 +63,9 @@ cache, so pages remain reclaimable.
 ## Reports and Data
 
 - Main report: [docs/deepseek-q4-performance-matrix.md](docs/deepseek-q4-performance-matrix.md)
+- Model sources and parser artifacts: [docs/model-sources-and-parsers.md](docs/model-sources-and-parsers.md)
+- Rebuild `packed_experts_q4`: [docs/packed-experts-q4.md](docs/packed-experts-q4.md)
+- Applying this on larger-memory machines: [docs/appendix-other-machines.md](docs/appendix-other-machines.md)
 - 5-hour benchmark summary: [docs/results/deepseek_q4_longrun_5h/README.md](docs/results/deepseek_q4_longrun_5h/README.md)
 - 5-hour aggregate CSV: [docs/results/deepseek_q4_longrun_5h/summary.csv](docs/results/deepseek_q4_longrun_5h/summary.csv)
 - Decode baseline addendum: [docs/results/deepseek_q4_decode_baseline/summary.md](docs/results/deepseek_q4_decode_baseline/summary.md)
@@ -76,6 +79,18 @@ ideas.
 ## Reproduce the Measurements
 
 The model files are not included in this repository.
+
+The headline benchmark uses
+[`lovedheart/DeepSeek-V4-Flash-GGUF`](https://huggingface.co/lovedheart/DeepSeek-V4-Flash-GGUF),
+file `DeepSeek-V4-Flash-MXFP4_MOE.gguf`, based on
+[`deepseek-ai/DeepSeek-V4-Flash`](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash).
+Local file size is `150,225,324,672` bytes (`139.91 GiB`).
+Exact file URL:
+`https://huggingface.co/lovedheart/DeepSeek-V4-Flash-GGUF/blob/cd42deba41ac0536e68b125dfc367197b0ec3038/DeepSeek-V4-Flash-MXFP4_MOE.gguf`.
+
+The custom `packed_experts_q4` export is also not committed because the generated
+binary is `137.06 GiB`. The generator and exact rebuild process are included in
+[docs/packed-experts-q4.md](docs/packed-experts-q4.md).
 
 ```bash
 # Build patched llama.cpp runtime
@@ -103,7 +118,8 @@ scripts/start_deepseek_q4_longrun_5h.sh
 - Machine: Apple M1 Max
 - Memory: 64GB unified memory
 - OS: macOS / Darwin
-- Model: DeepSeek V4 Flash Q4 GGUF, approximately 141GB on disk
+- Model: DeepSeek V4 Flash `MXFP4_MOE` GGUF, 150 GB on Hugging Face
+  (`139.91 GiB` locally)
 
 ## Naming
 

@@ -1,0 +1,65 @@
+{
+  "gguf": "DeepSeek-V4-Flash-MXFP4_MOE.gguf",
+  "data_offset": 5325376,
+  "alignment": 32,
+  "tensor_count": 1328,
+  "metadata": {
+    "architecture": "deepseek4",
+    "name": "DeepSeek V4 Flash",
+    "block_count": 43,
+    "context_length": 1048576,
+    "embedding_length": 4096,
+    "attention_heads": 64,
+    "attention_kv_heads": 1,
+    "head_key_length": 512,
+    "head_value_length": 512,
+    "expert_count": 256,
+    "expert_used_count": 6,
+    "expert_feed_forward_length": 2048,
+    "expert_shared_count": 1,
+    "compress_ratios": null,
+    "sliding_window": 128
+  },
+  "routed_layers": 43,
+  "bytes_per_expert": 10813440,
+  "bytes_per_layer": 2768240640,
+  "routed_expert_bytes_all_layers": 119034347520,
+  "components": [
+    {
+      "kind": "ffn_gate_exps.weight",
+      "type": "Q3_K",
+      "shape": [
+        4096,
+        2048,
+        256
+      ],
+      "data_offset": 3153484672,
+      "n_bytes": 922746880,
+      "expert_stride": 3604480
+    },
+    {
+      "kind": "ffn_up_exps.weight",
+      "type": "Q3_K",
+      "shape": [
+        4096,
+        2048,
+        256
+      ],
+      "data_offset": 4100322176,
+      "n_bytes": 922746880,
+      "expert_stride": 3604480
+    },
+    {
+      "kind": "ffn_down_exps.weight",
+      "type": "Q3_K",
+      "shape": [
+        2048,
+        4096,
+        256
+      ],
+      "data_offset": 2213960576,
+      "n_bytes": 922746880,
+      "expert_stride": 3604480
+    }
+  ]
+}

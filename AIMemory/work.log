@@ -201,3 +201,6 @@ Added a public-facing appendix "Attempts and Dead Ends" to the DeepSeek Q4 perfo
 
 ### 2026-05-02 17:00 | gpt-5-codex | NOTE
 Prepared GitHub publication for daystar7777/MoE-MADV. Replaced the README symlink with a public MoE-MADV README, copied curated long-run/decode-baseline results under docs/results, added the headline decode SVG chart, preserved the remote MIT LICENSE via merge, cleaned failed parent-repo tmp_pack_* files, and added an agent-work-mem credit section to the README.
+
+### 2026-05-02 17:15 | gpt-5-codex | NOTE
+Before push, user requested exact Hugging Face model URLs, tried-model list, parser artifacts, and packed_experts_q4 rebuild instructions. Added docs/model-sources-and-parsers.md, docs/packed-experts-q4.md, docs/appendix-other-machines.md, docs/artifacts/packed_experts_q4_manifest.json, and docs/model-parsing layout summaries. Confirmed HF model binaries remain excluded from Git; packed_experts_q4 is 43 files / 137.06 GiB, so repo now publishes generator and process rather than the binary export.

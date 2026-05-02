@@ -10,6 +10,7 @@ if [[ ! -x .venv/bin/hf ]]; then
 fi
 
 REPO="${REPO:-mlx-community/DeepSeek-V4-Flash-4bit}"
+REVISION="${REVISION:-38c0bd20a6fba70f22c5ee2940ec0092b36ab936}"
 TARGET="${TARGET:-models/deepseek-v4-flash-4bit}"
 START="${START:-1}"
 END="${END:-33}"
@@ -21,7 +22,13 @@ export HF_HUB_ENABLE_HF_TRANSFER="${HF_HUB_ENABLE_HF_TRANSFER:-0}"
 
 mkdir -p "$TARGET"
 
-.venv/bin/hf download "$REPO" "${META_FILES[@]}" --local-dir "$TARGET"
+echo "Downloading MLX/safetensors Q4 source"
+echo "Repo:   $REPO"
+echo "URL:    https://huggingface.co/$REPO/tree/$REVISION"
+echo "Rev:    $REVISION"
+echo "Target: $TARGET"
+
+.venv/bin/hf download "$REPO" "${META_FILES[@]}" --revision "$REVISION" --local-dir "$TARGET"
 
 for i in $(seq "$START" "$END"); do
   shard="$(printf 'model-%05d-of-00033.safetensors' "$i")"
@@ -31,5 +38,5 @@ for i in $(seq "$START" "$END"); do
   fi
   echo
   echo "Downloading $shard ($i/$END)"
-  .venv/bin/hf download "$REPO" "$shard" --local-dir "$TARGET"
+  .venv/bin/hf download "$REPO" "$shard" --revision "$REVISION" --local-dir "$TARGET"
 done

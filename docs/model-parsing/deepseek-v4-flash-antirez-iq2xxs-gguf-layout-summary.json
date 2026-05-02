@@ -1,0 +1,108 @@
+{
+  "gguf": "DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2.gguf",
+  "data_offset": 5333536,
+  "alignment": 32,
+  "tensor_count": 1328,
+  "metadata": {
+    "architecture": "deepseek4",
+    "name": "DeepSeek V4 Flash",
+    "block_count": 43,
+    "context_length": 1048576,
+    "embedding_length": 4096,
+    "attention_heads": 64,
+    "attention_kv_heads": 1,
+    "head_key_length": 512,
+    "head_value_length": 512,
+    "expert_count": 256,
+    "expert_used_count": 6,
+    "expert_feed_forward_length": 2048,
+    "expert_shared_count": 1,
+    "compress_ratios": [
+      0,
+      0,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      128,
+      4,
+      0
+    ],
+    "sliding_window": 128
+  },
+  "routed_layers": 43,
+  "bytes_per_expert": 7077888,
+  "components": [
+    {
+      "kind": "ffn_gate_exps.weight",
+      "type": "IQ2_XXS",
+      "shape": [
+        4096,
+        2048,
+        256
+      ],
+      "data_offset": 14641696,
+      "n_bytes": 553648128,
+      "expert_stride": 2162688
+    },
+    {
+      "kind": "ffn_up_exps.weight",
+      "type": "IQ2_XXS",
+      "shape": [
+        4096,
+        2048,
+        256
+      ],
+      "data_offset": 1272932896,
+      "n_bytes": 553648128,
+      "expert_stride": 2162688
+    },
+    {
+      "kind": "ffn_down_exps.weight",
+      "type": "Q2_K",
+      "shape": [
+        2048,
+        4096,
+        256
+      ],
+      "data_offset": 568289824,
+      "n_bytes": 704643072,
+      "expert_stride": 2752512
+    }
+  ]
+}
