@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="560" viewBox="0 0 1080 560">
+  <rect width="1080" height="560" fill="#ffffff"/>
+  <text x="540" y="46" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#111827">Decode speed after page-in optimization</text>
+  <text x="540" y="78" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#4b5563">141GB DeepSeek V4 Flash Q4 GGUF on a 64GB Apple Silicon machine</text>
+
+  <rect x="55" y="112" width="470" height="360" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="290" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827">Generation throughput</text>
+  <text x="290" y="174" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6b7280">llama timing, decode-heavy prompts, n=6</text>
+
+  <line x1="125" y1="405" x2="455" y2="405" stroke="#111827" stroke-width="1"/>
+  <line x1="125" y1="205" x2="125" y2="405" stroke="#111827" stroke-width="1"/>
+  <line x1="125" y1="340" x2="455" y2="340" stroke="#e5e7eb"/>
+  <line x1="125" y1="275" x2="455" y2="275" stroke="#e5e7eb"/>
+  <line x1="125" y1="210" x2="455" y2="210" stroke="#e5e7eb"/>
+  <text x="116" y="409" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">0</text>
+  <text x="116" y="344" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">0.5</text>
+  <text x="116" y="279" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">1.0</text>
+  <text x="116" y="214" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">1.5 tok/s</text>
+
+  <rect x="175" y="277" width="90" height="128" rx="4" fill="#9ca3af"/>
+  <text x="220" y="265" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#374151">0.98</text>
+  <text x="220" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#374151">baseline</text>
+  <text x="220" y="448" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">no prewarm</text>
+  <text x="220" y="464" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">no madvise</text>
+
+  <rect x="315" y="245" width="90" height="160" rx="4" fill="#10b981"/>
+  <text x="360" y="233" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#047857">1.23</text>
+  <text x="360" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#047857">optimized</text>
+  <text x="360" y="448" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">no prewarm</text>
+  <text x="360" y="464" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">MADV_WILLNEED</text>
+
+  <text x="290" y="515" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#047857">+25.4% generation tok/s</text>
+
+  <rect x="555" y="112" width="470" height="360" rx="8" fill="#f9fafb" stroke="#e5e7eb"/>
+  <text x="790" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#111827">End-to-end decode wall time</text>
+  <text x="790" y="174" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#6b7280">includes model/page-in stalls observed by the runner</text>
+
+  <line x1="625" y1="405" x2="955" y2="405" stroke="#111827" stroke-width="1"/>
+  <line x1="625" y1="205" x2="625" y2="405" stroke="#111827" stroke-width="1"/>
+  <line x1="625" y1="338" x2="955" y2="338" stroke="#e5e7eb"/>
+  <line x1="625" y1="272" x2="955" y2="272" stroke="#e5e7eb"/>
+  <line x1="625" y1="205" x2="955" y2="205" stroke="#e5e7eb"/>
+  <text x="616" y="409" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">0</text>
+  <text x="616" y="342" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">50</text>
+  <text x="616" y="276" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">100</text>
+  <text x="616" y="209" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">150 s</text>
+
+  <rect x="675" y="251" width="90" height="154" rx="4" fill="#9ca3af"/>
+  <text x="720" y="239" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#374151">115.5s</text>
+  <text x="720" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#374151">baseline</text>
+  <text x="720" y="448" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">no prewarm</text>
+  <text x="720" y="464" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">no madvise</text>
+
+  <rect x="815" y="268" width="90" height="137" rx="4" fill="#3b82f6"/>
+  <text x="860" y="256" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#1d4ed8">103.1s</text>
+  <text x="860" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1d4ed8">optimized</text>
+  <text x="860" y="448" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">no prewarm</text>
+  <text x="860" y="464" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#6b7280">MADV_WILLNEED</text>
+
+  <text x="790" y="515" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#1d4ed8">-10.7% wall time</text>
+</svg>

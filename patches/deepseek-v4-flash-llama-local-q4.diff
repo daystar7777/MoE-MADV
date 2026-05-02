@@ -1,0 +1,516 @@
+diff --git a/common/common.cpp b/common/common.cpp
+index f7f33e817..31c6c2397 100644
+--- a/common/common.cpp
++++ b/common/common.cpp
+@@ -1,4 +1,5 @@
+ #include "ggml.h"
++#include "ggml-backend.h"
+ #include "gguf.h"
+ 
+ #include "build-info.h"
+@@ -21,6 +22,7 @@
+ #include <fstream>
+ #include <iostream>
+ #include <iterator>
++#include <mutex>
+ #include <regex>
+ #include <sstream>
+ #include <string>
+@@ -66,6 +68,125 @@ common_time_meas::~common_time_meas() {
+     }
+ }
+ 
++namespace {
++
++struct common_expert_trace_state {
++    std::ofstream        out;
++    std::vector<uint8_t> data;
++    std::mutex           mutex;
++    int64_t              start_us = 0;
++};
++
++static common_expert_trace_state g_expert_trace_state;
++
++static bool common_expert_trace_match(const ggml_tensor * t) {
++    if (t == nullptr || t->type != GGML_TYPE_I32) {
++        return false;
++    }
++
++    const char * name = ggml_get_name(t);
++    return std::strncmp(name, "ffn_moe_topk-", 13) == 0 ||
++           std::strncmp(name, "ffn_moe_hash_topk-", 18) == 0;
++}
++
++static int common_expert_trace_layer(const char * name) {
++    const char * dash = std::strrchr(name, '-');
++    if (dash == nullptr || dash[1] == '\0') {
++        return -1;
++    }
++    return std::atoi(dash + 1);
++}
++
++static bool common_expert_trace_cb_eval(ggml_tensor * t, bool ask, void * user_data) {
++    auto * state = static_cast<common_expert_trace_state *>(user_data);
++    if (ask) {
++        return common_expert_trace_match(t);
++    }
++
++    if (!common_expert_trace_match(t)) {
++        return true;
++    }
++
++    std::lock_guard<std::mutex> lock(state->mutex);
++    if (!state->out.is_open()) {
++        return true;
++    }
++
++    const size_t n_bytes = ggml_nbytes(t);
++    const bool is_host = ggml_backend_buffer_is_host(t->buffer);
++    const uint8_t * data = nullptr;
++    if (is_host) {
++        data = static_cast<const uint8_t *>(t->data);
++    } else {
++        state->data.resize(n_bytes);
++        ggml_backend_tensor_get(t, state->data.data(), 0, n_bytes);
++        data = state->data.data();
++    }
++
++    const char * name = ggml_get_name(t);
++    const int64_t n_expert_used = t->ne[0];
++    const int64_t n_tokens = t->ne[1];
++    const int64_t now_us = ggml_time_us();
++
++    state->out << "{\"event\":\"expert_topk\""
++               << ",\"t_us\":" << (now_us - state->start_us)
++               << ",\"tensor\":\"" << name << "\""
++               << ",\"layer\":" << common_expert_trace_layer(name)
++               << ",\"kind\":\"" << (std::strncmp(name, "ffn_moe_hash_topk-", 18) == 0 ? "hash" : "gate") << "\""
++               << ",\"n_expert_used\":" << n_expert_used
++               << ",\"n_tokens\":" << n_tokens
++               << ",\"experts\":[";
++
++    for (int64_t it = 0; it < n_tokens; ++it) {
++        if (it > 0) {
++            state->out << ',';
++        }
++        state->out << '[';
++        for (int64_t ie = 0; ie < n_expert_used; ++ie) {
++            if (ie > 0) {
++                state->out << ',';
++            }
++            const size_t off = it*t->nb[1] + ie*t->nb[0];
++            int32_t expert = 0;
++            std::memcpy(&expert, data + off, sizeof(expert));
++            state->out << expert;
++        }
++        state->out << ']';
++    }
++
++    state->out << "]}\n";
++    state->out.flush();
++    return true;
++}
++
++static void common_maybe_enable_expert_trace(common_params & params) {
++    const char * path = std::getenv("LLAMA_EXPERT_TRACE");
++    if (path == nullptr || path[0] == '\0') {
++        return;
++    }
++
++    if (params.cb_eval != nullptr && params.cb_eval != common_expert_trace_cb_eval) {
++        LOG_WRN("%s: LLAMA_EXPERT_TRACE ignored because another eval callback is already configured\n", __func__);
++        return;
++    }
++
++    std::lock_guard<std::mutex> lock(g_expert_trace_state.mutex);
++    if (!g_expert_trace_state.out.is_open()) {
++        g_expert_trace_state.out.open(path, std::ios::out | std::ios::trunc);
++        if (!g_expert_trace_state.out.is_open()) {
++            LOG_WRN("%s: failed to open LLAMA_EXPERT_TRACE path: %s\n", __func__, path);
++            return;
++        }
++        g_expert_trace_state.start_us = ggml_time_us();
++        LOG_INF("%s: writing MoE expert trace to %s\n", __func__, path);
++    }
++
++    params.cb_eval = common_expert_trace_cb_eval;
++    params.cb_eval_user_data = &g_expert_trace_state;
++}
++
++}
++
+ //
+ // CPU utils
+ //
+@@ -1143,6 +1264,8 @@ struct common_init_result::impl {
+ 
+ common_init_result::common_init_result(common_params & params) :
+     pimpl(new impl{}) {
++    common_maybe_enable_expert_trace(params);
++
+     auto mparams = common_model_params_to_llama(params);
+     auto cparams = common_context_params_to_llama(params);
+ 
+diff --git a/ggml/src/ggml-cpu/ggml-cpu.c b/ggml/src/ggml-cpu/ggml-cpu.c
+index 157a1b605..0d7f4d995 100644
+--- a/ggml/src/ggml-cpu/ggml-cpu.c
++++ b/ggml/src/ggml-cpu/ggml-cpu.c
+@@ -34,6 +34,10 @@
+ #include <limits.h>
+ #include <stdarg.h>
+ #include <signal.h>
++#if !defined(_WIN32)
++#include <sys/mman.h>
++#include <unistd.h>
++#endif
+ #if defined(__gnu_linux__)
+ #include <syscall.h>
+ #endif
+@@ -1441,6 +1445,79 @@ struct mmid_row_mapping {
+     int32_t i2;
+ };
+ 
++static bool ggml_moe_madvise_willneed_enabled(void) {
++    static int enabled = -1;
++    if (enabled < 0) {
++        const char * env = getenv("GGML_MOE_MADVISE_WILLNEED");
++        enabled = env != NULL && strcmp(env, "0") != 0 && strcmp(env, "false") != 0 && strcmp(env, "FALSE") != 0;
++    }
++    return enabled != 0;
++}
++
++static void ggml_moe_madvise_willneed_range(const void * ptr, size_t len) {
++#if !defined(_WIN32) && defined(MADV_WILLNEED)
++    if (ptr == NULL || len == 0) {
++        return;
++    }
++
++    long page_size = sysconf(_SC_PAGESIZE);
++    if (page_size <= 0) {
++        page_size = 4096;
++    }
++
++    const uintptr_t page_mask = (uintptr_t) page_size - 1;
++    const uintptr_t start = (uintptr_t) ptr & ~page_mask;
++    const uintptr_t end = ((uintptr_t) ptr + len + page_mask) & ~page_mask;
++    if (end > start) {
++        (void) madvise((void *) start, end - start, MADV_WILLNEED);
++    }
++#else
++    GGML_UNUSED(ptr);
++    GGML_UNUSED(len);
++#endif
++}
++
++static void ggml_moe_madvise_willneed_selected(
++        const struct ggml_tensor * src0,
++        const struct ggml_tensor * ids,
++        int64_t n_as,
++        size_t expert_stride) {
++    if (!ggml_moe_madvise_willneed_enabled() || src0->data == NULL || ids->data == NULL || n_as <= 0) {
++        return;
++    }
++
++    enum { GGML_MOE_MADVISE_STACK_EXPERTS = 1024 };
++    bool used_stack[GGML_MOE_MADVISE_STACK_EXPERTS];
++    bool * used = used_stack;
++    bool * used_heap = NULL;
++    if (n_as > GGML_MOE_MADVISE_STACK_EXPERTS) {
++        used_heap = (bool *) calloc(n_as, sizeof(bool));
++        if (used_heap == NULL) {
++            return;
++        }
++        used = used_heap;
++    } else {
++        memset(used, 0, sizeof(used_stack));
++    }
++
++    for (int64_t iid1 = 0; iid1 < ids->ne[1]; ++iid1) {
++        for (int64_t id = 0; id < ids->ne[0]; ++id) {
++            const int32_t i02 = *(const int32_t *) ((const char *) ids->data + iid1*ids->nb[1] + id*ids->nb[0]);
++            if (i02 >= 0 && i02 < n_as) {
++                used[i02] = true;
++            }
++        }
++    }
++
++    for (int64_t i = 0; i < n_as; ++i) {
++        if (used[i]) {
++            ggml_moe_madvise_willneed_range((const char *) src0->data + i*expert_stride, expert_stride);
++        }
++    }
++
++    free(used_heap);
++}
++
+ static void ggml_compute_forward_mul_mat_id_one_chunk(
+     struct ggml_tensor * dst,
+     const struct ggml_tensor * src0,
+@@ -1615,6 +1692,8 @@ static void ggml_compute_forward_mul_mat_id(
+                 matrix_row_counts[i02] += 1;
+             }
+         }
++
++        ggml_moe_madvise_willneed_selected(src0, ids, n_as, nb02);
+     }
+ 
+     // reset current_chunk
+diff --git a/ggml/src/ggml-cpu/ggml-cpu.cpp b/ggml/src/ggml-cpu/ggml-cpu.cpp
+index 49f840be2..b54ccdf59 100644
+--- a/ggml/src/ggml-cpu/ggml-cpu.cpp
++++ b/ggml/src/ggml-cpu/ggml-cpu.cpp
+@@ -7,6 +7,8 @@
+ #include "amx/amx.h"
+ 
+ #include <cctype>
++#include <cstdlib>
++#include <cstring>
+ #include <string>
+ #include <vector>
+ 
+@@ -62,7 +64,8 @@ std::vector<ggml_backend_buffer_type_t> & ggml_backend_cpu_get_extra_buffer_type
+ #endif
+ 
+ #ifdef GGML_USE_CPU_REPACK
+-        if (ggml_backend_cpu_repack_buffer_type()) {
++        const char * disable_repack = std::getenv("GGML_DISABLE_CPU_REPACK");
++        if ((!disable_repack || std::strcmp(disable_repack, "1") != 0) && ggml_backend_cpu_repack_buffer_type()) {
+             bufts.push_back(ggml_backend_cpu_repack_buffer_type());
+         }
+ #endif
+diff --git a/src/llama-mmap.cpp b/src/llama-mmap.cpp
+index ccc29c130..76eb4fc5d 100644
+--- a/src/llama-mmap.cpp
++++ b/src/llama-mmap.cpp
+@@ -9,6 +9,7 @@
+ #include <stdexcept>
+ #include <cerrno>
+ #include <algorithm>
++#include <cstdlib>
+ 
+ #ifdef __has_include
+     #if __has_include(<unistd.h>)
+@@ -55,6 +56,11 @@ static std::string llama_format_win_err(DWORD err) {
+ }
+ #endif
+ 
++static bool llama_env_enabled(const char * name) {
++    const char * value = std::getenv(name);
++    return value != nullptr && value[0] != '\0' && std::strcmp(value, "0") != 0;
++}
++
+ // llama_file
+ 
+ struct llama_file::impl {
+@@ -438,12 +444,21 @@ struct llama_mmap::impl {
+         size = file->size();
+         int fd = file->file_id();
+         int flags = MAP_SHARED;
+-        if (numa) { prefetch = 0; }
++        const bool mmap_random = llama_env_enabled("LLAMA_MMAP_RANDOM");
++        if (numa || mmap_random) { prefetch = 0; }
+ #ifdef __linux__
+-        if (posix_fadvise(fd, 0, 0, POSIX_FADV_SEQUENTIAL)) {
+-            LLAMA_LOG_WARN("warning: posix_fadvise(.., POSIX_FADV_SEQUENTIAL) failed: %s\n",
++#if defined(POSIX_FADV_RANDOM)
++        if (mmap_random && posix_fadvise(fd, 0, 0, POSIX_FADV_RANDOM)) {
++            LLAMA_LOG_WARN("warning: posix_fadvise(.., POSIX_FADV_RANDOM) failed: %s\n",
+                     strerror(errno));
+         }
++#endif
++        if (!mmap_random) {
++            if (posix_fadvise(fd, 0, 0, POSIX_FADV_SEQUENTIAL)) {
++                LLAMA_LOG_WARN("warning: posix_fadvise(.., POSIX_FADV_SEQUENTIAL) failed: %s\n",
++                        strerror(errno));
++            }
++        }
+         if (prefetch) { flags |= MAP_POPULATE; }
+ #endif
+         addr = mmap(NULL, file->size(), PROT_READ, flags, fd, 0);
+@@ -463,6 +478,16 @@ struct llama_mmap::impl {
+                         strerror(errno));
+             }
+         }
++        if (mmap_random) {
++#if defined(POSIX_MADV_RANDOM)
++            if (posix_madvise(addr, file->size(), POSIX_MADV_RANDOM)) {
++                LLAMA_LOG_WARN("warning: posix_madvise(.., POSIX_MADV_RANDOM) failed: %s\n",
++                        strerror(errno));
++            }
++#else
++            LLAMA_LOG_WARN("warning: LLAMA_MMAP_RANDOM requested but POSIX_MADV_RANDOM is unavailable\n");
++#endif
++        }
+ 
+         mapped_fragments.emplace_back(0, file->size());
+     }
+diff --git a/src/llama-model-loader.cpp b/src/llama-model-loader.cpp
+index c0174d644..27bc18922 100644
+--- a/src/llama-model-loader.cpp
++++ b/src/llama-model-loader.cpp
+@@ -1046,6 +1046,55 @@ static ggml_backend_buffer_type_t select_weight_buft(const llama_hparams & hpara
+ struct ggml_tensor * llama_model_loader::create_tensor(
+         const llama_hparams & hparams, const buft_list_t * buft_list_cpu, const buft_list_t * buft_list_input, const buft_list_t * buft_list_output,
+         const buft_list_t * buft_list_layer, const LLM_TN_IMPL & tn, const std::initializer_list<int64_t> & ne, int flags) {
++    auto resolve_tensor_name = [&]() {
++        std::string name = tn.str();
++        if (tn.arch != LLM_ARCH_DEEPSEEK4 || get_tensor_meta(name.c_str()) != nullptr) {
++            return name;
++        }
++
++        std::string alias = name;
++        auto replace_once = [](std::string & s, const char * from, const char * to) {
++            const size_t pos = s.find(from);
++            if (pos == std::string::npos) {
++                return false;
++            }
++            s.replace(pos, strlen(from), to);
++            return true;
++        };
++        auto strip_suffix = [](std::string & s, const char * suffix) {
++            const size_t suffix_len = strlen(suffix);
++            if (s.size() < suffix_len || s.compare(s.size() - suffix_len, suffix_len, suffix) != 0) {
++                return false;
++            }
++            s.resize(s.size() - suffix_len);
++            return true;
++        };
++
++        if (name == "output_hc_base.weight") {
++            alias = "hc_head_base";
++        } else if (name == "output_hc_fn.weight") {
++            alias = "hc_head_fn";
++        } else if (name == "output_hc_scale.weight") {
++            alias = "hc_head_scale";
++        } else if (replace_once(alias, ".attn_compressor_", ".attn_compress_")) {
++            if (alias.find(".attn_compress_ape.weight") != std::string::npos) {
++                strip_suffix(alias, ".weight");
++            }
++        } else if (replace_once(alias, ".indexer_compressor_", ".indexer.compress_")) {
++            if (alias.find(".indexer.compress_ape.weight") != std::string::npos) {
++                strip_suffix(alias, ".weight");
++            }
++        } else if (replace_once(alias, ".attn_kv.weight", ".attn_kv_latent.weight")) {
++        } else if (replace_once(alias, ".attn_sinks.weight", ".attn_sinks")) {
++        } else if (replace_once(alias, ".ffn_gate_tid2eid.weight", ".ffn_gate_tid2eid")) {
++        } else if (replace_once(alias, ".exp_probs_b.bias", ".exp_probs_b")) {
++        } else if (alias.find(".hc_attn_") != std::string::npos || alias.find(".hc_ffn_") != std::string::npos) {
++            strip_suffix(alias, ".weight");
++        }
++
++        return get_tensor_meta(alias.c_str()) != nullptr ? alias : name;
++    };
++
+     auto ctx_for_buft = [&](ggml_backend_buffer_type_t buft) -> ggml_context * {
+         auto it = ctx_map.find(buft);
+         if (it == ctx_map.end()) {
+@@ -1216,7 +1265,8 @@ struct ggml_tensor * llama_model_loader::create_tensor(
+             return nullptr;
+         }
+         ggml_type type = GGML_TYPE_F32;
+-        const int64_t tid = gguf_find_tensor(metadata, tn.str().c_str());
++        const std::string tensor_name = resolve_tensor_name();
++        const int64_t tid = gguf_find_tensor(metadata, tensor_name.c_str());
+         if (tid != -1) {
+             type = gguf_get_tensor_type(metadata, tid);
+         }
+@@ -1239,17 +1289,18 @@ struct ggml_tensor * llama_model_loader::create_tensor(
+             t_meta.nb[dim] = dim == 0 ? ggml_type_size(type) : t_meta.ne[dim-1]*t_meta.nb[dim-1];
+             GGML_ASSERT(t_meta.nb[dim] >= 1);
+         }
+-        ggml_set_name(&t_meta, tn.str().c_str());
++        ggml_set_name(&t_meta, tensor_name.c_str());
+ 
+         ggml_backend_buffer_type_t buft = buft_for_tensor(&t_meta);
+         GGML_ASSERT(buft != nullptr);
+         ggml_context * ctx = ctx_for_buft(buft);
+         ggml_tensor * ret = ggml_dup_tensor(ctx, &t_meta);
+-        ggml_set_name(ret, tn.str().c_str());
++        ggml_set_name(ret, tensor_name.c_str());
+         return ret;
+     }
+ 
+-    ggml_tensor * t_meta = get_tensor_meta(tn.str().c_str());
++    const std::string tensor_name = resolve_tensor_name();
++    ggml_tensor * t_meta = get_tensor_meta(tensor_name.c_str());
+     ggml_backend_buffer_type_t buft = buft_for_tensor(t_meta);
+     if (buft == nullptr) {
+         return nullptr; // return type is ggml_tensor *
+@@ -1258,14 +1309,14 @@ struct ggml_tensor * llama_model_loader::create_tensor(
+ 
+     // if duplicated, check if the original tensor was allocated in the same buffer type context and avoid creating a new one
+     if (flags & TENSOR_DUPLICATED) {
+-        ggml_tensor * t = ggml_get_tensor(ctx, tn.str().c_str());
++        ggml_tensor * t = ggml_get_tensor(ctx, tensor_name.c_str());
+         if (t) {
+             return t;
+         }
+     }
+ 
+-    LLAMA_LOG_DEBUG("%s: loading tensor %s\n", __func__, tn.str().c_str());
+-    const struct ggml_tensor * cur = check_tensor_dims(tn.str(), ne, !(flags & TENSOR_NOT_REQUIRED));
++    LLAMA_LOG_DEBUG("%s: loading tensor %s\n", __func__, tensor_name.c_str());
++    const struct ggml_tensor * cur = check_tensor_dims(tensor_name, ne, !(flags & TENSOR_NOT_REQUIRED));
+ 
+     if (cur == NULL) {
+         return NULL;
+diff --git a/src/llama-model.cpp b/src/llama-model.cpp
+index cfc2a97d6..e3b9a2db7 100644
+--- a/src/llama-model.cpp
++++ b/src/llama-model.cpp
+@@ -2021,8 +2021,12 @@ void llama_model::load_hparams(llama_model_loader & ml) {
+             {
+                 ml.get_key(LLM_KV_ATTENTION_LAYERNORM_RMS_EPS, hparams.f_norm_rms_eps);
+                 ml.get_key(LLM_KV_ATTENTION_Q_LORA_RANK,       hparams.n_lora_q);
+-                ml.get_key(LLM_KV_ATTENTION_OUTPUT_LORA_RANK,  hparams.n_lora_o);
+-                ml.get_key(LLM_KV_ATTENTION_OUTPUT_GROUP_COUNT,hparams.n_attn_out_groups);
++                if (!ml.get_key(LLM_KV_ATTENTION_OUTPUT_LORA_RANK, hparams.n_lora_o, false)) {
++                    hparams.n_lora_o = hparams.n_lora_q;
++                }
++                if (!ml.get_key(LLM_KV_ATTENTION_OUTPUT_GROUP_COUNT, hparams.n_attn_out_groups, false)) {
++                    hparams.n_attn_out_groups = 8;
++                }
+                 ml.get_key(LLM_KV_EXPERT_FEED_FORWARD_LENGTH,  hparams.n_ff_exp);
+                 ml.get_key(LLM_KV_EXPERT_SHARED_COUNT,         hparams.n_expert_shared);
+                 ml.get_key(LLM_KV_EXPERT_WEIGHTS_SCALE,        hparams.expert_weights_scale, false);
+@@ -2039,19 +2043,34 @@ void llama_model::load_hparams(llama_model_loader & ml) {
+                     hparams.rope_freq_base_train_swa  = hparams.rope_freq_base_train;
+                     hparams.rope_freq_scale_train_swa = hparams.rope_freq_scale_train;
+                 }
+-                ml.get_key(LLM_KV_ATTENTION_COMPRESS_ROPE_FREQ_BASE, hparams.compress_rope_freq_base, false);
++                if (!ml.get_key(LLM_KV_ATTENTION_COMPRESS_ROPE_FREQ_BASE, hparams.compress_rope_freq_base, false)) {
++                    ml.get_key(LLM_KV_ROPE_FREQ_BASE_SWA, hparams.compress_rope_freq_base, false);
++                }
+                 ml.get_key(LLM_KV_ATTENTION_INDEXER_HEAD_COUNT,      hparams.indexer_n_head, false);
+                 ml.get_key(LLM_KV_ATTENTION_INDEXER_KEY_LENGTH,      hparams.indexer_head_size, false);
+                 ml.get_key(LLM_KV_ATTENTION_INDEXER_TOP_K,           hparams.indexer_top_k, false);
+-                ml.get_key(LLM_KV_HASH_LAYER_COUNT,                  hparams.n_hash_layers);
++                if (!ml.get_key(LLM_KV_HASH_LAYER_COUNT, hparams.n_hash_layers, false)) {
++                    hparams.n_hash_layers = 3;
++                }
+                 ml.get_key(LLM_KV_NEXTN_PREDICT_LAYERS,              hparams.nextn_predict_layers, false);
+-                ml.get_key(LLM_KV_HYPER_CONNECTION_COUNT,            hparams.n_hc);
+-                ml.get_key(LLM_KV_HYPER_CONNECTION_SINKHORN_ITERS,   hparams.hc_sinkhorn_iters);
+-                ml.get_key(LLM_KV_HYPER_CONNECTION_EPS,              hparams.hc_eps);
++                if (!ml.get_key(LLM_KV_HYPER_CONNECTION_COUNT, hparams.n_hc, false)) {
++                    hparams.n_hc = 4;
++                }
++                if (!ml.get_key(LLM_KV_HYPER_CONNECTION_SINKHORN_ITERS, hparams.hc_sinkhorn_iters, false)) {
++                    hparams.hc_sinkhorn_iters = 20;
++                }
++                if (!ml.get_key(LLM_KV_HYPER_CONNECTION_EPS, hparams.hc_eps, false)) {
++                    hparams.hc_eps = 1e-6f;
++                }
+                 ml.get_key_or_arr(LLM_KV_SWIGLU_CLAMP_EXP,           hparams.swiglu_clamp_exp, hparams.n_layer, false);
+ 
+                 std::vector<uint32_t> compress_ratios;
+-                ml.get_arr(LLM_KV_ATTENTION_COMPRESS_RATIOS, compress_ratios);
++                if (!ml.get_arr(LLM_KV_ATTENTION_COMPRESS_RATIOS, compress_ratios, false)) {
++                    compress_ratios.assign(hparams.n_layer, 0);
++                    for (uint32_t il = 2; il < hparams.n_layer; ++il) {
++                        compress_ratios[il] = (il % 2 == 0) ? 4 : 128;
++                    }
++                }
+                 if (compress_ratios.size() < hparams.n_layer) {
+                     throw std::runtime_error(format("DeepSeek V4 compress ratio count mismatch: got %zu, expected %u",
+                                 compress_ratios.size(), hparams.n_layer));

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="450.0" y="30" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700">Generation Throughput by Case</text>
+<text x="20" y="215.0" transform="rotate(-90 20 215.0)" text-anchor="middle" font-family="Arial" font-size="13">tokens/sec</text>
+<line x1="70" y1="370" x2="870" y2="370" stroke="#111827" stroke-width="1"/>
+<line x1="70" y1="60" x2="70" y2="370" stroke="#111827" stroke-width="1"/>
+<line x1="70" y1="370.0" x2="870" y2="370.0" stroke="#e5e7eb"/>
+<text x="62" y="374.0" text-anchor="end" font-family="Arial" font-size="11" fill="#4b5563">0.0</text>
+<line x1="70" y1="308.0" x2="870" y2="308.0" stroke="#e5e7eb"/>
+<text x="62" y="312.0" text-anchor="end" font-family="Arial" font-size="11" fill="#4b5563">0.5</text>
+<line x1="70" y1="246.0" x2="870" y2="246.0" stroke="#e5e7eb"/>
+<text x="62" y="250.0" text-anchor="end" font-family="Arial" font-size="11" fill="#4b5563">0.9</text>
+<line x1="70" y1="184.0" x2="870" y2="184.0" stroke="#e5e7eb"/>
+<text x="62" y="188.0" text-anchor="end" font-family="Arial" font-size="11" fill="#4b5563">1.4</text>
+<line x1="70" y1="122.0" x2="870" y2="122.0" stroke="#e5e7eb"/>
+<text x="62" y="126.0" text-anchor="end" font-family="Arial" font-size="11" fill="#4b5563">1.8</text>
+<line x1="70" y1="60.0" x2="870" y2="60.0" stroke="#e5e7eb"/>
+<text x="62" y="64.0" text-anchor="end" font-family="Arial" font-size="11" fill="#4b5563">2.3</text>
+<rect x="101.7" y="177.9" width="70.0" height="192.1" rx="3" fill="#3b82f6"/>
+<line x1="136.7" y1="153.1" x2="136.7" y2="177.9" stroke="#111827"/>
+<line x1="128.7" y1="153.1" x2="144.7" y2="153.1" stroke="#111827"/>
+<text x="136.7" y="171.9" text-anchor="middle" font-family="Arial" font-size="11">1.41</text>
+<text x="136.7" y="392.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">decode</text>
+<text x="136.7" y="406.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">best gap4 chunk1 madvise on</text>
+<rect x="235.0" y="223.0" width="70.0" height="147.0" rx="3" fill="#10b981"/>
+<line x1="270.0" y1="204.9" x2="270.0" y2="223.0" stroke="#111827"/>
+<line x1="262.0" y1="204.9" x2="278.0" y2="204.9" stroke="#111827"/>
+<text x="270.0" y="217.0" text-anchor="middle" font-family="Arial" font-size="11">1.08</text>
+<text x="270.0" y="392.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">decode</text>
+<text x="270.0" y="406.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">gap4 chunk1 madvise off</text>
+<rect x="368.3" y="177.1" width="70.0" height="192.9" rx="3" fill="#f59e0b"/>
+<line x1="403.3" y1="152.6" x2="403.3" y2="177.1" stroke="#111827"/>
+<line x1="395.3" y1="152.6" x2="411.3" y2="152.6" stroke="#111827"/>
+<text x="403.3" y="171.1" text-anchor="middle" font-family="Arial" font-size="11">1.42</text>
+<text x="403.3" y="392.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">decode</text>
+<text x="403.3" y="406.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">no prewarm madvise on</text>
+<rect x="501.7" y="85.9" width="70.0" height="284.1" rx="3" fill="#ef4444"/>
+<line x1="536.7" y1="60.0" x2="536.7" y2="85.9" stroke="#111827"/>
+<line x1="528.7" y1="60.0" x2="544.7" y2="60.0" stroke="#111827"/>
+<text x="536.7" y="79.9" text-anchor="middle" font-family="Arial" font-size="11">2.09</text>
+<text x="536.7" y="392.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">prefill</text>
+<text x="536.7" y="406.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">best gap4 chunk1 madvise on</text>
+<rect x="635.0" y="150.0" width="70.0" height="220.0" rx="3" fill="#8b5cf6"/>
+<line x1="670.0" y1="104.8" x2="670.0" y2="150.0" stroke="#111827"/>
+<line x1="662.0" y1="104.8" x2="678.0" y2="104.8" stroke="#111827"/>
+<text x="670.0" y="144.0" text-anchor="middle" font-family="Arial" font-size="11">1.62</text>
+<text x="670.0" y="392.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">prefill</text>
+<text x="670.0" y="406.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">gap4 chunk1 madvise off</text>
+<rect x="768.3" y="92.9" width="70.0" height="277.1" rx="3" fill="#14b8a6"/>
+<line x1="803.3" y1="60.0" x2="803.3" y2="92.9" stroke="#111827"/>
+<line x1="795.3" y1="60.0" x2="811.3" y2="60.0" stroke="#111827"/>
+<text x="803.3" y="86.9" text-anchor="middle" font-family="Arial" font-size="11">2.04</text>
+<text x="803.3" y="392.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">prefill</text>
+<text x="803.3" y="406.0" text-anchor="middle" font-family="Arial" font-size="10" fill="#374151">no prewarm madvise on</text>
+<text x="870" y="502" text-anchor="end" font-family="Arial" font-size="11" fill="#6b7280">Higher is better</text>
+</svg>

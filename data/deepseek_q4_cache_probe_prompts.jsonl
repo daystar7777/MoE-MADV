@@ -1,0 +1,16 @@
+{"id":"plain_short","category":"plain","prompt":"Answer in one short sentence: what is flash memory?"}
+{"id":"plain_explain","category":"plain","prompt":"Explain why operating system page cache can be faster than an application-level cache for model weights."}
+{"id":"json_smoke","category":"json","prompt":"Return JSON only with fields task, status, tokens, and notes for a local Q4 model smoke test."}
+{"id":"json_schema","category":"json","prompt":"Create a compact JSON object describing benchmark results for prompt_tps, generation_tps, cache_budget_gib, and status."}
+{"id":"python_fix","category":"coding","prompt":"Fix this Python function and add two tests: def normalize(xs): return [x / sum(xs) for x in xs]"}
+{"id":"typescript_async","category":"coding","prompt":"Review this TypeScript async cache implementation for race conditions, stale data, and cancellation bugs."}
+{"id":"rust_iterator","category":"coding","prompt":"Implement a Rust iterator that yields fixed-size chunks and handles the final partial chunk without allocation."}
+{"id":"sql_migration","category":"coding","prompt":"Review this PostgreSQL migration for locking risks, missing indexes, rollback safety, and query-plan regressions."}
+{"id":"debug_trace","category":"coding","prompt":"Given a stack trace from a llama.cpp MoE runtime, identify why CPU repacking caused memory pressure and propose a fix."}
+{"id":"korean_plain","category":"korean","prompt":"운영체제 페이지 캐시와 애플리케이션 캐시의 차이를 짧게 설명해줘."}
+{"id":"korean_coding","category":"korean","prompt":"파이썬 코드에서 비동기 캐시 갱신 버그를 찾아서 수정 방향을 제안해줘."}
+{"id":"math_reasoning","category":"reasoning","prompt":"A cache has 64 GiB RAM, leaves 13 GiB free, and each expert is 12.75 MiB. Estimate how many expert entries fit."}
+{"id":"moe_prefetch","category":"moe","prompt":"Analyze whether speculative expert prefetch can improve MoE inference when SSD DMA and GPU compute share unified memory."}
+{"id":"deepseek_arch","category":"moe","prompt":"Summarize DeepSeek V4 Flash routing, FP4 expert weights, compressed attention, and why expert loading is the bottleneck."}
+{"id":"summarize_paper","category":"research","prompt":"Summarize a paper about activation-aware expert offloading and list what would transfer to a local Mac runtime."}
+{"id":"creative_design","category":"creative","prompt":"Design a playful but practical benchmark dashboard for local MoE inference experiments."}

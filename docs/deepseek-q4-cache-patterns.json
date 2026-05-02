@@ -1,0 +1,8392 @@
+{
+  "format": "deepseek-q4-cache-patterns-v1",
+  "model": "/Users/storysq/Documents/New project/deepseek-v4-experiments/models/lovedheart-deepseek-v4-flash-gguf/DeepSeek-V4-Flash-MXFP4_MOE.gguf",
+  "prompt_file": "data/deepseek_q4_cache_probe_prompts.jsonl",
+  "prompt_count": 16,
+  "token_count": 366,
+  "expert_count": 256,
+  "hash_layers": [
+    0,
+    1,
+    2
+  ],
+  "routed_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42
+  ],
+  "top_k": 16,
+  "expert_bytes_by_layer": {
+    "0": 10813440,
+    "1": 10813440,
+    "2": 10813440,
+    "3": 10813440,
+    "4": 10813440,
+    "5": 10813440,
+    "6": 10813440,
+    "7": 10813440,
+    "8": 10813440,
+    "9": 10813440,
+    "10": 13369344,
+    "11": 13369344,
+    "12": 13369344,
+    "13": 13369344,
+    "14": 13369344,
+    "15": 13369344,
+    "16": 13369344,
+    "17": 13369344,
+    "18": 13369344,
+    "19": 13369344,
+    "20": 13369344,
+    "21": 13369344,
+    "22": 13369344,
+    "23": 13369344,
+    "24": 13369344,
+    "25": 13369344,
+    "26": 13369344,
+    "27": 13369344,
+    "28": 13369344,
+    "29": 13369344,
+    "30": 13369344,
+    "31": 13369344,
+    "32": 13369344,
+    "33": 13369344,
+    "34": 13369344,
+    "35": 13369344,
+    "36": 13369344,
+    "37": 13369344,
+    "38": 13369344,
+    "39": 13369344,
+    "40": 13369344,
+    "41": 13369344,
+    "42": 14680064
+  },
+  "global_hash_summary": {
+    "0": {
+      "coverage_by_global_top_k": 0.18032786885245902,
+      "top_experts": [
+        {
+          "expert": 106,
+          "count": 33.0
+        },
+        {
+          "expert": 29,
+          "count": 32.0
+        },
+        {
+          "expert": 174,
+          "count": 28.0
+        },
+        {
+          "expert": 132,
+          "count": 27.0
+        },
+        {
+          "expert": 52,
+          "count": 27.0
+        },
+        {
+          "expert": 74,
+          "count": 27.0
+        },
+        {
+          "expert": 85,
+          "count": 25.0
+        },
+        {
+          "expert": 62,
+          "count": 24.0
+        },
+        {
+          "expert": 55,
+          "count": 24.0
+        },
+        {
+          "expert": 213,
+          "count": 24.0
+        },
+        {
+          "expert": 77,
+          "count": 22.0
+        },
+        {
+          "expert": 79,
+          "count": 21.0
+        },
+        {
+          "expert": 42,
+          "count": 21.0
+        },
+        {
+          "expert": 107,
+          "count": 21.0
+        },
+        {
+          "expert": 24,
+          "count": 20.0
+        },
+        {
+          "expert": 218,
+          "count": 20.0
+        }
+      ]
+    },
+    "1": {
+      "coverage_by_global_top_k": 0.18351548269581056,
+      "top_experts": [
+        {
+          "expert": 210,
+          "count": 35.0
+        },
+        {
+          "expert": 155,
+          "count": 35.0
+        },
+        {
+          "expert": 114,
+          "count": 27.0
+        },
+        {
+          "expert": 104,
+          "count": 27.0
+        },
+        {
+          "expert": 36,
+          "count": 26.0
+        },
+        {
+          "expert": 38,
+          "count": 26.0
+        },
+        {
+          "expert": 25,
+          "count": 25.0
+        },
+        {
+          "expert": 32,
+          "count": 24.0
+        },
+        {
+          "expert": 82,
+          "count": 23.0
+        },
+        {
+          "expert": 77,
+          "count": 23.0
+        },
+        {
+          "expert": 86,
+          "count": 23.0
+        },
+        {
+          "expert": 229,
+          "count": 23.0
+        },
+        {
+          "expert": 151,
+          "count": 22.0
+        },
+        {
+          "expert": 0,
+          "count": 22.0
+        },
+        {
+          "expert": 76,
+          "count": 21.0
+        },
+        {
+          "expert": 75,
+          "count": 21.0
+        }
+      ]
+    },
+    "2": {
+      "coverage_by_global_top_k": 0.16848816029143898,
+      "top_experts": [
+        {
+          "expert": 39,
+          "count": 30.0
+        },
+        {
+          "expert": 239,
+          "count": 29.0
+        },
+        {
+          "expert": 146,
+          "count": 28.0
+        },
+        {
+          "expert": 74,
+          "count": 27.0
+        },
+        {
+          "expert": 40,
+          "count": 26.0
+        },
+        {
+          "expert": 174,
+          "count": 25.0
+        },
+        {
+          "expert": 128,
+          "count": 24.0
+        },
+        {
+          "expert": 20,
+          "count": 22.0
+        },
+        {
+          "expert": 77,
+          "count": 22.0
+        },
+        {
+          "expert": 37,
+          "count": 22.0
+        },
+        {
+          "expert": 141,
+          "count": 20.0
+        },
+        {
+          "expert": 159,
+          "count": 20.0
+        },
+        {
+          "expert": 115,
+          "count": 19.0
+        },
+        {
+          "expert": 125,
+          "count": 19.0
+        },
+        {
+          "expert": 26,
+          "count": 19.0
+        },
+        {
+          "expert": 210,
+          "count": 18.0
+        }
+      ]
+    }
+  },
+  "category_hash_summary": {
+    "coding": {
+      "0": {
+        "coverage_by_global_top_k": 0.20336391437308868,
+        "top_experts": [
+          {
+            "expert": 42,
+            "count": 11.0
+          },
+          {
+            "expert": 106,
+            "count": 11.0
+          },
+          {
+            "expert": 29,
+            "count": 11.0
+          },
+          {
+            "expert": 218,
+            "count": 10.0
+          },
+          {
+            "expert": 74,
+            "count": 10.0
+          },
+          {
+            "expert": 55,
+            "count": 9.0
+          },
+          {
+            "expert": 213,
+            "count": 9.0
+          },
+          {
+            "expert": 56,
+            "count": 8.0
+          },
+          {
+            "expert": 201,
+            "count": 8.0
+          },
+          {
+            "expert": 24,
+            "count": 8.0
+          },
+          {
+            "expert": 174,
+            "count": 8.0
+          },
+          {
+            "expert": 4,
+            "count": 8.0
+          },
+          {
+            "expert": 52,
+            "count": 8.0
+          },
+          {
+            "expert": 132,
+            "count": 8.0
+          },
+          {
+            "expert": 62,
+            "count": 8.0
+          },
+          {
+            "expert": 236,
+            "count": 7.0
+          }
+        ]
+      },
+      "1": {
+        "coverage_by_global_top_k": 0.1834862385321101,
+        "top_experts": [
+          {
+            "expert": 155,
+            "count": 11.0
+          },
+          {
+            "expert": 36,
+            "count": 10.0
+          },
+          {
+            "expert": 75,
+            "count": 10.0
+          },
+          {
+            "expert": 44,
+            "count": 9.0
+          },
+          {
+            "expert": 104,
+            "count": 9.0
+          },
+          {
+            "expert": 38,
+            "count": 9.0
+          },
+          {
+            "expert": 114,
+            "count": 8.0
+          },
+          {
+            "expert": 210,
+            "count": 8.0
+          },
+          {
+            "expert": 32,
+            "count": 8.0
+          },
+          {
+            "expert": 229,
+            "count": 8.0
+          },
+          {
+            "expert": 232,
+            "count": 7.0
+          },
+          {
+            "expert": 19,
+            "count": 7.0
+          },
+          {
+            "expert": 161,
+            "count": 7.0
+          },
+          {
+            "expert": 25,
+            "count": 7.0
+          },
+          {
+            "expert": 82,
+            "count": 7.0
+          },
+          {
+            "expert": 86,
+            "count": 7.0
+          }
+        ]
+      },
+      "2": {
+        "coverage_by_global_top_k": 0.18807339449541285,
+        "top_experts": [
+          {
+            "expert": 239,
+            "count": 12.0
+          },
+          {
+            "expert": 20,
+            "count": 11.0
+          },
+          {
+            "expert": 39,
+            "count": 10.0
+          },
+          {
+            "expert": 37,
+            "count": 10.0
+          },
+          {
+            "expert": 174,
+            "count": 10.0
+          },
+          {
+            "expert": 74,
+            "count": 9.0
+          },
+          {
+            "expert": 185,
+            "count": 8.0
+          },
+          {
+            "expert": 12,
+            "count": 8.0
+          },
+          {
+            "expert": 59,
+            "count": 7.0
+          },
+          {
+            "expert": 115,
+            "count": 7.0
+          },
+          {
+            "expert": 77,
+            "count": 7.0
+          },
+          {
+            "expert": 125,
+            "count": 7.0
+          },
+          {
+            "expert": 233,
+            "count": 6.0
+          },
+          {
+            "expert": 49,
+            "count": 6.0
+          },
+          {
+            "expert": 2,
+            "count": 6.0
+          },
+          {
+            "expert": 203,
+            "count": 6.0
+          }
+        ]
+      }
+    },
+    "creative": {
+      "0": {
+        "coverage_by_global_top_k": 0.15476190476190477,
+        "top_experts": [
+          {
+            "expert": 216,
+            "count": 2.0
+          },
+          {
+            "expert": 198,
+            "count": 2.0
+          },
+          {
+            "expert": 169,
+            "count": 2.0
+          },
+          {
+            "expert": 156,
+            "count": 2.0
+          },
+          {
+            "expert": 113,
+            "count": 2.0
+          },
+          {
+            "expert": 144,
+            "count": 2.0
+          },
+          {
+            "expert": 101,
+            "count": 2.0
+          },
+          {
+            "expert": 56,
+            "count": 2.0
+          },
+          {
+            "expert": 174,
+            "count": 2.0
+          },
+          {
+            "expert": 184,
+            "count": 1.0
+          },
+          {
+            "expert": 167,
+            "count": 1.0
+          },
+          {
+            "expert": 128,
+            "count": 1.0
+          },
+          {
+            "expert": 19,
+            "count": 1.0
+          },
+          {
+            "expert": 14,
+            "count": 1.0
+          },
+          {
+            "expert": 150,
+            "count": 1.0
+          },
+          {
+            "expert": 120,
+            "count": 1.0
+          }
+        ]
+      },
+      "1": {
+        "coverage_by_global_top_k": 0.16666666666666666,
+        "top_experts": [
+          {
+            "expert": 90,
+            "count": 2.0
+          },
+          {
+            "expert": 235,
+            "count": 2.0
+          },
+          {
+            "expert": 154,
+            "count": 2.0
+          },
+          {
+            "expert": 104,
+            "count": 2.0
+          },
+          {
+            "expert": 34,
+            "count": 2.0
+          },
+          {
+            "expert": 247,
+            "count": 2.0
+          },
+          {
+            "expert": 3,
+            "count": 2.0
+          },
+          {
+            "expert": 156,
+            "count": 2.0
+          },
+          {
+            "expert": 21,
+            "count": 2.0
+          },
+          {
+            "expert": 32,
+            "count": 2.0
+          },
+          {
+            "expert": 84,
+            "count": 1.0
+          },
+          {
+            "expert": 141,
+            "count": 1.0
+          },
+          {
+            "expert": 17,
+            "count": 1.0
+          },
+          {
+            "expert": 144,
+            "count": 1.0
+          },
+          {
+            "expert": 146,
+            "count": 1.0
+          },
+          {
+            "expert": 44,
+            "count": 1.0
+          }
+        ]
+      },
+      "2": {
+        "coverage_by_global_top_k": 0.17857142857142858,
+        "top_experts": [
+          {
+            "expert": 159,
+            "count": 3.0
+          },
+          {
+            "expert": 131,
+            "count": 2.0
+          },
+          {
+            "expert": 40,
+            "count": 2.0
+          },
+          {
+            "expert": 24,
+            "count": 2.0
+          },
+          {
+            "expert": 26,
+            "count": 2.0
+          },
+          {
+            "expert": 86,
+            "count": 2.0
+          },
+          {
+            "expert": 214,
+            "count": 2.0
+          },
+          {
+            "expert": 12,
+            "count": 2.0
+          },
+          {
+            "expert": 58,
+            "count": 2.0
+          },
+          {
+            "expert": 182,
+            "count": 2.0
+          },
+          {
+            "expert": 112,
+            "count": 2.0
+          },
+          {
+            "expert": 127,
+            "count": 1.0
+          },
+          {
+            "expert": 11,
+            "count": 1.0
+          },
+          {
+            "expert": 168,
+            "count": 1.0
+          },
+          {
+            "expert": 248,
+            "count": 1.0
+          },
+          {
+            "expert": 59,
+            "count": 1.0
+          }
+        ]
+      }
+    },
+    "json": {
+      "0": {
+        "coverage_by_global_top_k": 0.2881944444444444,
+        "top_experts": [
+          {
+            "expert": 106,
+            "count": 11.0
+          },
+          {
+            "expert": 74,
+            "count": 10.0
+          },
+          {
+            "expert": 29,
+            "count": 9.0
+          },
+          {
+            "expert": 62,
+            "count": 8.0
+          },
+          {
+            "expert": 132,
+            "count": 7.0
+          },
+          {
+            "expert": 85,
+            "count": 6.0
+          },
+          {
+            "expert": 107,
+            "count": 6.0
+          },
+          {
+            "expert": 174,
+            "count": 5.0
+          },
+          {
+            "expert": 99,
+            "count": 4.0
+          },
+          {
+            "expert": 15,
+            "count": 4.0
+          },
+          {
+            "expert": 83,
+            "count": 4.0
+          },
+          {
+            "expert": 13,
+            "count": 4.0
+          },
+          {
+            "expert": 242,
+            "count": 4.0
+          },
+          {
+            "expert": 168,
+            "count": 4.0
+          },
+          {
+            "expert": 14,
+            "count": 4.0
+          },
+          {
+            "expert": 156,
+            "count": 4.0
+          }
+        ]
+      },
+      "1": {
+        "coverage_by_global_top_k": 0.2708333333333333,
+        "top_experts": [
+          {
+            "expert": 155,
+            "count": 11.0
+          },
+          {
+            "expert": 210,
+            "count": 10.0
+          },
+          {
+            "expert": 114,
+            "count": 7.0
+          },
+          {
+            "expert": 36,
+            "count": 7.0
+          },
+          {
+            "expert": 229,
+            "count": 6.0
+          },
+          {
+            "expert": 86,
+            "count": 6.0
+          },
+          {
+            "expert": 72,
+            "count": 5.0
+          },
+          {
+            "expert": 19,
+            "count": 5.0
+          },
+          {
+            "expert": 38,
+            "count": 5.0
+          },
+          {
+            "expert": 176,
+            "count": 4.0
+          },
+          {
+            "expert": 137,
+            "count": 4.0
+          },
+          {
+            "expert": 1,
+            "count": 4.0
+          },
+          {
+            "expert": 75,
+            "count": 4.0
+          },
+          {
+            "expert": 182,
+            "count": 4.0
+          },
+          {
+            "expert": 0,
+            "count": 4.0
+          },
+          {
+            "expert": 165,
+            "count": 3.0
+          }
+        ]
+      },
+      "2": {
+        "coverage_by_global_top_k": 0.24305555555555555,
+        "top_experts": [
+          {
+            "expert": 77,
+            "count": 7.0
+          },
+          {
+            "expert": 20,
+            "count": 6.0
+          },
+          {
+            "expert": 174,
+            "count": 6.0
+          },
+          {
+            "expert": 74,
+            "count": 6.0
+          },
+          {
+            "expert": 125,
+            "count": 6.0
+          },
+          {
+            "expert": 141,
+            "count": 6.0
+          },
+          {
+            "expert": 128,
+            "count": 6.0
+          },
+          {
+            "expert": 15,
+            "count": 5.0
+          },
+          {
+            "expert": 12,
+            "count": 5.0
+          },
+          {
+            "expert": 39,
+            "count": 5.0
+          },
+          {
+            "expert": 17,
+            "count": 4.0
+          },
+          {
+            "expert": 233,
+            "count": 4.0
+          },
+          {
+            "expert": 48,
+            "count": 4.0
+          },
+          {
+            "expert": 210,
+            "count": 4.0
+          },
+          {
+            "expert": 203,
+            "count": 3.0
+          },
+          {
+            "expert": 114,
+            "count": 3.0
+          }
+        ]
+      }
+    },
+    "korean": {
+      "0": {
+        "coverage_by_global_top_k": 0.082010582010582,
+        "top_experts": [
+          {
+            "expert": 76,
+            "count": 8.0
+          },
+          {
+            "expert": 119,
+            "count": 7.0
+          },
+          {
+            "expert": 145,
+            "count": 7.0
+          },
+          {
+            "expert": 69,
+            "count": 6.0
+          },
+          {
+            "expert": 224,
+            "count": 6.0
+          },
+          {
+            "expert": 214,
+            "count": 5.0
+          },
+          {
+            "expert": 41,
+            "count": 5.0
+          },
+          {
+            "expert": 217,
+            "count": 5.0
+          },
+          {
+            "expert": 52,
+            "count": 5.0
+          },
+          {
+            "expert": 22,
+            "count": 5.0
+          },
+          {
+            "expert": 85,
+            "count": 5.0
+          },
+          {
+            "expert": 5,
+            "count": 4.0
+          },
+          {
+            "expert": 84,
+            "count": 4.0
+          },
+          {
+            "expert": 146,
+            "count": 4.0
+          },
+          {
+            "expert": 53,
+            "count": 4.0
+          },
+          {
+            "expert": 201,
+            "count": 4.0
+          }
+        ]
+      },
+      "1": {
+        "coverage_by_global_top_k": 0.11375661375661375,
+        "top_experts": [
+          {
+            "expert": 210,
+            "count": 7.0
+          },
+          {
+            "expert": 45,
+            "count": 6.0
+          },
+          {
+            "expert": 39,
+            "count": 5.0
+          },
+          {
+            "expert": 179,
+            "count": 5.0
+          },
+          {
+            "expert": 38,
+            "count": 5.0
+          },
+          {
+            "expert": 190,
+            "count": 5.0
+          },
+          {
+            "expert": 14,
+            "count": 5.0
+          },
+          {
+            "expert": 121,
+            "count": 5.0
+          },
+          {
+            "expert": 52,
+            "count": 4.0
+          },
+          {
+            "expert": 127,
+            "count": 4.0
+          },
+          {
+            "expert": 223,
+            "count": 4.0
+          },
+          {
+            "expert": 9,
+            "count": 4.0
+          },
+          {
+            "expert": 61,
+            "count": 4.0
+          },
+          {
+            "expert": 146,
+            "count": 4.0
+          },
+          {
+            "expert": 104,
+            "count": 4.0
+          },
+          {
+            "expert": 160,
+            "count": 4.0
+          }
+        ]
+      },
+      "2": {
+        "coverage_by_global_top_k": 0.10846560846560846,
+        "top_experts": [
+          {
+            "expert": 224,
+            "count": 8.0
+          },
+          {
+            "expert": 239,
+            "count": 6.0
+          },
+          {
+            "expert": 245,
+            "count": 6.0
+          },
+          {
+            "expert": 194,
+            "count": 5.0
+          },
+          {
+            "expert": 40,
+            "count": 5.0
+          },
+          {
+            "expert": 78,
+            "count": 5.0
+          },
+          {
+            "expert": 91,
+            "count": 5.0
+          },
+          {
+            "expert": 26,
+            "count": 5.0
+          },
+          {
+            "expert": 43,
+            "count": 5.0
+          },
+          {
+            "expert": 131,
+            "count": 5.0
+          },
+          {
+            "expert": 248,
+            "count": 5.0
+          },
+          {
+            "expert": 107,
+            "count": 4.0
+          },
+          {
+            "expert": 169,
+            "count": 4.0
+          },
+          {
+            "expert": 56,
+            "count": 4.0
+          },
+          {
+            "expert": 74,
+            "count": 4.0
+          },
+          {
+            "expert": 44,
+            "count": 4.0
+          }
+        ]
+      }
+    },
+    "moe": {
+      "0": {
+        "coverage_by_global_top_k": 0.1875,
+        "top_experts": [
+          {
+            "expert": 69,
+            "count": 5.0
+          },
+          {
+            "expert": 1,
+            "count": 5.0
+          },
+          {
+            "expert": 218,
+            "count": 5.0
+          },
+          {
+            "expert": 174,
+            "count": 5.0
+          },
+          {
+            "expert": 107,
+            "count": 5.0
+          },
+          {
+            "expert": 182,
+            "count": 5.0
+          },
+          {
+            "expert": 132,
+            "count": 5.0
+          },
+          {
+            "expert": 112,
+            "count": 4.0
+          },
+          {
+            "expert": 74,
+            "count": 4.0
+          },
+          {
+            "expert": 29,
+            "count": 4.0
+          },
+          {
+            "expert": 138,
+            "count": 4.0
+          },
+          {
+            "expert": 144,
+            "count": 4.0
+          },
+          {
+            "expert": 44,
+            "count": 4.0
+          },
+          {
+            "expert": 79,
+            "count": 4.0
+          },
+          {
+            "expert": 106,
+            "count": 4.0
+          },
+          {
+            "expert": 219,
+            "count": 3.0
+          }
+        ]
+      },
+      "1": {
+        "coverage_by_global_top_k": 0.19791666666666666,
+        "top_experts": [
+          {
+            "expert": 192,
+            "count": 5.0
+          },
+          {
+            "expert": 229,
+            "count": 5.0
+          },
+          {
+            "expert": 25,
+            "count": 5.0
+          },
+          {
+            "expert": 43,
+            "count": 5.0
+          },
+          {
+            "expert": 38,
+            "count": 4.0
+          },
+          {
+            "expert": 201,
+            "count": 4.0
+          },
+          {
+            "expert": 77,
+            "count": 4.0
+          },
+          {
+            "expert": 76,
+            "count": 4.0
+          },
+          {
+            "expert": 66,
+            "count": 4.0
+          },
+          {
+            "expert": 210,
+            "count": 4.0
+          },
+          {
+            "expert": 151,
+            "count": 4.0
+          },
+          {
+            "expert": 91,
+            "count": 4.0
+          },
+          {
+            "expert": 172,
+            "count": 4.0
+          },
+          {
+            "expert": 15,
+            "count": 4.0
+          },
+          {
+            "expert": 155,
+            "count": 4.0
+          },
+          {
+            "expert": 36,
+            "count": 4.0
+          }
+        ]
+      },
+      "2": {
+        "coverage_by_global_top_k": 0.1527777777777778,
+        "top_experts": [
+          {
+            "expert": 146,
+            "count": 5.0
+          },
+          {
+            "expert": 223,
+            "count": 5.0
+          },
+          {
+            "expert": 37,
+            "count": 4.0
+          },
+          {
+            "expert": 237,
+            "count": 4.0
+          },
+          {
+            "expert": 40,
+            "count": 4.0
+          },
+          {
+            "expert": 247,
+            "count": 4.0
+          },
+          {
+            "expert": 174,
+            "count": 4.0
+          },
+          {
+            "expert": 39,
+            "count": 4.0
+          },
+          {
+            "expert": 141,
+            "count": 4.0
+          },
+          {
+            "expert": 84,
+            "count": 4.0
+          },
+          {
+            "expert": 224,
+            "count": 3.0
+          },
+          {
+            "expert": 69,
+            "count": 3.0
+          },
+          {
+            "expert": 208,
+            "count": 3.0
+          },
+          {
+            "expert": 68,
+            "count": 3.0
+          },
+          {
+            "expert": 21,
+            "count": 3.0
+          },
+          {
+            "expert": 61,
+            "count": 3.0
+          }
+        ]
+      }
+    },
+    "plain": {
+      "0": {
+        "coverage_by_global_top_k": 0.13793103448275862,
+        "top_experts": [
+          {
+            "expert": 85,
+            "count": 4.0
+          },
+          {
+            "expert": 108,
+            "count": 3.0
+          },
+          {
+            "expert": 52,
+            "count": 3.0
+          },
+          {
+            "expert": 23,
+            "count": 3.0
+          },
+          {
+            "expert": 193,
+            "count": 3.0
+          },
+          {
+            "expert": 28,
+            "count": 3.0
+          },
+          {
+            "expert": 167,
+            "count": 2.0
+          },
+          {
+            "expert": 203,
+            "count": 2.0
+          },
+          {
+            "expert": 217,
+            "count": 2.0
+          },
+          {
+            "expert": 132,
+            "count": 2.0
+          },
+          {
+            "expert": 156,
+            "count": 2.0
+          },
+          {
+            "expert": 146,
+            "count": 2.0
+          },
+          {
+            "expert": 149,
+            "count": 2.0
+          },
+          {
+            "expert": 144,
+            "count": 2.0
+          },
+          {
+            "expert": 135,
+            "count": 2.0
+          },
+          {
+            "expert": 29,
+            "count": 2.0
+          }
+        ]
+      },
+      "1": {
+        "coverage_by_global_top_k": 0.16666666666666666,
+        "top_experts": [
+          {
+            "expert": 77,
+            "count": 5.0
+          },
+          {
+            "expert": 139,
+            "count": 4.0
+          },
+          {
+            "expert": 127,
+            "count": 4.0
+          },
+          {
+            "expert": 69,
+            "count": 3.0
+          },
+          {
+            "expert": 57,
+            "count": 3.0
+          },
+          {
+            "expert": 210,
+            "count": 3.0
+          },
+          {
+            "expert": 76,
+            "count": 3.0
+          },
+          {
+            "expert": 155,
+            "count": 3.0
+          },
+          {
+            "expert": 181,
+            "count": 2.0
+          },
+          {
+            "expert": 58,
+            "count": 2.0
+          },
+          {
+            "expert": 118,
+            "count": 2.0
+          },
+          {
+            "expert": 140,
+            "count": 2.0
+          },
+          {
+            "expert": 146,
+            "count": 2.0
+          },
+          {
+            "expert": 206,
+            "count": 2.0
+          },
+          {
+            "expert": 130,
+            "count": 2.0
+          },
+          {
+            "expert": 54,
+            "count": 2.0
+          }
+        ]
+      },
+      "2": {
+        "coverage_by_global_top_k": 0.08045977011494253,
+        "top_experts": [
+          {
+            "expert": 120,
+            "count": 4.0
+          },
+          {
+            "expert": 146,
+            "count": 4.0
+          },
+          {
+            "expert": 238,
+            "count": 4.0
+          },
+          {
+            "expert": 233,
+            "count": 3.0
+          },
+          {
+            "expert": 173,
+            "count": 3.0
+          },
+          {
+            "expert": 117,
+            "count": 3.0
+          },
+          {
+            "expert": 178,
+            "count": 3.0
+          },
+          {
+            "expert": 76,
+            "count": 3.0
+          },
+          {
+            "expert": 7,
+            "count": 3.0
+          },
+          {
+            "expert": 53,
+            "count": 3.0
+          },
+          {
+            "expert": 121,
+            "count": 3.0
+          },
+          {
+            "expert": 210,
+            "count": 3.0
+          },
+          {
+            "expert": 220,
+            "count": 3.0
+          },
+          {
+            "expert": 48,
+            "count": 3.0
+          },
+          {
+            "expert": 135,
+            "count": 2.0
+          },
+          {
+            "expert": 209,
+            "count": 2.0
+          }
+        ]
+      }
+    },
+    "reasoning": {
+      "0": {
+        "coverage_by_global_top_k": 0.20098039215686275,
+        "top_experts": [
+          {
+            "expert": 153,
+            "count": 7.0
+          },
+          {
+            "expert": 44,
+            "count": 6.0
+          },
+          {
+            "expert": 182,
+            "count": 5.0
+          },
+          {
+            "expert": 6,
+            "count": 5.0
+          },
+          {
+            "expert": 52,
+            "count": 4.0
+          },
+          {
+            "expert": 132,
+            "count": 4.0
+          },
+          {
+            "expert": 79,
+            "count": 4.0
+          },
+          {
+            "expert": 19,
+            "count": 3.0
+          },
+          {
+            "expert": 216,
+            "count": 3.0
+          },
+          {
+            "expert": 63,
+            "count": 3.0
+          },
+          {
+            "expert": 0,
+            "count": 3.0
+          },
+          {
+            "expert": 115,
+            "count": 3.0
+          },
+          {
+            "expert": 214,
+            "count": 3.0
+          },
+          {
+            "expert": 96,
+            "count": 3.0
+          },
+          {
+            "expert": 172,
+            "count": 3.0
+          },
+          {
+            "expert": 82,
+            "count": 3.0
+          }
+        ]
+      },
+      "1": {
+        "coverage_by_global_top_k": 0.21568627450980393,
+        "top_experts": [
+          {
+            "expert": 201,
+            "count": 4.0
+          },
+          {
+            "expert": 135,
+            "count": 4.0
+          },
+          {
+            "expert": 19,
+            "count": 4.0
+          },
+          {
+            "expert": 66,
+            "count": 4.0
+          },
+          {
+            "expert": 228,
+            "count": 4.0
+          },
+          {
+            "expert": 59,
+            "count": 4.0
+          },
+          {
+            "expert": 82,
+            "count": 4.0
+          },
+          {
+            "expert": 76,
+            "count": 4.0
+          },
+          {
+            "expert": 25,
+            "count": 4.0
+          },
+          {
+            "expert": 32,
+            "count": 4.0
+          },
+          {
+            "expert": 100,
+            "count": 3.0
+          },
+          {
+            "expert": 155,
+            "count": 3.0
+          },
+          {
+            "expert": 77,
+            "count": 3.0
+          },
+          {
+            "expert": 243,
+            "count": 3.0
+          },
+          {
+            "expert": 237,
+            "count": 3.0
+          },
+          {
+            "expert": 176,
+            "count": 3.0
+          }
+        ]
+      },
+      "2": {
+        "coverage_by_global_top_k": 0.19117647058823528,
+        "top_experts": [
+          {
+            "expert": 32,
+            "count": 7.0
+          },
+          {
+            "expert": 61,
+            "count": 5.0
+          },
+          {
+            "expert": 162,
+            "count": 5.0
+          },
+          {
+            "expert": 39,
+            "count": 5.0
+          },
+          {
+            "expert": 48,
+            "count": 4.0
+          },
+          {
+            "expert": 63,
+            "count": 4.0
+          },
+          {
+            "expert": 11,
+            "count": 4.0
+          },
+          {
+            "expert": 7,
+            "count": 4.0
+          },
+          {
+            "expert": 239,
+            "count": 4.0
+          },
+          {
+            "expert": 21,
+            "count": 4.0
+          },
+          {
+            "expert": 146,
+            "count": 4.0
+          },
+          {
+            "expert": 40,
+            "count": 3.0
+          },
+          {
+            "expert": 68,
+            "count": 3.0
+          },
+          {
+            "expert": 51,
+            "count": 3.0
+          },
+          {
+            "expert": 81,
+            "count": 3.0
+          },
+          {
+            "expert": 53,
+            "count": 3.0
+          }
+        ]
+      }
+    },
+    "research": {
+      "0": {
+        "coverage_by_global_top_k": 0.1349206349206349,
+        "top_experts": [
+          {
+            "expert": 138,
+            "count": 3.0
+          },
+          {
+            "expert": 29,
+            "count": 3.0
+          },
+          {
+            "expert": 10,
+            "count": 3.0
+          },
+          {
+            "expert": 73,
+            "count": 2.0
+          },
+          {
+            "expert": 219,
+            "count": 2.0
+          },
+          {
+            "expert": 229,
+            "count": 2.0
+          },
+          {
+            "expert": 235,
+            "count": 2.0
+          },
+          {
+            "expert": 30,
+            "count": 2.0
+          },
+          {
+            "expert": 169,
+            "count": 2.0
+          },
+          {
+            "expert": 14,
+            "count": 2.0
+          },
+          {
+            "expert": 150,
+            "count": 2.0
+          },
+          {
+            "expert": 120,
+            "count": 2.0
+          },
+          {
+            "expert": 156,
+            "count": 2.0
+          },
+          {
+            "expert": 112,
+            "count": 2.0
+          },
+          {
+            "expert": 69,
+            "count": 2.0
+          },
+          {
+            "expert": 11,
+            "count": 2.0
+          }
+        ]
+      },
+      "1": {
+        "coverage_by_global_top_k": 0.14285714285714285,
+        "top_experts": [
+          {
+            "expert": 224,
+            "count": 4.0
+          },
+          {
+            "expert": 104,
+            "count": 4.0
+          },
+          {
+            "expert": 140,
+            "count": 2.0
+          },
+          {
+            "expert": 209,
+            "count": 2.0
+          },
+          {
+            "expert": 92,
+            "count": 2.0
+          },
+          {
+            "expert": 66,
+            "count": 2.0
+          },
+          {
+            "expert": 44,
+            "count": 2.0
+          },
+          {
+            "expert": 117,
+            "count": 2.0
+          },
+          {
+            "expert": 169,
+            "count": 2.0
+          },
+          {
+            "expert": 37,
+            "count": 2.0
+          },
+          {
+            "expert": 195,
+            "count": 2.0
+          },
+          {
+            "expert": 48,
+            "count": 2.0
+          },
+          {
+            "expert": 216,
+            "count": 2.0
+          },
+          {
+            "expert": 132,
+            "count": 2.0
+          },
+          {
+            "expert": 75,
+            "count": 2.0
+          },
+          {
+            "expert": 73,
+            "count": 2.0
+          }
+        ]
+      },
+      "2": {
+        "coverage_by_global_top_k": 0.19047619047619047,
+        "top_experts": [
+          {
+            "expert": 40,
+            "count": 4.0
+          },
+          {
+            "expert": 115,
+            "count": 3.0
+          },
+          {
+            "expert": 26,
+            "count": 3.0
+          },
+          {
+            "expert": 98,
+            "count": 3.0
+          },
+          {
+            "expert": 108,
+            "count": 3.0
+          },
+          {
+            "expert": 61,
+            "count": 3.0
+          },
+          {
+            "expert": 55,
+            "count": 3.0
+          },
+          {
+            "expert": 185,
+            "count": 2.0
+          },
+          {
+            "expert": 247,
+            "count": 2.0
+          },
+          {
+            "expert": 59,
+            "count": 2.0
+          },
+          {
+            "expert": 24,
+            "count": 2.0
+          },
+          {
+            "expert": 210,
+            "count": 2.0
+          },
+          {
+            "expert": 128,
+            "count": 2.0
+          },
+          {
+            "expert": 74,
+            "count": 2.0
+          },
+          {
+            "expert": 10,
+            "count": 2.0
+          },
+          {
+            "expert": 231,
+            "count": 2.0
+          }
+        ]
+      }
+    }
+  },
+  "category_pairwise_overlap": [
+    {
+      "left": "coding",
+      "right": "creative",
+      "avg_hash_layer_jaccard": 0.07892720306513411,
+      "min_hash_layer_jaccard": 0.06666666666666667
+    },
+    {
+      "left": "coding",
+      "right": "json",
+      "avg_hash_layer_jaccard": 0.3377926421404682,
+      "min_hash_layer_jaccard": 0.23076923076923078
+    },
+    {
+      "left": "coding",
+      "right": "korean",
+      "avg_hash_layer_jaccard": 0.07892720306513411,
+      "min_hash_layer_jaccard": 0.06666666666666667
+    },
+    {
+      "left": "coding",
+      "right": "moe",
+      "avg_hash_layer_jaccard": 0.1883289124668435,
+      "min_hash_layer_jaccard": 0.10344827586206896
+    },
+    {
+      "left": "coding",
+      "right": "plain",
+      "avg_hash_layer_jaccard": 0.06745766901495488,
+      "min_hash_layer_jaccard": 0.03225806451612903
+    },
+    {
+      "left": "coding",
+      "right": "reasoning",
+      "avg_hash_layer_jaccard": 0.10617283950617284,
+      "min_hash_layer_jaccard": 0.06666666666666667
+    },
+    {
+      "left": "coding",
+      "right": "research",
+      "avg_hash_layer_jaccard": 0.09285449441178029,
+      "min_hash_layer_jaccard": 0.03225806451612903
+    },
+    {
+      "left": "creative",
+      "right": "json",
+      "avg_hash_layer_jaccard": 0.04523544679273267,
+      "min_hash_layer_jaccard": 0.0
+    },
+    {
+      "left": "creative",
+      "right": "korean",
+      "avg_hash_layer_jaccard": 0.06984126984126983,
+      "min_hash_layer_jaccard": 0.0
+    },
+    {
+      "left": "creative",
+      "right": "moe",
+      "avg_hash_layer_jaccard": 0.032974910394265235,
+      "min_hash_layer_jaccard": 0.0
+    },
+    {
+      "left": "creative",
+      "right": "plain",
+      "avg_hash_layer_jaccard": 0.04523544679273267,
+      "min_hash_layer_jaccard": 0.0
+    },
+    {
+      "left": "creative",
+      "right": "reasoning",
+      "avg_hash_layer_jaccard": 0.055197132616487454,
+      "min_hash_layer_jaccard": 0.03225806451612903
+    },
+    {
+      "left": "creative",
+      "right": "research",
+      "avg_hash_layer_jaccard": 0.13156966490299823,
+      "min_hash_layer_jaccard": 0.06666666666666667
+    },
+    {
+      "left": "json",
+      "right": "korean",
+      "avg_hash_layer_jaccard": 0.043727598566308236,
+      "min_hash_layer_jaccard": 0.03225806451612903
+    },
+    {
+      "left": "json",
+      "right": "moe",
+      "avg_hash_layer_jaccard": 0.17313423060549496,
+      "min_hash_layer_jaccard": 0.10344827586206896
+    },
+    {
+      "left": "json",
+      "right": "plain",
+      "avg_hash_layer_jaccard": 0.1043240284619595,
+      "min_hash_layer_jaccard": 0.06666666666666667
+    },
+    {
+      "left": "json",
+      "right": "reasoning",
+      "avg_hash_layer_jaccard": 0.06745766901495488,
+      "min_hash_layer_jaccard": 0.03225806451612903
+    },
+    {
+      "left": "json",
+      "right": "research",
+      "avg_hash_layer_jaccard": 0.07971820541342232,
+      "min_hash_layer_jaccard": 0.03225806451612903
+    },
+    {
+      "left": "korean",
+      "right": "moe",
+      "avg_hash_layer_jaccard": 0.055197132616487454,
+      "min_hash_layer_jaccard": 0.03225806451612903
+    },
+    {
+      "left": "korean",
+      "right": "plain",
+      "avg_hash_layer_jaccard": 0.08210180623973727,
+      "min_hash_layer_jaccard": 0.0
+    },
+    {
+      "left": "korean",
+      "right": "reasoning",
+      "avg_hash_layer_jaccard": 0.044444444444444446,
+      "min_hash_layer_jaccard": 0.0
+    },
+    {
+      "left": "korean",
+      "right": "research",
+      "avg_hash_layer_jaccard": 0.05598813496477567,
+      "min_hash_layer_jaccard": 0.03225806451612903
+    },
+    {
+      "left": "moe",
+      "right": "plain",
+      "avg_hash_layer_jaccard": 0.09285449441178029,
+      "min_hash_layer_jaccard": 0.03225806451612903
+    },
+    {
+      "left": "moe",
+      "right": "reasoning",
+      "avg_hash_layer_jaccard": 0.2014652014652015,
+      "min_hash_layer_jaccard": 0.14285714285714285
+    },
+    {
+      "left": "moe",
+      "right": "research",
+      "avg_hash_layer_jaccard": 0.10696384185446106,
+      "min_hash_layer_jaccard": 0.03225806451612903
+    },
+    {
+      "left": "plain",
+      "right": "reasoning",
+      "avg_hash_layer_jaccard": 0.1043240284619595,
+      "min_hash_layer_jaccard": 0.06666666666666667
+    },
+    {
+      "left": "plain",
+      "right": "research",
+      "avg_hash_layer_jaccard": 0.043727598566308236,
+      "min_hash_layer_jaccard": 0.03225806451612903
+    },
+    {
+      "left": "reasoning",
+      "right": "research",
+      "avg_hash_layer_jaccard": 0.032974910394265235,
+      "min_hash_layer_jaccard": 0.0
+    }
+  ],
+  "prior_summary": {
+    "3": {
+      "top_experts": [
+        {
+          "expert": 180,
+          "count": 9.018782615661621
+        },
+        {
+          "expert": 216,
+          "count": 9.016631125403809
+        },
+        {
+          "expert": 48,
+          "count": 9.015322683241699
+        },
+        {
+          "expert": 30,
+          "count": 9.013283726553222
+        },
+        {
+          "expert": 251,
+          "count": 9.012206073575683
+        },
+        {
+          "expert": 179,
+          "count": 9.011329645878906
+        },
+        {
+          "expert": 182,
+          "count": 9.010576242168945
+        },
+        {
+          "expert": 203,
+          "count": 9.0105562140083
+        },
+        {
+          "expert": 29,
+          "count": 9.01054572259082
+        },
+        {
+          "expert": 190,
+          "count": 9.009984961092773
+        },
+        {
+          "expert": 219,
+          "count": 9.009583463205566
+        },
+        {
+          "expert": 77,
+          "count": 9.009477604356446
+        },
+        {
+          "expert": 207,
+          "count": 9.009397494713868
+        },
+        {
+          "expert": 157,
+          "count": 9.009383188599122
+        },
+        {
+          "expert": 196,
+          "count": 9.008746133155762
+        },
+        {
+          "expert": 140,
+          "count": 9.008494362136231
+        }
+      ]
+    },
+    "4": {
+      "top_experts": [
+        {
+          "expert": 103,
+          "count": 8.890817642211914
+        },
+        {
+          "expert": 42,
+          "count": 8.890549658729004
+        },
+        {
+          "expert": 155,
+          "count": 8.889281270888183
+        },
+        {
+          "expert": 95,
+          "count": 8.889253613333008
+        },
+        {
+          "expert": 38,
+          "count": 8.888955112271972
+        },
+        {
+          "expert": 137,
+          "count": 8.888954157597656
+        },
+        {
+          "expert": 31,
+          "count": 8.888280862530273
+        },
+        {
+          "expert": 59,
+          "count": 8.88826560274121
+        },
+        {
+          "expert": 240,
+          "count": 8.887749663936034
+        },
+        {
+          "expert": 96,
+          "count": 8.885976782381835
+        },
+        {
+          "expert": 226,
+          "count": 8.885493268503417
+        },
+        {
+          "expert": 216,
+          "count": 8.8852596172959
+        },
+        {
+          "expert": 196,
+          "count": 8.8850736498042
+        },
+        {
+          "expert": 78,
+          "count": 8.88437842022754
+        },
+        {
+          "expert": 109,
+          "count": 8.88358210117334
+        },
+        {
+          "expert": 113,
+          "count": 8.883368477126465
+        }
+      ]
+    },
+    "5": {
+      "top_experts": [
+        {
+          "expert": 235,
+          "count": 8.120386123657227
+        },
+        {
+          "expert": 1,
+          "count": 8.103738783790039
+        },
+        {
+          "expert": 11,
+          "count": 8.100770948317383
+        },
+        {
+          "expert": 34,
+          "count": 8.100627896169922
+        },
+        {
+          "expert": 69,
+          "count": 8.09989833431787
+        },
+        {
+          "expert": 196,
+          "count": 8.099102968937988
+        },
+        {
+          "expert": 248,
+          "count": 8.099078172405761
+        },
+        {
+          "expert": 109,
+          "count": 8.0986328055
+        },
+        {
+          "expert": 215,
+          "count": 8.097798339473144
+        },
+        {
+          "expert": 15,
+          "count": 8.097771635592284
+        },
+        {
+          "expert": 177,
+          "count": 8.09776209784912
+        },
+        {
+          "expert": 36,
+          "count": 8.097700108018556
+        },
+        {
+          "expert": 226,
+          "count": 8.096882808129395
+        },
+        {
+          "expert": 68,
+          "count": 8.096638666504395
+        },
+        {
+          "expert": 73,
+          "count": 8.096630082435547
+        },
+        {
+          "expert": 104,
+          "count": 8.09654997279297
+        }
+      ]
+    },
+    "6": {
+      "top_experts": [
+        {
+          "expert": 7,
+          "count": 8.504828453063965
+        },
+        {
+          "expert": 71,
+          "count": 8.504637717200684
+        },
+        {
+          "expert": 173,
+          "count": 8.504528997328613
+        },
+        {
+          "expert": 72,
+          "count": 8.503944393972656
+        },
+        {
+          "expert": 44,
+          "count": 8.502777095609375
+        },
+        {
+          "expert": 41,
+          "count": 8.501945490605468
+        },
+        {
+          "expert": 163,
+          "count": 8.500768655499023
+        },
+        {
+          "expert": 21,
+          "count": 8.499516480121581
+        },
+        {
+          "expert": 161,
+          "count": 8.499514571772949
+        },
+        {
+          "expert": 108,
+          "count": 8.4995059877041
+        },
+        {
+          "expert": 175,
+          "count": 8.499453534616698
+        },
+        {
+          "expert": 172,
+          "count": 8.498714436021485
+        },
+        {
+          "expert": 122,
+          "count": 8.49781607381543
+        },
+        {
+          "expert": 61,
+          "count": 8.497721659058106
+        },
+        {
+          "expert": 190,
+          "count": 8.497653947181641
+        },
+        {
+          "expert": 236,
+          "count": 8.497633919020997
+        }
+      ]
+    },
+    "7": {
+      "top_experts": [
+        {
+          "expert": 130,
+          "count": 9.065539360046387
+        },
+        {
+          "expert": 141,
+          "count": 9.065415381385254
+        },
+        {
+          "expert": 89,
+          "count": 9.065274236586426
+        },
+        {
+          "expert": 17,
+          "count": 9.064567562917969
+        },
+        {
+          "expert": 150,
+          "count": 9.064464565091797
+        },
+        {
+          "expert": 105,
+          "count": 9.064432139165039
+        },
+        {
+          "expert": 198,
+          "count": 9.064208978375
+        },
+        {
+          "expert": 85,
+          "count": 9.064141266498535
+        },
+        {
+          "expert": 250,
+          "count": 9.063419334041015
+        },
+        {
+          "expert": 215,
+          "count": 9.063330641329589
+        },
+        {
+          "expert": 133,
+          "count": 9.062664021982421
+        },
+        {
+          "expert": 180,
+          "count": 9.06255339476172
+        },
+        {
+          "expert": 46,
+          "count": 9.062448489586915
+        },
+        {
+          "expert": 203,
+          "count": 9.06244467388965
+        },
+        {
+          "expert": 173,
+          "count": 9.062398896522462
+        },
+        {
+          "expert": 34,
+          "count": 9.061643585463868
+        }
+      ]
+    },
+    "8": {
+      "top_experts": [
+        {
+          "expert": 224,
+          "count": 9.739885330200195
+        },
+        {
+          "expert": 29,
+          "count": 9.739575385047363
+        },
+        {
+          "expert": 54,
+          "count": 9.73772144117627
+        },
+        {
+          "expert": 62,
+          "count": 9.737018582205078
+        },
+        {
+          "expert": 154,
+          "count": 9.736767764859863
+        },
+        {
+          "expert": 204,
+          "count": 9.735995287663574
+        },
+        {
+          "expert": 43,
+          "count": 9.735708230694335
+        },
+        {
+          "expert": 108,
+          "count": 9.735408775958984
+        },
+        {
+          "expert": 14,
+          "count": 9.734929076777831
+        },
+        {
+          "expert": 28,
+          "count": 9.733882895052734
+        },
+        {
+          "expert": 232,
+          "count": 9.733744611276855
+        },
+        {
+          "expert": 186,
+          "count": 9.733137119737306
+        },
+        {
+          "expert": 16,
+          "count": 9.732843387047852
+        },
+        {
+          "expert": 117,
+          "count": 9.732087122314942
+        },
+        {
+          "expert": 219,
+          "count": 9.731501565284669
+        },
+        {
+          "expert": 125,
+          "count": 9.73097036769043
+        }
+      ]
+    },
+    "9": {
+      "top_experts": [
+        {
+          "expert": 208,
+          "count": 8.9153470993042
+        },
+        {
+          "expert": 184,
+          "count": 8.905217169715332
+        },
+        {
+          "expert": 103,
+          "count": 8.905166623976562
+        },
+        {
+          "expert": 56,
+          "count": 8.904924389700195
+        },
+        {
+          "expert": 51,
+          "count": 8.904278751187988
+        },
+        {
+          "expert": 55,
+          "count": 8.904237742192382
+        },
+        {
+          "expert": 202,
+          "count": 8.904151910503906
+        },
+        {
+          "expert": 230,
+          "count": 8.904083244953124
+        },
+        {
+          "expert": 222,
+          "count": 8.904079429255859
+        },
+        {
+          "expert": 87,
+          "count": 8.90334414535791
+        },
+        {
+          "expert": 139,
+          "count": 8.903343190683593
+        },
+        {
+          "expert": 22,
+          "count": 8.903332699266114
+        },
+        {
+          "expert": 189,
+          "count": 8.90327547780713
+        },
+        {
+          "expert": 181,
+          "count": 8.903192507141602
+        },
+        {
+          "expert": 204,
+          "count": 8.903069482154786
+        },
+        {
+          "expert": 144,
+          "count": 8.903066620131836
+        }
+      ]
+    },
+    "10": {
+      "top_experts": [
+        {
+          "expert": 209,
+          "count": 8.594207763671875
+        },
+        {
+          "expert": 136,
+          "count": 8.579484938575195
+        },
+        {
+          "expert": 247,
+          "count": 8.57929515638623
+        },
+        {
+          "expert": 218,
+          "count": 8.579052922109863
+        },
+        {
+          "expert": 17,
+          "count": 8.578797336393066
+        },
+        {
+          "expert": 113,
+          "count": 8.578459734685058
+        },
+        {
+          "expert": 224,
+          "count": 8.57837962504248
+        },
+        {
+          "expert": 214,
+          "count": 8.577418320331542
+        },
+        {
+          "expert": 220,
+          "count": 8.577384940730468
+        },
+        {
+          "expert": 159,
+          "count": 8.576807013094726
+        },
+        {
+          "expert": 117,
+          "count": 8.576452245249023
+        },
+        {
+          "expert": 56,
+          "count": 8.576395977464356
+        },
+        {
+          "expert": 55,
+          "count": 8.576204287926759
+        },
+        {
+          "expert": 238,
+          "count": 8.575483309143555
+        },
+        {
+          "expert": 28,
+          "count": 8.575445161170899
+        },
+        {
+          "expert": 4,
+          "count": 8.575379356643067
+        }
+      ]
+    },
+    "11": {
+      "top_experts": [
+        {
+          "expert": 150,
+          "count": 9.10022258758545
+        },
+        {
+          "expert": 146,
+          "count": 9.09834098715918
+        },
+        {
+          "expert": 115,
+          "count": 9.097604749586914
+        },
+        {
+          "expert": 14,
+          "count": 9.097400662283203
+        },
+        {
+          "expert": 73,
+          "count": 9.097322459989257
+        },
+        {
+          "expert": 200,
+          "count": 9.097281450993652
+        },
+        {
+          "expert": 231,
+          "count": 9.09634780283789
+        },
+        {
+          "expert": 114,
+          "count": 9.096328728351562
+        },
+        {
+          "expert": 69,
+          "count": 9.09528636132373
+        },
+        {
+          "expert": 201,
+          "count": 9.095247259676757
+        },
+        {
+          "expert": 57,
+          "count": 9.095237721933593
+        },
+        {
+          "expert": 30,
+          "count": 9.095216740098634
+        },
+        {
+          "expert": 213,
+          "count": 9.094446170250977
+        },
+        {
+          "expert": 206,
+          "count": 9.094340311401856
+        },
+        {
+          "expert": 192,
+          "count": 9.094326958961426
+        },
+        {
+          "expert": 190,
+          "count": 9.094303116103516
+        }
+      ]
+    },
+    "12": {
+      "top_experts": [
+        {
+          "expert": 147,
+          "count": 9.759329795837402
+        },
+        {
+          "expert": 82,
+          "count": 9.751460074378418
+        },
+        {
+          "expert": 226,
+          "count": 9.751423833754394
+        },
+        {
+          "expert": 57,
+          "count": 9.751300808767578
+        },
+        {
+          "expert": 98,
+          "count": 9.74971580105371
+        },
+        {
+          "expert": 28,
+          "count": 9.749483103520507
+        },
+        {
+          "expert": 206,
+          "count": 9.749323838909667
+        },
+        {
+          "expert": 218,
+          "count": 9.747364990863769
+        },
+        {
+          "expert": 113,
+          "count": 9.747341148005859
+        },
+        {
+          "expert": 120,
+          "count": 9.746384611666503
+        },
+        {
+          "expert": 22,
+          "count": 9.746307363046874
+        },
+        {
+          "expert": 75,
+          "count": 9.746095646348634
+        },
+        {
+          "expert": 39,
+          "count": 9.745465266625489
+        },
+        {
+          "expert": 2,
+          "count": 9.745262132996094
+        },
+        {
+          "expert": 169,
+          "count": 9.745253548927247
+        },
+        {
+          "expert": 216,
+          "count": 9.74444578578125
+        }
+      ]
+    },
+    "13": {
+      "top_experts": [
+        {
+          "expert": 196,
+          "count": 10.319965362548828
+        },
+        {
+          "expert": 80,
+          "count": 10.317148207618164
+        },
+        {
+          "expert": 70,
+          "count": 10.316290853407715
+        },
+        {
+          "expert": 209,
+          "count": 10.316247937063476
+        },
+        {
+          "expert": 130,
+          "count": 10.316164966397949
+        },
+        {
+          "expert": 18,
+          "count": 10.316018099553222
+        },
+        {
+          "expert": 202,
+          "count": 10.316003793438476
+        },
+        {
+          "expert": 106,
+          "count": 10.315358154926269
+        },
+        {
+          "expert": 210,
+          "count": 10.315143577205077
+        },
+        {
+          "expert": 187,
+          "count": 10.314827910006347
+        },
+        {
+          "expert": 216,
+          "count": 10.314489354624023
+        },
+        {
+          "expert": 234,
+          "count": 10.313326824632325
+        },
+        {
+          "expert": 163,
+          "count": 10.313284861962403
+        },
+        {
+          "expert": 227,
+          "count": 10.312518106812012
+        },
+        {
+          "expert": 60,
+          "count": 10.31117056400293
+        },
+        {
+          "expert": 37,
+          "count": 10.310248359938965
+        }
+      ]
+    },
+    "14": {
+      "top_experts": [
+        {
+          "expert": 44,
+          "count": 10.378396034240723
+        },
+        {
+          "expert": 34,
+          "count": 10.37743091483252
+        },
+        {
+          "expert": 170,
+          "count": 10.37668514051709
+        },
+        {
+          "expert": 172,
+          "count": 10.376684185842773
+        },
+        {
+          "expert": 77,
+          "count": 10.375759120755859
+        },
+        {
+          "expert": 122,
+          "count": 10.37563132739746
+        },
+        {
+          "expert": 252,
+          "count": 10.375443452557128
+        },
+        {
+          "expert": 5,
+          "count": 10.37451934114453
+        },
+        {
+          "expert": 248,
+          "count": 10.374488822566406
+        },
+        {
+          "expert": 167,
+          "count": 10.373564711153808
+        },
+        {
+          "expert": 200,
+          "count": 10.373527516855468
+        },
+        {
+          "expert": 168,
+          "count": 10.37159537169043
+        },
+        {
+          "expert": 36,
+          "count": 10.371441829125489
+        },
+        {
+          "expert": 213,
+          "count": 10.370853411072266
+        },
+        {
+          "expert": 68,
+          "count": 10.370781884498536
+        },
+        {
+          "expert": 174,
+          "count": 10.370708450576172
+        }
+      ]
+    },
+    "15": {
+      "top_experts": [
+        {
+          "expert": 243,
+          "count": 9.899613380432129
+        },
+        {
+          "expert": 202,
+          "count": 9.898306845618652
+        },
+        {
+          "expert": 246,
+          "count": 9.896575925734375
+        },
+        {
+          "expert": 67,
+          "count": 9.895764347891113
+        },
+        {
+          "expert": 170,
+          "count": 9.895499225431152
+        },
+        {
+          "expert": 185,
+          "count": 9.895462984807128
+        },
+        {
+          "expert": 106,
+          "count": 9.895320886333984
+        },
+        {
+          "expert": 175,
+          "count": 9.895285599384277
+        },
+        {
+          "expert": 169,
+          "count": 9.894702903376952
+        },
+        {
+          "expert": 212,
+          "count": 9.89465045028955
+        },
+        {
+          "expert": 247,
+          "count": 9.894447316660155
+        },
+        {
+          "expert": 219,
+          "count": 9.893460262742677
+        },
+        {
+          "expert": 177,
+          "count": 9.893437373559083
+        },
+        {
+          "expert": 23,
+          "count": 9.892600046509278
+        },
+        {
+          "expert": 38,
+          "count": 9.892573342628419
+        },
+        {
+          "expert": 122,
+          "count": 9.892520889541016
+        }
+      ]
+    },
+    "16": {
+      "top_experts": [
+        {
+          "expert": 44,
+          "count": 9.86275863647461
+        },
+        {
+          "expert": 106,
+          "count": 9.862625121070312
+        },
+        {
+          "expert": 217,
+          "count": 9.858716009047363
+        },
+        {
+          "expert": 1,
+          "count": 9.856781002859375
+        },
+        {
+          "expert": 143,
+          "count": 9.856475826078125
+        },
+        {
+          "expert": 36,
+          "count": 9.855674738652343
+        },
+        {
+          "expert": 155,
+          "count": 9.855565065105957
+        },
+        {
+          "expert": 97,
+          "count": 9.85484217897412
+        },
+        {
+          "expert": 91,
+          "count": 9.854804031001464
+        },
+        {
+          "expert": 89,
+          "count": 9.854576101839843
+        },
+        {
+          "expert": 131,
+          "count": 9.854459752573241
+        },
+        {
+          "expert": 85,
+          "count": 9.854433048692384
+        },
+        {
+          "expert": 240,
+          "count": 9.853540408532227
+        },
+        {
+          "expert": 164,
+          "count": 9.853403078430665
+        },
+        {
+          "expert": 207,
+          "count": 9.85265348941797
+        },
+        {
+          "expert": 186,
+          "count": 9.852610573073731
+        }
+      ]
+    },
+    "17": {
+      "top_experts": [
+        {
+          "expert": 85,
+          "count": 9.653372764587402
+        },
+        {
+          "expert": 27,
+          "count": 9.65038013358252
+        },
+        {
+          "expert": 147,
+          "count": 9.65035629072461
+        },
+        {
+          "expert": 22,
+          "count": 9.649554249624511
+        },
+        {
+          "expert": 161,
+          "count": 9.649416919522949
+        },
+        {
+          "expert": 73,
+          "count": 9.649293894536132
+        },
+        {
+          "expert": 62,
+          "count": 9.648732179363769
+        },
+        {
+          "expert": 110,
+          "count": 9.64858054414746
+        },
+        {
+          "expert": 104,
+          "count": 9.648510924922363
+        },
+        {
+          "expert": 129,
+          "count": 9.648501387179198
+        },
+        {
+          "expert": 253,
+          "count": 9.648414601816405
+        },
+        {
+          "expert": 24,
+          "count": 9.647562969651856
+        },
+        {
+          "expert": 81,
+          "count": 9.647316920678223
+        },
+        {
+          "expert": 113,
+          "count": 9.64726732861377
+        },
+        {
+          "expert": 10,
+          "count": 9.646654115028321
+        },
+        {
+          "expert": 220,
+          "count": 9.64651106288086
+        }
+      ]
+    },
+    "18": {
+      "top_experts": [
+        {
+          "expert": 93,
+          "count": 9.523344039916992
+        },
+        {
+          "expert": 163,
+          "count": 9.521599768592285
+        },
+        {
+          "expert": 224,
+          "count": 9.521548269179199
+        },
+        {
+          "expert": 114,
+          "count": 9.520334240774414
+        },
+        {
+          "expert": 211,
+          "count": 9.519535060697265
+        },
+        {
+          "expert": 83,
+          "count": 9.519372935063476
+        },
+        {
+          "expert": 120,
+          "count": 9.518661493023437
+        },
+        {
+          "expert": 20,
+          "count": 9.518385880145996
+        },
+        {
+          "expert": 247,
+          "count": 9.517580978022949
+        },
+        {
+          "expert": 79,
+          "count": 9.51750086838037
+        },
+        {
+          "expert": 106,
+          "count": 9.517282475961913
+        },
+        {
+          "expert": 221,
+          "count": 9.516647327867188
+        },
+        {
+          "expert": 218,
+          "count": 9.516298282067384
+        },
+        {
+          "expert": 184,
+          "count": 9.516283022278321
+        },
+        {
+          "expert": 208,
+          "count": 9.51619814426416
+        },
+        {
+          "expert": 220,
+          "count": 9.515372261306153
+        }
+      ]
+    },
+    "19": {
+      "top_experts": [
+        {
+          "expert": 133,
+          "count": 9.626267433166504
+        },
+        {
+          "expert": 183,
+          "count": 9.625850676490234
+        },
+        {
+          "expert": 52,
+          "count": 9.625242231276367
+        },
+        {
+          "expert": 26,
+          "count": 9.625168797354004
+        },
+        {
+          "expert": 101,
+          "count": 9.624087329679199
+        },
+        {
+          "expert": 116,
+          "count": 9.623997683293457
+        },
+        {
+          "expert": 190,
+          "count": 9.623122209270996
+        },
+        {
+          "expert": 191,
+          "count": 9.623077385578124
+        },
+        {
+          "expert": 12,
+          "count": 9.622858993159667
+        },
+        {
+          "expert": 117,
+          "count": 9.622817984164062
+        },
+        {
+          "expert": 213,
+          "count": 9.6227970023291
+        },
+        {
+          "expert": 46,
+          "count": 9.622122753587403
+        },
+        {
+          "expert": 243,
+          "count": 9.622031199853028
+        },
+        {
+          "expert": 31,
+          "count": 9.621886240356934
+        },
+        {
+          "expert": 29,
+          "count": 9.621206269569337
+        },
+        {
+          "expert": 17,
+          "count": 9.621000274916993
+        }
+      ]
+    },
+    "20": {
+      "top_experts": [
+        {
+          "expert": 33,
+          "count": 9.72066879272461
+        },
+        {
+          "expert": 150,
+          "count": 9.719735144568848
+        },
+        {
+          "expert": 126,
+          "count": 9.718752859022949
+        },
+        {
+          "expert": 123,
+          "count": 9.717768666128418
+        },
+        {
+          "expert": 209,
+          "count": 9.717705722623535
+        },
+        {
+          "expert": 224,
+          "count": 9.717679972416992
+        },
+        {
+          "expert": 60,
+          "count": 9.716745370586914
+        },
+        {
+          "expert": 64,
+          "count": 9.71670912996289
+        },
+        {
+          "expert": 72,
+          "count": 9.7166747966875
+        },
+        {
+          "expert": 30,
+          "count": 9.716606131136718
+        },
+        {
+          "expert": 178,
+          "count": 9.716521253122558
+        },
+        {
+          "expert": 210,
+          "count": 9.71567438932959
+        },
+        {
+          "expert": 87,
+          "count": 9.71561335317334
+        },
+        {
+          "expert": 170,
+          "count": 9.715550409668458
+        },
+        {
+          "expert": 151,
+          "count": 9.715516076393067
+        },
+        {
+          "expert": 173,
+          "count": 9.715432152053223
+        }
+      ]
+    },
+    "21": {
+      "top_experts": [
+        {
+          "expert": 209,
+          "count": 10.36889934539795
+        },
+        {
+          "expert": 51,
+          "count": 10.368844984961914
+        },
+        {
+          "expert": 231,
+          "count": 10.365822790053222
+        },
+        {
+          "expert": 192,
+          "count": 10.365784642080566
+        },
+        {
+          "expert": 96,
+          "count": 10.36566161709375
+        },
+        {
+          "expert": 16,
+          "count": 10.36561107135498
+        },
+        {
+          "expert": 97,
+          "count": 10.364748948772949
+        },
+        {
+          "expert": 175,
+          "count": 10.364669792804687
+        },
+        {
+          "expert": 237,
+          "count": 10.364659301387206
+        },
+        {
+          "expert": 100,
+          "count": 10.364603987276855
+        },
+        {
+          "expert": 236,
+          "count": 10.363842954172362
+        },
+        {
+          "expert": 120,
+          "count": 10.3638334164292
+        },
+        {
+          "expert": 201,
+          "count": 10.363661754052247
+        },
+        {
+          "expert": 254,
+          "count": 10.363607393616212
+        },
+        {
+          "expert": 66,
+          "count": 10.363590226478516
+        },
+        {
+          "expert": 86,
+          "count": 10.362984642287598
+        }
+      ]
+    },
+    "22": {
+      "top_experts": [
+        {
+          "expert": 137,
+          "count": 10.697922706604004
+        },
+        {
+          "expert": 88,
+          "count": 10.695928572608398
+        },
+        {
+          "expert": 222,
+          "count": 10.695867536452148
+        },
+        {
+          "expert": 97,
+          "count": 10.695510861257812
+        },
+        {
+          "expert": 188,
+          "count": 10.694913860135742
+        },
+        {
+          "expert": 41,
+          "count": 10.69391917682373
+        },
+        {
+          "expert": 100,
+          "count": 10.693898194988769
+        },
+        {
+          "expert": 157,
+          "count": 10.693819039020507
+        },
+        {
+          "expert": 199,
+          "count": 10.693804732905761
+        },
+        {
+          "expert": 113,
+          "count": 10.693758955538573
+        },
+        {
+          "expert": 118,
+          "count": 10.693758954538573
+        },
+        {
+          "expert": 225,
+          "count": 10.69372843596045
+        },
+        {
+          "expert": 101,
+          "count": 10.693709361474122
+        },
+        {
+          "expert": 140,
+          "count": 10.693657862061036
+        },
+        {
+          "expert": 171,
+          "count": 10.69297216922754
+        },
+        {
+          "expert": 68,
+          "count": 10.692915901442872
+        }
+      ]
+    },
+    "23": {
+      "top_experts": [
+        {
+          "expert": 150,
+          "count": 11.328004837036133
+        },
+        {
+          "expert": 64,
+          "count": 11.32795238394873
+        },
+        {
+          "expert": 254,
+          "count": 11.326985357191894
+        },
+        {
+          "expert": 138,
+          "count": 11.326951023916504
+        },
+        {
+          "expert": 207,
+          "count": 11.326945300870605
+        },
+        {
+          "expert": 141,
+          "count": 11.326940531499023
+        },
+        {
+          "expert": 74,
+          "count": 11.326933854778808
+        },
+        {
+          "expert": 34,
+          "count": 11.326736443195312
+        },
+        {
+          "expert": 102,
+          "count": 11.326014510737792
+        },
+        {
+          "expert": 176,
+          "count": 11.325814238131347
+        },
+        {
+          "expert": 175,
+          "count": 11.32577895118164
+        },
+        {
+          "expert": 55,
+          "count": 11.325767506089845
+        },
+        {
+          "expert": 212,
+          "count": 11.325754153649415
+        },
+        {
+          "expert": 32,
+          "count": 11.325701700562012
+        },
+        {
+          "expert": 198,
+          "count": 11.325669274635255
+        },
+        {
+          "expert": 170,
+          "count": 11.324992164870606
+        }
+      ]
+    },
+    "24": {
+      "top_experts": [
+        {
+          "expert": 215,
+          "count": 12.20443344116211
+        },
+        {
+          "expert": 207,
+          "count": 12.203666686011719
+        },
+        {
+          "expert": 170,
+          "count": 12.202603338148926
+        },
+        {
+          "expert": 198,
+          "count": 12.202568051199219
+        },
+        {
+          "expert": 81,
+          "count": 12.202324863248535
+        },
+        {
+          "expert": 150,
+          "count": 12.202313418156738
+        },
+        {
+          "expert": 145,
+          "count": 12.201669686993164
+        },
+        {
+          "expert": 143,
+          "count": 12.201442711505859
+        },
+        {
+          "expert": 85,
+          "count": 12.201346389399902
+        },
+        {
+          "expert": 252,
+          "count": 12.201316824496093
+        },
+        {
+          "expert": 159,
+          "count": 12.201151837839355
+        },
+        {
+          "expert": 18,
+          "count": 12.200338352647462
+        },
+        {
+          "expert": 139,
+          "count": 12.200288760583009
+        },
+        {
+          "expert": 209,
+          "count": 12.200254427307618
+        },
+        {
+          "expert": 208,
+          "count": 12.200251565284669
+        },
+        {
+          "expert": 103,
+          "count": 12.200199112197266
+        }
+      ]
+    },
+    "25": {
+      "top_experts": [
+        {
+          "expert": 246,
+          "count": 11.971872329711914
+        },
+        {
+          "expert": 98,
+          "count": 11.96998405356543
+        },
+        {
+          "expert": 218,
+          "count": 11.966985700514648
+        },
+        {
+          "expert": 234,
+          "count": 11.966853138784668
+        },
+        {
+          "expert": 100,
+          "count": 11.966835971646972
+        },
+        {
+          "expert": 196,
+          "count": 11.966805453068847
+        },
+        {
+          "expert": 195,
+          "count": 11.966663354595703
+        },
+        {
+          "expert": 160,
+          "count": 11.96610926881787
+        },
+        {
+          "expert": 248,
+          "count": 11.966091148005859
+        },
+        {
+          "expert": 115,
+          "count": 11.966026297152343
+        },
+        {
+          "expert": 107,
+          "count": 11.965884198679198
+        },
+        {
+          "expert": 221,
+          "count": 11.96587084623877
+        },
+        {
+          "expert": 230,
+          "count": 11.965781199853028
+        },
+        {
+          "expert": 210,
+          "count": 11.965081201904786
+        },
+        {
+          "expert": 140,
+          "count": 11.965073571510255
+        },
+        {
+          "expert": 156,
+          "count": 11.96506403376709
+        }
+      ]
+    },
+    "26": {
+      "top_experts": [
+        {
+          "expert": 56,
+          "count": 12.123006820678711
+        },
+        {
+          "expert": 7,
+          "count": 12.122289656592773
+        },
+        {
+          "expert": 83,
+          "count": 12.122126577284668
+        },
+        {
+          "expert": 206,
+          "count": 12.122020718435547
+        },
+        {
+          "expert": 10,
+          "count": 12.122010227018066
+        },
+        {
+          "expert": 52,
+          "count": 12.121360773808593
+        },
+        {
+          "expert": 9,
+          "count": 12.121294015606445
+        },
+        {
+          "expert": 216,
+          "count": 12.12125014558789
+        },
+        {
+          "expert": 84,
+          "count": 12.121190063105956
+        },
+        {
+          "expert": 115,
+          "count": 12.121132841646972
+        },
+        {
+          "expert": 152,
+          "count": 12.12106417609619
+        },
+        {
+          "expert": 159,
+          "count": 12.120273579087891
+        },
+        {
+          "expert": 26,
+          "count": 12.120264995019044
+        },
+        {
+          "expert": 125,
+          "count": 12.12022875439502
+        },
+        {
+          "expert": 42,
+          "count": 12.120140061683594
+        },
+        {
+          "expert": 50,
+          "count": 12.120122894545899
+        }
+      ]
+    },
+    "27": {
+      "top_experts": [
+        {
+          "expert": 249,
+          "count": 11.858098983764648
+        },
+        {
+          "expert": 43,
+          "count": 11.857986449195312
+        },
+        {
+          "expert": 231,
+          "count": 11.85737132826123
+        },
+        {
+          "expert": 171,
+          "count": 11.856950756887695
+        },
+        {
+          "expert": 106,
+          "count": 11.85637092190332
+        },
+        {
+          "expert": 159,
+          "count": 11.856346125371093
+        },
+        {
+          "expert": 57,
+          "count": 11.856199258526367
+        },
+        {
+          "expert": 176,
+          "count": 11.856135361347167
+        },
+        {
+          "expert": 53,
+          "count": 11.856132499324218
+        },
+        {
+          "expert": 79,
+          "count": 11.856112471163573
+        },
+        {
+          "expert": 183,
+          "count": 11.856112470163573
+        },
+        {
+          "expert": 10,
+          "count": 11.85604761931006
+        },
+        {
+          "expert": 40,
+          "count": 11.85540007344922
+        },
+        {
+          "expert": 200,
+          "count": 11.855396257751954
+        },
+        {
+          "expert": 154,
+          "count": 11.855393395729005
+        },
+        {
+          "expert": 253,
+          "count": 11.855385765334473
+        }
+      ]
+    },
+    "28": {
+      "top_experts": [
+        {
+          "expert": 106,
+          "count": 12.336566925048828
+        },
+        {
+          "expert": 86,
+          "count": 12.335801123572754
+        },
+        {
+          "expert": 233,
+          "count": 12.335686681654785
+        },
+        {
+          "expert": 230,
+          "count": 12.335551258901855
+        },
+        {
+          "expert": 4,
+          "count": 12.334839816861816
+        },
+        {
+          "expert": 124,
+          "count": 12.334780688054199
+        },
+        {
+          "expert": 82,
+          "count": 12.334658616741699
+        },
+        {
+          "expert": 109,
+          "count": 12.333874695453613
+        },
+        {
+          "expert": 159,
+          "count": 12.333797446833984
+        },
+        {
+          "expert": 115,
+          "count": 12.333645811617675
+        },
+        {
+          "expert": 141,
+          "count": 12.333027829660644
+        },
+        {
+          "expert": 70,
+          "count": 12.332942951646485
+        },
+        {
+          "expert": 119,
+          "count": 12.332934367577638
+        },
+        {
+          "expert": 121,
+          "count": 12.332931505554688
+        },
+        {
+          "expert": 150,
+          "count": 12.33290957004541
+        },
+        {
+          "expert": 224,
+          "count": 12.332907661696778
+        }
+      ]
+    },
+    "29": {
+      "top_experts": [
+        {
+          "expert": 47,
+          "count": 12.043036460876465
+        },
+        {
+          "expert": 242,
+          "count": 12.04297161002295
+        },
+        {
+          "expert": 45,
+          "count": 12.042926786330078
+        },
+        {
+          "expert": 61,
+          "count": 12.042852398733398
+        },
+        {
+          "expert": 139,
+          "count": 12.042731281095215
+        },
+        {
+          "expert": 149,
+          "count": 12.042018885380859
+        },
+        {
+          "expert": 189,
+          "count": 12.042001718243164
+        },
+        {
+          "expert": 18,
+          "count": 12.041961662921874
+        },
+        {
+          "expert": 151,
+          "count": 12.041954032527343
+        },
+        {
+          "expert": 170,
+          "count": 12.041889181673827
+        },
+        {
+          "expert": 97,
+          "count": 12.041854848398437
+        },
+        {
+          "expert": 173,
+          "count": 12.041231144395509
+        },
+        {
+          "expert": 138,
+          "count": 12.04121493093213
+        },
+        {
+          "expert": 71,
+          "count": 12.041202532166016
+        },
+        {
+          "expert": 8,
+          "count": 12.041192994422852
+        },
+        {
+          "expert": 232,
+          "count": 12.04118822505127
+        }
+      ]
+    },
+    "30": {
+      "top_experts": [
+        {
+          "expert": 176,
+          "count": 11.862276077270508
+        },
+        {
+          "expert": 83,
+          "count": 11.860323904944824
+        },
+        {
+          "expert": 183,
+          "count": 11.860200879958008
+        },
+        {
+          "expert": 63,
+          "count": 11.860074993948242
+        },
+        {
+          "expert": 189,
+          "count": 11.86007022457666
+        },
+        {
+          "expert": 4,
+          "count": 11.859957690007324
+        },
+        {
+          "expert": 65,
+          "count": 11.859953874310058
+        },
+        {
+          "expert": 97,
+          "count": 11.859376900348632
+        },
+        {
+          "expert": 116,
+          "count": 11.859342567073242
+        },
+        {
+          "expert": 182,
+          "count": 11.858943930208984
+        },
+        {
+          "expert": 135,
+          "count": 11.858386983408202
+        },
+        {
+          "expert": 43,
+          "count": 11.858259190049806
+        },
+        {
+          "expert": 249,
+          "count": 11.858169543664063
+        },
+        {
+          "expert": 255,
+          "count": 11.858003603333009
+        },
+        {
+          "expert": 148,
+          "count": 11.857945428199708
+        },
+        {
+          "expert": 93,
+          "count": 11.857307419082032
+        }
+      ]
+    },
+    "31": {
+      "top_experts": [
+        {
+          "expert": 182,
+          "count": 11.774736404418945
+        },
+        {
+          "expert": 87,
+          "count": 11.77465534110205
+        },
+        {
+          "expert": 148,
+          "count": 11.77394676008496
+        },
+        {
+          "expert": 179,
+          "count": 11.77386474309375
+        },
+        {
+          "expert": 163,
+          "count": 11.772990222745605
+        },
+        {
+          "expert": 152,
+          "count": 11.772967333562011
+        },
+        {
+          "expert": 12,
+          "count": 11.772963517864746
+        },
+        {
+          "expert": 111,
+          "count": 11.772953980121581
+        },
+        {
+          "expert": 221,
+          "count": 11.772953979121581
+        },
+        {
+          "expert": 91,
+          "count": 11.772937765658202
+        },
+        {
+          "expert": 122,
+          "count": 11.772817601694335
+        },
+        {
+          "expert": 243,
+          "count": 11.77281664702002
+        },
+        {
+          "expert": 203,
+          "count": 11.772644984643067
+        },
+        {
+          "expert": 136,
+          "count": 11.772006021851075
+        },
+        {
+          "expert": 114,
+          "count": 11.771977410621583
+        },
+        {
+          "expert": 40,
+          "count": 11.771944984694825
+        }
+      ]
+    },
+    "32": {
+      "top_experts": [
+        {
+          "expert": 87,
+          "count": 12.699838638305664
+        },
+        {
+          "expert": 113,
+          "count": 12.69881534476416
+        },
+        {
+          "expert": 23,
+          "count": 12.698814390089844
+        },
+        {
+          "expert": 39,
+          "count": 12.69881248174121
+        },
+        {
+          "expert": 61,
+          "count": 12.69851016598291
+        },
+        {
+          "expert": 152,
+          "count": 12.697904581791992
+        },
+        {
+          "expert": 20,
+          "count": 12.697702401836914
+        },
+        {
+          "expert": 194,
+          "count": 12.697671883258788
+        },
+        {
+          "expert": 109,
+          "count": 12.696831695186034
+        },
+        {
+          "expert": 129,
+          "count": 12.696824064791503
+        },
+        {
+          "expert": 62,
+          "count": 12.696670522226562
+        },
+        {
+          "expert": 78,
+          "count": 12.696640003648438
+        },
+        {
+          "expert": 192,
+          "count": 12.69658373586377
+        },
+        {
+          "expert": 128,
+          "count": 12.69657324444629
+        },
+        {
+          "expert": 76,
+          "count": 12.696543679542481
+        },
+        {
+          "expert": 148,
+          "count": 12.695931419631348
+        }
+      ]
+    },
+    "33": {
+      "top_experts": [
+        {
+          "expert": 66,
+          "count": 12.554794311523438
+        },
+        {
+          "expert": 60,
+          "count": 12.553975104285644
+        },
+        {
+          "expert": 2,
+          "count": 12.553037641432617
+        },
+        {
+          "expert": 216,
+          "count": 12.553008076528808
+        },
+        {
+          "expert": 75,
+          "count": 12.552967067533203
+        },
+        {
+          "expert": 219,
+          "count": 12.552958483464355
+        },
+        {
+          "expert": 218,
+          "count": 12.552859300335449
+        },
+        {
+          "expert": 67,
+          "count": 12.552737229022949
+        },
+        {
+          "expert": 79,
+          "count": 12.55208396111621
+        },
+        {
+          "expert": 119,
+          "count": 12.552007666170898
+        },
+        {
+          "expert": 201,
+          "count": 12.55199908210205
+        },
+        {
+          "expert": 42,
+          "count": 12.551976192918458
+        },
+        {
+          "expert": 94,
+          "count": 12.551973330895509
+        },
+        {
+          "expert": 127,
+          "count": 12.551966654175294
+        },
+        {
+          "expert": 170,
+          "count": 12.551928506202637
+        },
+        {
+          "expert": 110,
+          "count": 12.551922783156739
+        }
+      ]
+    },
+    "34": {
+      "top_experts": [
+        {
+          "expert": 33,
+          "count": 12.470348358154297
+        },
+        {
+          "expert": 89,
+          "count": 12.469995497657226
+        },
+        {
+          "expert": 212,
+          "count": 12.46928596296582
+        },
+        {
+          "expert": 79,
+          "count": 12.46918773351123
+        },
+        {
+          "expert": 187,
+          "count": 12.469147678189941
+        },
+        {
+          "expert": 233,
+          "count": 12.469107622868652
+        },
+        {
+          "expert": 31,
+          "count": 12.468371385296386
+        },
+        {
+          "expert": 94,
+          "count": 12.468323700580566
+        },
+        {
+          "expert": 23,
+          "count": 12.468267432795898
+        },
+        {
+          "expert": 170,
+          "count": 12.468257895052734
+        },
+        {
+          "expert": 245,
+          "count": 12.468180646433105
+        },
+        {
+          "expert": 133,
+          "count": 12.468075741258302
+        },
+        {
+          "expert": 60,
+          "count": 12.467207896630372
+        },
+        {
+          "expert": 11,
+          "count": 12.467112528198731
+        },
+        {
+          "expert": 21,
+          "count": 12.467034325904786
+        },
+        {
+          "expert": 192,
+          "count": 12.467007622023926
+        }
+      ]
+    },
+    "35": {
+      "top_experts": [
+        {
+          "expert": 42,
+          "count": 12.823943138122559
+        },
+        {
+          "expert": 237,
+          "count": 12.82393455405371
+        },
+        {
+          "expert": 26,
+          "count": 12.82382869520459
+        },
+        {
+          "expert": 9,
+          "count": 12.823821064810058
+        },
+        {
+          "expert": 155,
+          "count": 12.823111530118652
+        },
+        {
+          "expert": 203,
+          "count": 12.822970385319824
+        },
+        {
+          "expert": 125,
+          "count": 12.822242730816406
+        },
+        {
+          "expert": 89,
+          "count": 12.822166435871093
+        },
+        {
+          "expert": 98,
+          "count": 12.82215403710498
+        },
+        {
+          "expert": 126,
+          "count": 12.822134008944335
+        },
+        {
+          "expert": 170,
+          "count": 12.822071065439452
+        },
+        {
+          "expert": 93,
+          "count": 12.82205103727881
+        },
+        {
+          "expert": 159,
+          "count": 12.821964251916016
+        },
+        {
+          "expert": 88,
+          "count": 12.821931825989259
+        },
+        {
+          "expert": 30,
+          "count": 12.821887955970704
+        },
+        {
+          "expert": 248,
+          "count": 12.821863159438477
+        }
+      ]
+    },
+    "36": {
+      "top_experts": [
+        {
+          "expert": 241,
+          "count": 13.238775253295898
+        },
+        {
+          "expert": 36,
+          "count": 13.238753317786621
+        },
+        {
+          "expert": 142,
+          "count": 13.238746641066406
+        },
+        {
+          "expert": 39,
+          "count": 13.238672253469726
+        },
+        {
+          "expert": 134,
+          "count": 13.237823482328125
+        },
+        {
+          "expert": 179,
+          "count": 13.237815851933593
+        },
+        {
+          "expert": 150,
+          "count": 13.237777703960937
+        },
+        {
+          "expert": 137,
+          "count": 13.237754814777343
+        },
+        {
+          "expert": 211,
+          "count": 13.237704269038574
+        },
+        {
+          "expert": 89,
+          "count": 13.237703314364257
+        },
+        {
+          "expert": 66,
+          "count": 13.236731519235839
+        },
+        {
+          "expert": 30,
+          "count": 13.236631382432618
+        },
+        {
+          "expert": 215,
+          "count": 13.235847461144532
+        },
+        {
+          "expert": 197,
+          "count": 13.235716806763184
+        },
+        {
+          "expert": 155,
+          "count": 13.235647187538087
+        },
+        {
+          "expert": 64,
+          "count": 13.235596641799317
+        }
+      ]
+    },
+    "37": {
+      "top_experts": [
+        {
+          "expert": 237,
+          "count": 13.030051231384277
+        },
+        {
+          "expert": 227,
+          "count": 13.029281615210937
+        },
+        {
+          "expert": 142,
+          "count": 13.029213903334472
+        },
+        {
+          "expert": 72,
+          "count": 13.02906608281543
+        },
+        {
+          "expert": 119,
+          "count": 13.028326984220215
+        },
+        {
+          "expert": 214,
+          "count": 13.028268809086914
+        },
+        {
+          "expert": 251,
+          "count": 13.028244966229003
+        },
+        {
+          "expert": 144,
+          "count": 13.028228752765624
+        },
+        {
+          "expert": 154,
+          "count": 13.028176299678222
+        },
+        {
+          "expert": 105,
+          "count": 13.028170576632323
+        },
+        {
+          "expert": 49,
+          "count": 13.028151502145995
+        },
+        {
+          "expert": 170,
+          "count": 13.028054226365724
+        },
+        {
+          "expert": 89,
+          "count": 13.027311313073243
+        },
+        {
+          "expert": 143,
+          "count": 13.027173029297364
+        },
+        {
+          "expert": 5,
+          "count": 13.027088151283204
+        },
+        {
+          "expert": 78,
+          "count": 13.026330932875977
+        }
+      ]
+    },
+    "38": {
+      "top_experts": [
+        {
+          "expert": 188,
+          "count": 13.130903244018555
+        },
+        {
+          "expert": 60,
+          "count": 13.130780219031738
+        },
+        {
+          "expert": 112,
+          "count": 13.129748342421387
+        },
+        {
+          "expert": 130,
+          "count": 13.1296968430083
+        },
+        {
+          "expert": 183,
+          "count": 13.12895679073877
+        },
+        {
+          "expert": 19,
+          "count": 13.128936762578125
+        },
+        {
+          "expert": 84,
+          "count": 13.128931993206542
+        },
+        {
+          "expert": 5,
+          "count": 13.128804199848144
+        },
+        {
+          "expert": 185,
+          "count": 13.128761283503906
+        },
+        {
+          "expert": 138,
+          "count": 13.128641119540038
+        },
+        {
+          "expert": 182,
+          "count": 13.1281099219458
+        },
+        {
+          "expert": 7,
+          "count": 13.12801741453711
+        },
+        {
+          "expert": 157,
+          "count": 13.12782381765088
+        },
+        {
+          "expert": 152,
+          "count": 13.127739893311036
+        },
+        {
+          "expert": 118,
+          "count": 13.126925454444825
+        },
+        {
+          "expert": 107,
+          "count": 13.126864418288575
+        }
+      ]
+    },
+    "39": {
+      "top_experts": [
+        {
+          "expert": 113,
+          "count": 12.353670120239258
+        },
+        {
+          "expert": 42,
+          "count": 12.352887152625488
+        },
+        {
+          "expert": 162,
+          "count": 12.352784154799316
+        },
+        {
+          "expert": 93,
+          "count": 12.352727887014648
+        },
+        {
+          "expert": 65,
+          "count": 12.352675433927246
+        },
+        {
+          "expert": 0,
+          "count": 12.352554316289062
+        },
+        {
+          "expert": 61,
+          "count": 12.352419847210449
+        },
+        {
+          "expert": 32,
+          "count": 12.351860993061035
+        },
+        {
+          "expert": 165,
+          "count": 12.351811400996581
+        },
+        {
+          "expert": 49,
+          "count": 12.351768484652343
+        },
+        {
+          "expert": 71,
+          "count": 12.351687421335448
+        },
+        {
+          "expert": 116,
+          "count": 12.351668346849122
+        },
+        {
+          "expert": 219,
+          "count": 12.351612079064454
+        },
+        {
+          "expert": 245,
+          "count": 12.35157583844043
+        },
+        {
+          "expert": 211,
+          "count": 12.351375565833985
+        },
+        {
+          "expert": 1,
+          "count": 12.35084627558838
+        }
+      ]
+    },
+    "40": {
+      "top_experts": [
+        {
+          "expert": 105,
+          "count": 12.741952896118164
+        },
+        {
+          "expert": 168,
+          "count": 12.741939543677734
+        },
+        {
+          "expert": 86,
+          "count": 12.741680143263672
+        },
+        {
+          "expert": 250,
+          "count": 12.740853306631347
+        },
+        {
+          "expert": 237,
+          "count": 12.740642543607422
+        },
+        {
+          "expert": 217,
+          "count": 12.740047449833984
+        },
+        {
+          "expert": 39,
+          "count": 12.739944452007812
+        },
+        {
+          "expert": 198,
+          "count": 12.739856712970703
+        },
+        {
+          "expert": 95,
+          "count": 12.739788047419921
+        },
+        {
+          "expert": 159,
+          "count": 12.739751806795898
+        },
+        {
+          "expert": 68,
+          "count": 12.739125241770019
+        },
+        {
+          "expert": 153,
+          "count": 12.739047039476075
+        },
+        {
+          "expert": 8,
+          "count": 12.738791453759278
+        },
+        {
+          "expert": 118,
+          "count": 12.738055216187012
+        },
+        {
+          "expert": 49,
+          "count": 12.73780916721338
+        },
+        {
+          "expert": 3,
+          "count": 12.737699493666993
+        }
+      ]
+    },
+    "41": {
+      "top_experts": [
+        {
+          "expert": 115,
+          "count": 17.88623809814453
+        },
+        {
+          "expert": 169,
+          "count": 17.88622283835547
+        },
+        {
+          "expert": 99,
+          "count": 17.886219022658203
+        },
+        {
+          "expert": 120,
+          "count": 17.886219021658203
+        },
+        {
+          "expert": 254,
+          "count": 17.886205669217773
+        },
+        {
+          "expert": 198,
+          "count": 17.886201853520507
+        },
+        {
+          "expert": 116,
+          "count": 17.88619803782324
+        },
+        {
+          "expert": 178,
+          "count": 17.88619803682324
+        },
+        {
+          "expert": 44,
+          "count": 17.886180869685546
+        },
+        {
+          "expert": 204,
+          "count": 17.886175146639648
+        },
+        {
+          "expert": 52,
+          "count": 17.88616942359375
+        },
+        {
+          "expert": 28,
+          "count": 17.886165607896483
+        },
+        {
+          "expert": 63,
+          "count": 17.886039721886718
+        },
+        {
+          "expert": 27,
+          "count": 17.885995851868163
+        },
+        {
+          "expert": 159,
+          "count": 17.885992036170897
+        },
+        {
+          "expert": 47,
+          "count": 17.885936722060546
+        }
+      ]
+    },
+    "42": {
+      "top_experts": [
+        {
+          "expert": 23,
+          "count": 27.477060317993164
+        },
+        {
+          "expert": 123,
+          "count": 27.4770565022959
+        },
+        {
+          "expert": 154,
+          "count": 27.477048871901367
+        },
+        {
+          "expert": 28,
+          "count": 27.47704314885547
+        },
+        {
+          "expert": 152,
+          "count": 27.47701644497461
+        },
+        {
+          "expert": 98,
+          "count": 27.476036066777343
+        },
+        {
+          "expert": 180,
+          "count": 27.476022714336914
+        },
+        {
+          "expert": 82,
+          "count": 27.47597312227246
+        },
+        {
+          "expert": 153,
+          "count": 27.475887290583984
+        },
+        {
+          "expert": 11,
+          "count": 27.47587203079492
+        },
+        {
+          "expert": 72,
+          "count": 27.47587202979492
+        },
+        {
+          "expert": 100,
+          "count": 27.47586439940039
+        },
+        {
+          "expert": 151,
+          "count": 27.47586439840039
+        },
+        {
+          "expert": 229,
+          "count": 27.47586439740039
+        },
+        {
+          "expert": 221,
+          "count": 27.475862489051757
+        },
+        {
+          "expert": 255,
+          "count": 27.475852951308593
+        }
+      ]
+    }
+  },
+  "prompt_reports": [
+    {
+      "id": "plain_short",
+      "category": "plain",
+      "token_count": 11,
+      "hash_layers": {
+        "0": {
+          "total_routes": 66,
+          "top_experts": [
+            {
+              "expert": 108,
+              "count": 2.0
+            },
+            {
+              "expert": 203,
+              "count": 2.0
+            },
+            {
+              "expert": 217,
+              "count": 2.0
+            },
+            {
+              "expert": 156,
+              "count": 2.0
+            },
+            {
+              "expert": 146,
+              "count": 2.0
+            },
+            {
+              "expert": 126,
+              "count": 2.0
+            },
+            {
+              "expert": 242,
+              "count": 2.0
+            },
+            {
+              "expert": 85,
+              "count": 2.0
+            },
+            {
+              "expert": 249,
+              "count": 2.0
+            },
+            {
+              "expert": 238,
+              "count": 1.0
+            },
+            {
+              "expert": 137,
+              "count": 1.0
+            },
+            {
+              "expert": 121,
+              "count": 1.0
+            },
+            {
+              "expert": 210,
+              "count": 1.0
+            },
+            {
+              "expert": 167,
+              "count": 1.0
+            },
+            {
+              "expert": 230,
+              "count": 1.0
+            },
+            {
+              "expert": 211,
+              "count": 1.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 66,
+          "top_experts": [
+            {
+              "expert": 181,
+              "count": 2.0
+            },
+            {
+              "expert": 58,
+              "count": 2.0
+            },
+            {
+              "expert": 69,
+              "count": 2.0
+            },
+            {
+              "expert": 210,
+              "count": 2.0
+            },
+            {
+              "expert": 241,
+              "count": 2.0
+            },
+            {
+              "expert": 183,
+              "count": 2.0
+            },
+            {
+              "expert": 248,
+              "count": 1.0
+            },
+            {
+              "expert": 112,
+              "count": 1.0
+            },
+            {
+              "expert": 46,
+              "count": 1.0
+            },
+            {
+              "expert": 118,
+              "count": 1.0
+            },
+            {
+              "expert": 64,
+              "count": 1.0
+            },
+            {
+              "expert": 116,
+              "count": 1.0
+            },
+            {
+              "expert": 100,
+              "count": 1.0
+            },
+            {
+              "expert": 84,
+              "count": 1.0
+            },
+            {
+              "expert": 140,
+              "count": 1.0
+            },
+            {
+              "expert": 57,
+              "count": 1.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 66,
+          "top_experts": [
+            {
+              "expert": 233,
+              "count": 2.0
+            },
+            {
+              "expert": 209,
+              "count": 2.0
+            },
+            {
+              "expert": 173,
+              "count": 2.0
+            },
+            {
+              "expert": 183,
+              "count": 2.0
+            },
+            {
+              "expert": 227,
+              "count": 2.0
+            },
+            {
+              "expert": 7,
+              "count": 2.0
+            },
+            {
+              "expert": 53,
+              "count": 2.0
+            },
+            {
+              "expert": 255,
+              "count": 1.0
+            },
+            {
+              "expert": 243,
+              "count": 1.0
+            },
+            {
+              "expert": 190,
+              "count": 1.0
+            },
+            {
+              "expert": 163,
+              "count": 1.0
+            },
+            {
+              "expert": 135,
+              "count": 1.0
+            },
+            {
+              "expert": 112,
+              "count": 1.0
+            },
+            {
+              "expert": 80,
+              "count": 1.0
+            },
+            {
+              "expert": 74,
+              "count": 1.0
+            },
+            {
+              "expert": 97,
+              "count": 1.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "plain_explain",
+      "category": "plain",
+      "token_count": 18,
+      "hash_layers": {
+        "0": {
+          "total_routes": 108,
+          "top_experts": [
+            {
+              "expert": 28,
+              "count": 3.0
+            },
+            {
+              "expert": 222,
+              "count": 2.0
+            },
+            {
+              "expert": 52,
+              "count": 2.0
+            },
+            {
+              "expert": 58,
+              "count": 2.0
+            },
+            {
+              "expert": 205,
+              "count": 2.0
+            },
+            {
+              "expert": 196,
+              "count": 2.0
+            },
+            {
+              "expert": 188,
+              "count": 2.0
+            },
+            {
+              "expert": 159,
+              "count": 2.0
+            },
+            {
+              "expert": 184,
+              "count": 2.0
+            },
+            {
+              "expert": 195,
+              "count": 2.0
+            },
+            {
+              "expert": 91,
+              "count": 2.0
+            },
+            {
+              "expert": 127,
+              "count": 2.0
+            },
+            {
+              "expert": 23,
+              "count": 2.0
+            },
+            {
+              "expert": 24,
+              "count": 2.0
+            },
+            {
+              "expert": 13,
+              "count": 2.0
+            },
+            {
+              "expert": 19,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 108,
+          "top_experts": [
+            {
+              "expert": 77,
+              "count": 5.0
+            },
+            {
+              "expert": 127,
+              "count": 4.0
+            },
+            {
+              "expert": 155,
+              "count": 3.0
+            },
+            {
+              "expert": 139,
+              "count": 3.0
+            },
+            {
+              "expert": 52,
+              "count": 2.0
+            },
+            {
+              "expert": 36,
+              "count": 2.0
+            },
+            {
+              "expert": 196,
+              "count": 2.0
+            },
+            {
+              "expert": 86,
+              "count": 2.0
+            },
+            {
+              "expert": 186,
+              "count": 2.0
+            },
+            {
+              "expert": 245,
+              "count": 2.0
+            },
+            {
+              "expert": 204,
+              "count": 2.0
+            },
+            {
+              "expert": 110,
+              "count": 2.0
+            },
+            {
+              "expert": 48,
+              "count": 2.0
+            },
+            {
+              "expert": 0,
+              "count": 2.0
+            },
+            {
+              "expert": 138,
+              "count": 2.0
+            },
+            {
+              "expert": 5,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 108,
+          "top_experts": [
+            {
+              "expert": 220,
+              "count": 3.0
+            },
+            {
+              "expert": 48,
+              "count": 3.0
+            },
+            {
+              "expert": 238,
+              "count": 3.0
+            },
+            {
+              "expert": 146,
+              "count": 3.0
+            },
+            {
+              "expert": 120,
+              "count": 3.0
+            },
+            {
+              "expert": 121,
+              "count": 2.0
+            },
+            {
+              "expert": 71,
+              "count": 2.0
+            },
+            {
+              "expert": 193,
+              "count": 2.0
+            },
+            {
+              "expert": 14,
+              "count": 2.0
+            },
+            {
+              "expert": 9,
+              "count": 2.0
+            },
+            {
+              "expert": 117,
+              "count": 2.0
+            },
+            {
+              "expert": 139,
+              "count": 2.0
+            },
+            {
+              "expert": 248,
+              "count": 2.0
+            },
+            {
+              "expert": 76,
+              "count": 2.0
+            },
+            {
+              "expert": 205,
+              "count": 2.0
+            },
+            {
+              "expert": 34,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "json_smoke",
+      "category": "json",
+      "token_count": 22,
+      "hash_layers": {
+        "0": {
+          "total_routes": 132,
+          "top_experts": [
+            {
+              "expert": 106,
+              "count": 5.0
+            },
+            {
+              "expert": 29,
+              "count": 5.0
+            },
+            {
+              "expert": 74,
+              "count": 4.0
+            },
+            {
+              "expert": 174,
+              "count": 3.0
+            },
+            {
+              "expert": 83,
+              "count": 3.0
+            },
+            {
+              "expert": 107,
+              "count": 3.0
+            },
+            {
+              "expert": 132,
+              "count": 3.0
+            },
+            {
+              "expert": 62,
+              "count": 3.0
+            },
+            {
+              "expert": 149,
+              "count": 2.0
+            },
+            {
+              "expert": 99,
+              "count": 2.0
+            },
+            {
+              "expert": 108,
+              "count": 2.0
+            },
+            {
+              "expert": 15,
+              "count": 2.0
+            },
+            {
+              "expert": 65,
+              "count": 2.0
+            },
+            {
+              "expert": 55,
+              "count": 2.0
+            },
+            {
+              "expert": 40,
+              "count": 2.0
+            },
+            {
+              "expert": 250,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 132,
+          "top_experts": [
+            {
+              "expert": 210,
+              "count": 6.0
+            },
+            {
+              "expert": 114,
+              "count": 4.0
+            },
+            {
+              "expert": 155,
+              "count": 4.0
+            },
+            {
+              "expert": 182,
+              "count": 3.0
+            },
+            {
+              "expert": 36,
+              "count": 3.0
+            },
+            {
+              "expert": 229,
+              "count": 3.0
+            },
+            {
+              "expert": 86,
+              "count": 3.0
+            },
+            {
+              "expert": 38,
+              "count": 3.0
+            },
+            {
+              "expert": 54,
+              "count": 2.0
+            },
+            {
+              "expert": 75,
+              "count": 2.0
+            },
+            {
+              "expert": 34,
+              "count": 2.0
+            },
+            {
+              "expert": 16,
+              "count": 2.0
+            },
+            {
+              "expert": 126,
+              "count": 2.0
+            },
+            {
+              "expert": 104,
+              "count": 2.0
+            },
+            {
+              "expert": 92,
+              "count": 2.0
+            },
+            {
+              "expert": 123,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 132,
+          "top_experts": [
+            {
+              "expert": 15,
+              "count": 4.0
+            },
+            {
+              "expert": 20,
+              "count": 3.0
+            },
+            {
+              "expert": 174,
+              "count": 3.0
+            },
+            {
+              "expert": 77,
+              "count": 3.0
+            },
+            {
+              "expert": 74,
+              "count": 3.0
+            },
+            {
+              "expert": 125,
+              "count": 3.0
+            },
+            {
+              "expert": 141,
+              "count": 3.0
+            },
+            {
+              "expert": 39,
+              "count": 3.0
+            },
+            {
+              "expert": 203,
+              "count": 2.0
+            },
+            {
+              "expert": 114,
+              "count": 2.0
+            },
+            {
+              "expert": 204,
+              "count": 2.0
+            },
+            {
+              "expert": 105,
+              "count": 2.0
+            },
+            {
+              "expert": 30,
+              "count": 2.0
+            },
+            {
+              "expert": 162,
+              "count": 2.0
+            },
+            {
+              "expert": 239,
+              "count": 2.0
+            },
+            {
+              "expert": 12,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "json_schema",
+      "category": "json",
+      "token_count": 26,
+      "hash_layers": {
+        "0": {
+          "total_routes": 156,
+          "top_experts": [
+            {
+              "expert": 74,
+              "count": 6.0
+            },
+            {
+              "expert": 106,
+              "count": 6.0
+            },
+            {
+              "expert": 62,
+              "count": 5.0
+            },
+            {
+              "expert": 29,
+              "count": 4.0
+            },
+            {
+              "expert": 85,
+              "count": 4.0
+            },
+            {
+              "expert": 132,
+              "count": 4.0
+            },
+            {
+              "expert": 14,
+              "count": 3.0
+            },
+            {
+              "expert": 156,
+              "count": 3.0
+            },
+            {
+              "expert": 84,
+              "count": 3.0
+            },
+            {
+              "expert": 242,
+              "count": 3.0
+            },
+            {
+              "expert": 64,
+              "count": 3.0
+            },
+            {
+              "expert": 107,
+              "count": 3.0
+            },
+            {
+              "expert": 225,
+              "count": 2.0
+            },
+            {
+              "expert": 93,
+              "count": 2.0
+            },
+            {
+              "expert": 150,
+              "count": 2.0
+            },
+            {
+              "expert": 211,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 156,
+          "top_experts": [
+            {
+              "expert": 155,
+              "count": 7.0
+            },
+            {
+              "expert": 210,
+              "count": 4.0
+            },
+            {
+              "expert": 19,
+              "count": 4.0
+            },
+            {
+              "expert": 36,
+              "count": 4.0
+            },
+            {
+              "expert": 72,
+              "count": 4.0
+            },
+            {
+              "expert": 176,
+              "count": 3.0
+            },
+            {
+              "expert": 0,
+              "count": 3.0
+            },
+            {
+              "expert": 1,
+              "count": 3.0
+            },
+            {
+              "expert": 137,
+              "count": 3.0
+            },
+            {
+              "expert": 121,
+              "count": 3.0
+            },
+            {
+              "expert": 229,
+              "count": 3.0
+            },
+            {
+              "expert": 86,
+              "count": 3.0
+            },
+            {
+              "expert": 114,
+              "count": 3.0
+            },
+            {
+              "expert": 236,
+              "count": 2.0
+            },
+            {
+              "expert": 15,
+              "count": 2.0
+            },
+            {
+              "expert": 169,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 156,
+          "top_experts": [
+            {
+              "expert": 128,
+              "count": 4.0
+            },
+            {
+              "expert": 77,
+              "count": 4.0
+            },
+            {
+              "expert": 12,
+              "count": 3.0
+            },
+            {
+              "expert": 17,
+              "count": 3.0
+            },
+            {
+              "expert": 233,
+              "count": 3.0
+            },
+            {
+              "expert": 48,
+              "count": 3.0
+            },
+            {
+              "expert": 20,
+              "count": 3.0
+            },
+            {
+              "expert": 174,
+              "count": 3.0
+            },
+            {
+              "expert": 74,
+              "count": 3.0
+            },
+            {
+              "expert": 125,
+              "count": 3.0
+            },
+            {
+              "expert": 141,
+              "count": 3.0
+            },
+            {
+              "expert": 40,
+              "count": 2.0
+            },
+            {
+              "expert": 24,
+              "count": 2.0
+            },
+            {
+              "expert": 210,
+              "count": 2.0
+            },
+            {
+              "expert": 4,
+              "count": 2.0
+            },
+            {
+              "expert": 205,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "python_fix",
+      "category": "coding",
+      "token_count": 27,
+      "hash_layers": {
+        "0": {
+          "total_routes": 162,
+          "top_experts": [
+            {
+              "expert": 42,
+              "count": 4.0
+            },
+            {
+              "expert": 203,
+              "count": 4.0
+            },
+            {
+              "expert": 56,
+              "count": 3.0
+            },
+            {
+              "expert": 31,
+              "count": 3.0
+            },
+            {
+              "expert": 243,
+              "count": 3.0
+            },
+            {
+              "expert": 93,
+              "count": 3.0
+            },
+            {
+              "expert": 122,
+              "count": 3.0
+            },
+            {
+              "expert": 61,
+              "count": 3.0
+            },
+            {
+              "expert": 170,
+              "count": 3.0
+            },
+            {
+              "expert": 100,
+              "count": 3.0
+            },
+            {
+              "expert": 41,
+              "count": 2.0
+            },
+            {
+              "expert": 57,
+              "count": 2.0
+            },
+            {
+              "expert": 43,
+              "count": 2.0
+            },
+            {
+              "expert": 250,
+              "count": 2.0
+            },
+            {
+              "expert": 15,
+              "count": 2.0
+            },
+            {
+              "expert": 201,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 162,
+          "top_experts": [
+            {
+              "expert": 167,
+              "count": 4.0
+            },
+            {
+              "expert": 39,
+              "count": 4.0
+            },
+            {
+              "expert": 104,
+              "count": 3.0
+            },
+            {
+              "expert": 130,
+              "count": 3.0
+            },
+            {
+              "expert": 81,
+              "count": 3.0
+            },
+            {
+              "expert": 38,
+              "count": 3.0
+            },
+            {
+              "expert": 221,
+              "count": 3.0
+            },
+            {
+              "expert": 205,
+              "count": 3.0
+            },
+            {
+              "expert": 157,
+              "count": 3.0
+            },
+            {
+              "expert": 206,
+              "count": 3.0
+            },
+            {
+              "expert": 161,
+              "count": 3.0
+            },
+            {
+              "expert": 127,
+              "count": 3.0
+            },
+            {
+              "expert": 217,
+              "count": 2.0
+            },
+            {
+              "expert": 15,
+              "count": 2.0
+            },
+            {
+              "expert": 36,
+              "count": 2.0
+            },
+            {
+              "expert": 31,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 162,
+          "top_experts": [
+            {
+              "expert": 239,
+              "count": 5.0
+            },
+            {
+              "expert": 11,
+              "count": 5.0
+            },
+            {
+              "expert": 151,
+              "count": 4.0
+            },
+            {
+              "expert": 13,
+              "count": 4.0
+            },
+            {
+              "expert": 233,
+              "count": 3.0
+            },
+            {
+              "expert": 177,
+              "count": 3.0
+            },
+            {
+              "expert": 30,
+              "count": 3.0
+            },
+            {
+              "expert": 135,
+              "count": 3.0
+            },
+            {
+              "expert": 185,
+              "count": 3.0
+            },
+            {
+              "expert": 198,
+              "count": 3.0
+            },
+            {
+              "expert": 248,
+              "count": 2.0
+            },
+            {
+              "expert": 112,
+              "count": 2.0
+            },
+            {
+              "expert": 76,
+              "count": 2.0
+            },
+            {
+              "expert": 59,
+              "count": 2.0
+            },
+            {
+              "expert": 241,
+              "count": 2.0
+            },
+            {
+              "expert": 2,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "typescript_async",
+      "category": "coding",
+      "token_count": 18,
+      "hash_layers": {
+        "0": {
+          "total_routes": 108,
+          "top_experts": [
+            {
+              "expert": 127,
+              "count": 3.0
+            },
+            {
+              "expert": 95,
+              "count": 3.0
+            },
+            {
+              "expert": 90,
+              "count": 3.0
+            },
+            {
+              "expert": 107,
+              "count": 3.0
+            },
+            {
+              "expert": 74,
+              "count": 3.0
+            },
+            {
+              "expert": 24,
+              "count": 3.0
+            },
+            {
+              "expert": 106,
+              "count": 3.0
+            },
+            {
+              "expert": 55,
+              "count": 2.0
+            },
+            {
+              "expert": 32,
+              "count": 2.0
+            },
+            {
+              "expert": 218,
+              "count": 2.0
+            },
+            {
+              "expert": 4,
+              "count": 2.0
+            },
+            {
+              "expert": 52,
+              "count": 2.0
+            },
+            {
+              "expert": 227,
+              "count": 2.0
+            },
+            {
+              "expert": 10,
+              "count": 2.0
+            },
+            {
+              "expert": 236,
+              "count": 2.0
+            },
+            {
+              "expert": 132,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 108,
+          "top_experts": [
+            {
+              "expert": 155,
+              "count": 4.0
+            },
+            {
+              "expert": 210,
+              "count": 3.0
+            },
+            {
+              "expert": 229,
+              "count": 3.0
+            },
+            {
+              "expert": 245,
+              "count": 2.0
+            },
+            {
+              "expert": 232,
+              "count": 2.0
+            },
+            {
+              "expert": 255,
+              "count": 2.0
+            },
+            {
+              "expert": 104,
+              "count": 2.0
+            },
+            {
+              "expert": 192,
+              "count": 2.0
+            },
+            {
+              "expert": 161,
+              "count": 2.0
+            },
+            {
+              "expert": 80,
+              "count": 2.0
+            },
+            {
+              "expert": 132,
+              "count": 2.0
+            },
+            {
+              "expert": 169,
+              "count": 2.0
+            },
+            {
+              "expert": 58,
+              "count": 2.0
+            },
+            {
+              "expert": 102,
+              "count": 2.0
+            },
+            {
+              "expert": 77,
+              "count": 2.0
+            },
+            {
+              "expert": 175,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 108,
+          "top_experts": [
+            {
+              "expert": 153,
+              "count": 3.0
+            },
+            {
+              "expert": 20,
+              "count": 3.0
+            },
+            {
+              "expert": 117,
+              "count": 2.0
+            },
+            {
+              "expert": 248,
+              "count": 2.0
+            },
+            {
+              "expert": 46,
+              "count": 2.0
+            },
+            {
+              "expert": 163,
+              "count": 2.0
+            },
+            {
+              "expert": 37,
+              "count": 2.0
+            },
+            {
+              "expert": 48,
+              "count": 2.0
+            },
+            {
+              "expert": 235,
+              "count": 2.0
+            },
+            {
+              "expert": 185,
+              "count": 2.0
+            },
+            {
+              "expert": 174,
+              "count": 2.0
+            },
+            {
+              "expert": 77,
+              "count": 2.0
+            },
+            {
+              "expert": 74,
+              "count": 2.0
+            },
+            {
+              "expert": 125,
+              "count": 2.0
+            },
+            {
+              "expert": 141,
+              "count": 2.0
+            },
+            {
+              "expert": 39,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "rust_iterator",
+      "category": "coding",
+      "token_count": 18,
+      "hash_layers": {
+        "0": {
+          "total_routes": 108,
+          "top_experts": [
+            {
+              "expert": 223,
+              "count": 3.0
+            },
+            {
+              "expert": 17,
+              "count": 2.0
+            },
+            {
+              "expert": 114,
+              "count": 2.0
+            },
+            {
+              "expert": 77,
+              "count": 2.0
+            },
+            {
+              "expert": 71,
+              "count": 2.0
+            },
+            {
+              "expert": 181,
+              "count": 2.0
+            },
+            {
+              "expert": 169,
+              "count": 2.0
+            },
+            {
+              "expert": 120,
+              "count": 2.0
+            },
+            {
+              "expert": 232,
+              "count": 2.0
+            },
+            {
+              "expert": 96,
+              "count": 2.0
+            },
+            {
+              "expert": 247,
+              "count": 2.0
+            },
+            {
+              "expert": 16,
+              "count": 2.0
+            },
+            {
+              "expert": 162,
+              "count": 2.0
+            },
+            {
+              "expert": 12,
+              "count": 2.0
+            },
+            {
+              "expert": 42,
+              "count": 2.0
+            },
+            {
+              "expert": 218,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 108,
+          "top_experts": [
+            {
+              "expert": 75,
+              "count": 4.0
+            },
+            {
+              "expert": 213,
+              "count": 3.0
+            },
+            {
+              "expert": 230,
+              "count": 2.0
+            },
+            {
+              "expert": 58,
+              "count": 2.0
+            },
+            {
+              "expert": 149,
+              "count": 2.0
+            },
+            {
+              "expert": 44,
+              "count": 2.0
+            },
+            {
+              "expert": 117,
+              "count": 2.0
+            },
+            {
+              "expert": 107,
+              "count": 2.0
+            },
+            {
+              "expert": 234,
+              "count": 2.0
+            },
+            {
+              "expert": 71,
+              "count": 2.0
+            },
+            {
+              "expert": 103,
+              "count": 2.0
+            },
+            {
+              "expert": 118,
+              "count": 2.0
+            },
+            {
+              "expert": 43,
+              "count": 2.0
+            },
+            {
+              "expert": 70,
+              "count": 2.0
+            },
+            {
+              "expert": 32,
+              "count": 2.0
+            },
+            {
+              "expert": 28,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 108,
+          "top_experts": [
+            {
+              "expert": 29,
+              "count": 3.0
+            },
+            {
+              "expert": 1,
+              "count": 3.0
+            },
+            {
+              "expert": 145,
+              "count": 3.0
+            },
+            {
+              "expert": 71,
+              "count": 3.0
+            },
+            {
+              "expert": 239,
+              "count": 3.0
+            },
+            {
+              "expert": 62,
+              "count": 2.0
+            },
+            {
+              "expert": 130,
+              "count": 2.0
+            },
+            {
+              "expert": 210,
+              "count": 2.0
+            },
+            {
+              "expert": 74,
+              "count": 2.0
+            },
+            {
+              "expert": 162,
+              "count": 2.0
+            },
+            {
+              "expert": 159,
+              "count": 2.0
+            },
+            {
+              "expert": 37,
+              "count": 2.0
+            },
+            {
+              "expert": 39,
+              "count": 2.0
+            },
+            {
+              "expert": 65,
+              "count": 2.0
+            },
+            {
+              "expert": 146,
+              "count": 2.0
+            },
+            {
+              "expert": 224,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sql_migration",
+      "category": "coding",
+      "token_count": 21,
+      "hash_layers": {
+        "0": {
+          "total_routes": 126,
+          "top_experts": [
+            {
+              "expert": 106,
+              "count": 4.0
+            },
+            {
+              "expert": 29,
+              "count": 4.0
+            },
+            {
+              "expert": 62,
+              "count": 4.0
+            },
+            {
+              "expert": 107,
+              "count": 3.0
+            },
+            {
+              "expert": 132,
+              "count": 3.0
+            },
+            {
+              "expert": 74,
+              "count": 3.0
+            },
+            {
+              "expert": 201,
+              "count": 3.0
+            },
+            {
+              "expert": 4,
+              "count": 3.0
+            },
+            {
+              "expert": 55,
+              "count": 2.0
+            },
+            {
+              "expert": 95,
+              "count": 2.0
+            },
+            {
+              "expert": 104,
+              "count": 2.0
+            },
+            {
+              "expert": 42,
+              "count": 2.0
+            },
+            {
+              "expert": 92,
+              "count": 2.0
+            },
+            {
+              "expert": 146,
+              "count": 2.0
+            },
+            {
+              "expert": 10,
+              "count": 2.0
+            },
+            {
+              "expert": 56,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 126,
+          "top_experts": [
+            {
+              "expert": 155,
+              "count": 4.0
+            },
+            {
+              "expert": 201,
+              "count": 3.0
+            },
+            {
+              "expert": 210,
+              "count": 3.0
+            },
+            {
+              "expert": 36,
+              "count": 3.0
+            },
+            {
+              "expert": 229,
+              "count": 3.0
+            },
+            {
+              "expert": 86,
+              "count": 3.0
+            },
+            {
+              "expert": 114,
+              "count": 3.0
+            },
+            {
+              "expert": 25,
+              "count": 3.0
+            },
+            {
+              "expert": 5,
+              "count": 2.0
+            },
+            {
+              "expert": 245,
+              "count": 2.0
+            },
+            {
+              "expert": 156,
+              "count": 2.0
+            },
+            {
+              "expert": 232,
+              "count": 2.0
+            },
+            {
+              "expert": 138,
+              "count": 2.0
+            },
+            {
+              "expert": 104,
+              "count": 2.0
+            },
+            {
+              "expert": 183,
+              "count": 2.0
+            },
+            {
+              "expert": 224,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 126,
+          "top_experts": [
+            {
+              "expert": 12,
+              "count": 4.0
+            },
+            {
+              "expert": 174,
+              "count": 4.0
+            },
+            {
+              "expert": 20,
+              "count": 3.0
+            },
+            {
+              "expert": 77,
+              "count": 3.0
+            },
+            {
+              "expert": 74,
+              "count": 3.0
+            },
+            {
+              "expert": 125,
+              "count": 3.0
+            },
+            {
+              "expert": 141,
+              "count": 3.0
+            },
+            {
+              "expert": 6,
+              "count": 2.0
+            },
+            {
+              "expert": 170,
+              "count": 2.0
+            },
+            {
+              "expert": 178,
+              "count": 2.0
+            },
+            {
+              "expert": 148,
+              "count": 2.0
+            },
+            {
+              "expert": 185,
+              "count": 2.0
+            },
+            {
+              "expert": 131,
+              "count": 2.0
+            },
+            {
+              "expert": 126,
+              "count": 2.0
+            },
+            {
+              "expert": 42,
+              "count": 2.0
+            },
+            {
+              "expert": 107,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "debug_trace",
+      "category": "coding",
+      "token_count": 25,
+      "hash_layers": {
+        "0": {
+          "total_routes": 150,
+          "top_experts": [
+            {
+              "expert": 169,
+              "count": 4.0
+            },
+            {
+              "expert": 150,
+              "count": 4.0
+            },
+            {
+              "expert": 120,
+              "count": 4.0
+            },
+            {
+              "expert": 29,
+              "count": 4.0
+            },
+            {
+              "expert": 213,
+              "count": 4.0
+            },
+            {
+              "expert": 14,
+              "count": 3.0
+            },
+            {
+              "expert": 156,
+              "count": 3.0
+            },
+            {
+              "expert": 73,
+              "count": 3.0
+            },
+            {
+              "expert": 60,
+              "count": 3.0
+            },
+            {
+              "expert": 2,
+              "count": 3.0
+            },
+            {
+              "expert": 74,
+              "count": 3.0
+            },
+            {
+              "expert": 55,
+              "count": 3.0
+            },
+            {
+              "expert": 122,
+              "count": 2.0
+            },
+            {
+              "expert": 24,
+              "count": 2.0
+            },
+            {
+              "expert": 218,
+              "count": 2.0
+            },
+            {
+              "expert": 39,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 150,
+          "top_experts": [
+            {
+              "expert": 117,
+              "count": 5.0
+            },
+            {
+              "expert": 44,
+              "count": 4.0
+            },
+            {
+              "expert": 195,
+              "count": 4.0
+            },
+            {
+              "expert": 21,
+              "count": 4.0
+            },
+            {
+              "expert": 169,
+              "count": 3.0
+            },
+            {
+              "expert": 37,
+              "count": 3.0
+            },
+            {
+              "expert": 48,
+              "count": 3.0
+            },
+            {
+              "expert": 32,
+              "count": 3.0
+            },
+            {
+              "expert": 38,
+              "count": 3.0
+            },
+            {
+              "expert": 82,
+              "count": 3.0
+            },
+            {
+              "expert": 92,
+              "count": 2.0
+            },
+            {
+              "expert": 197,
+              "count": 2.0
+            },
+            {
+              "expert": 156,
+              "count": 2.0
+            },
+            {
+              "expert": 84,
+              "count": 2.0
+            },
+            {
+              "expert": 160,
+              "count": 2.0
+            },
+            {
+              "expert": 2,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 150,
+          "top_experts": [
+            {
+              "expert": 115,
+              "count": 4.0
+            },
+            {
+              "expert": 26,
+              "count": 4.0
+            },
+            {
+              "expert": 37,
+              "count": 4.0
+            },
+            {
+              "expert": 40,
+              "count": 3.0
+            },
+            {
+              "expert": 59,
+              "count": 3.0
+            },
+            {
+              "expert": 24,
+              "count": 3.0
+            },
+            {
+              "expert": 210,
+              "count": 3.0
+            },
+            {
+              "expert": 39,
+              "count": 3.0
+            },
+            {
+              "expert": 187,
+              "count": 2.0
+            },
+            {
+              "expert": 83,
+              "count": 2.0
+            },
+            {
+              "expert": 85,
+              "count": 2.0
+            },
+            {
+              "expert": 176,
+              "count": 2.0
+            },
+            {
+              "expert": 55,
+              "count": 2.0
+            },
+            {
+              "expert": 247,
+              "count": 2.0
+            },
+            {
+              "expert": 20,
+              "count": 2.0
+            },
+            {
+              "expert": 246,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "korean_plain",
+      "category": "korean",
+      "token_count": 30,
+      "hash_layers": {
+        "0": {
+          "total_routes": 180,
+          "top_experts": [
+            {
+              "expert": 224,
+              "count": 4.0
+            },
+            {
+              "expert": 76,
+              "count": 4.0
+            },
+            {
+              "expert": 119,
+              "count": 4.0
+            },
+            {
+              "expert": 145,
+              "count": 4.0
+            },
+            {
+              "expert": 0,
+              "count": 3.0
+            },
+            {
+              "expert": 84,
+              "count": 3.0
+            },
+            {
+              "expert": 214,
+              "count": 3.0
+            },
+            {
+              "expert": 177,
+              "count": 3.0
+            },
+            {
+              "expert": 41,
+              "count": 3.0
+            },
+            {
+              "expert": 65,
+              "count": 3.0
+            },
+            {
+              "expert": 217,
+              "count": 3.0
+            },
+            {
+              "expert": 52,
+              "count": 3.0
+            },
+            {
+              "expert": 131,
+              "count": 3.0
+            },
+            {
+              "expert": 5,
+              "count": 2.0
+            },
+            {
+              "expert": 79,
+              "count": 2.0
+            },
+            {
+              "expert": 69,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 180,
+          "top_experts": [
+            {
+              "expert": 210,
+              "count": 5.0
+            },
+            {
+              "expert": 179,
+              "count": 4.0
+            },
+            {
+              "expert": 223,
+              "count": 4.0
+            },
+            {
+              "expert": 52,
+              "count": 3.0
+            },
+            {
+              "expert": 219,
+              "count": 3.0
+            },
+            {
+              "expert": 39,
+              "count": 3.0
+            },
+            {
+              "expert": 51,
+              "count": 3.0
+            },
+            {
+              "expert": 45,
+              "count": 3.0
+            },
+            {
+              "expert": 38,
+              "count": 3.0
+            },
+            {
+              "expert": 127,
+              "count": 3.0
+            },
+            {
+              "expert": 14,
+              "count": 3.0
+            },
+            {
+              "expert": 2,
+              "count": 2.0
+            },
+            {
+              "expert": 73,
+              "count": 2.0
+            },
+            {
+              "expert": 182,
+              "count": 2.0
+            },
+            {
+              "expert": 64,
+              "count": 2.0
+            },
+            {
+              "expert": 192,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 180,
+          "top_experts": [
+            {
+              "expert": 224,
+              "count": 4.0
+            },
+            {
+              "expert": 239,
+              "count": 4.0
+            },
+            {
+              "expert": 194,
+              "count": 4.0
+            },
+            {
+              "expert": 78,
+              "count": 4.0
+            },
+            {
+              "expert": 43,
+              "count": 4.0
+            },
+            {
+              "expert": 56,
+              "count": 3.0
+            },
+            {
+              "expert": 74,
+              "count": 3.0
+            },
+            {
+              "expert": 40,
+              "count": 3.0
+            },
+            {
+              "expert": 245,
+              "count": 3.0
+            },
+            {
+              "expert": 29,
+              "count": 3.0
+            },
+            {
+              "expert": 91,
+              "count": 3.0
+            },
+            {
+              "expert": 189,
+              "count": 3.0
+            },
+            {
+              "expert": 26,
+              "count": 3.0
+            },
+            {
+              "expert": 82,
+              "count": 3.0
+            },
+            {
+              "expert": 248,
+              "count": 3.0
+            },
+            {
+              "expert": 75,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "korean_coding",
+      "category": "korean",
+      "token_count": 33,
+      "hash_layers": {
+        "0": {
+          "total_routes": 198,
+          "top_experts": [
+            {
+              "expert": 85,
+              "count": 4.0
+            },
+            {
+              "expert": 69,
+              "count": 4.0
+            },
+            {
+              "expert": 76,
+              "count": 4.0
+            },
+            {
+              "expert": 183,
+              "count": 3.0
+            },
+            {
+              "expert": 8,
+              "count": 3.0
+            },
+            {
+              "expert": 77,
+              "count": 3.0
+            },
+            {
+              "expert": 93,
+              "count": 3.0
+            },
+            {
+              "expert": 22,
+              "count": 3.0
+            },
+            {
+              "expert": 87,
+              "count": 3.0
+            },
+            {
+              "expert": 119,
+              "count": 3.0
+            },
+            {
+              "expert": 145,
+              "count": 3.0
+            },
+            {
+              "expert": 19,
+              "count": 3.0
+            },
+            {
+              "expert": 115,
+              "count": 3.0
+            },
+            {
+              "expert": 251,
+              "count": 2.0
+            },
+            {
+              "expert": 141,
+              "count": 2.0
+            },
+            {
+              "expert": 60,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 198,
+          "top_experts": [
+            {
+              "expert": 104,
+              "count": 3.0
+            },
+            {
+              "expert": 121,
+              "count": 3.0
+            },
+            {
+              "expert": 45,
+              "count": 3.0
+            },
+            {
+              "expert": 190,
+              "count": 3.0
+            },
+            {
+              "expert": 65,
+              "count": 3.0
+            },
+            {
+              "expert": 16,
+              "count": 3.0
+            },
+            {
+              "expert": 160,
+              "count": 3.0
+            },
+            {
+              "expert": 29,
+              "count": 2.0
+            },
+            {
+              "expert": 151,
+              "count": 2.0
+            },
+            {
+              "expert": 17,
+              "count": 2.0
+            },
+            {
+              "expert": 13,
+              "count": 2.0
+            },
+            {
+              "expert": 227,
+              "count": 2.0
+            },
+            {
+              "expert": 39,
+              "count": 2.0
+            },
+            {
+              "expert": 149,
+              "count": 2.0
+            },
+            {
+              "expert": 3,
+              "count": 2.0
+            },
+            {
+              "expert": 140,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 198,
+          "top_experts": [
+            {
+              "expert": 224,
+              "count": 4.0
+            },
+            {
+              "expert": 240,
+              "count": 3.0
+            },
+            {
+              "expert": 107,
+              "count": 3.0
+            },
+            {
+              "expert": 146,
+              "count": 3.0
+            },
+            {
+              "expert": 245,
+              "count": 3.0
+            },
+            {
+              "expert": 131,
+              "count": 3.0
+            },
+            {
+              "expert": 51,
+              "count": 2.0
+            },
+            {
+              "expert": 40,
+              "count": 2.0
+            },
+            {
+              "expert": 5,
+              "count": 2.0
+            },
+            {
+              "expert": 91,
+              "count": 2.0
+            },
+            {
+              "expert": 153,
+              "count": 2.0
+            },
+            {
+              "expert": 60,
+              "count": 2.0
+            },
+            {
+              "expert": 67,
+              "count": 2.0
+            },
+            {
+              "expert": 190,
+              "count": 2.0
+            },
+            {
+              "expert": 112,
+              "count": 2.0
+            },
+            {
+              "expert": 103,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "math_reasoning",
+      "category": "reasoning",
+      "token_count": 34,
+      "hash_layers": {
+        "0": {
+          "total_routes": 204,
+          "top_experts": [
+            {
+              "expert": 153,
+              "count": 7.0
+            },
+            {
+              "expert": 44,
+              "count": 6.0
+            },
+            {
+              "expert": 182,
+              "count": 5.0
+            },
+            {
+              "expert": 6,
+              "count": 5.0
+            },
+            {
+              "expert": 52,
+              "count": 4.0
+            },
+            {
+              "expert": 132,
+              "count": 4.0
+            },
+            {
+              "expert": 79,
+              "count": 4.0
+            },
+            {
+              "expert": 19,
+              "count": 3.0
+            },
+            {
+              "expert": 216,
+              "count": 3.0
+            },
+            {
+              "expert": 63,
+              "count": 3.0
+            },
+            {
+              "expert": 0,
+              "count": 3.0
+            },
+            {
+              "expert": 115,
+              "count": 3.0
+            },
+            {
+              "expert": 214,
+              "count": 3.0
+            },
+            {
+              "expert": 96,
+              "count": 3.0
+            },
+            {
+              "expert": 172,
+              "count": 3.0
+            },
+            {
+              "expert": 82,
+              "count": 3.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 204,
+          "top_experts": [
+            {
+              "expert": 201,
+              "count": 4.0
+            },
+            {
+              "expert": 135,
+              "count": 4.0
+            },
+            {
+              "expert": 19,
+              "count": 4.0
+            },
+            {
+              "expert": 66,
+              "count": 4.0
+            },
+            {
+              "expert": 228,
+              "count": 4.0
+            },
+            {
+              "expert": 59,
+              "count": 4.0
+            },
+            {
+              "expert": 82,
+              "count": 4.0
+            },
+            {
+              "expert": 76,
+              "count": 4.0
+            },
+            {
+              "expert": 25,
+              "count": 4.0
+            },
+            {
+              "expert": 32,
+              "count": 4.0
+            },
+            {
+              "expert": 100,
+              "count": 3.0
+            },
+            {
+              "expert": 155,
+              "count": 3.0
+            },
+            {
+              "expert": 77,
+              "count": 3.0
+            },
+            {
+              "expert": 243,
+              "count": 3.0
+            },
+            {
+              "expert": 237,
+              "count": 3.0
+            },
+            {
+              "expert": 176,
+              "count": 3.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 204,
+          "top_experts": [
+            {
+              "expert": 32,
+              "count": 7.0
+            },
+            {
+              "expert": 61,
+              "count": 5.0
+            },
+            {
+              "expert": 162,
+              "count": 5.0
+            },
+            {
+              "expert": 39,
+              "count": 5.0
+            },
+            {
+              "expert": 48,
+              "count": 4.0
+            },
+            {
+              "expert": 63,
+              "count": 4.0
+            },
+            {
+              "expert": 11,
+              "count": 4.0
+            },
+            {
+              "expert": 7,
+              "count": 4.0
+            },
+            {
+              "expert": 239,
+              "count": 4.0
+            },
+            {
+              "expert": 21,
+              "count": 4.0
+            },
+            {
+              "expert": 146,
+              "count": 4.0
+            },
+            {
+              "expert": 40,
+              "count": 3.0
+            },
+            {
+              "expert": 68,
+              "count": 3.0
+            },
+            {
+              "expert": 51,
+              "count": 3.0
+            },
+            {
+              "expert": 81,
+              "count": 3.0
+            },
+            {
+              "expert": 53,
+              "count": 3.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "moe_prefetch",
+      "category": "moe",
+      "token_count": 22,
+      "hash_layers": {
+        "0": {
+          "total_routes": 132,
+          "top_experts": [
+            {
+              "expert": 242,
+              "count": 3.0
+            },
+            {
+              "expert": 218,
+              "count": 3.0
+            },
+            {
+              "expert": 144,
+              "count": 3.0
+            },
+            {
+              "expert": 174,
+              "count": 3.0
+            },
+            {
+              "expert": 219,
+              "count": 2.0
+            },
+            {
+              "expert": 68,
+              "count": 2.0
+            },
+            {
+              "expert": 42,
+              "count": 2.0
+            },
+            {
+              "expert": 46,
+              "count": 2.0
+            },
+            {
+              "expert": 208,
+              "count": 2.0
+            },
+            {
+              "expert": 69,
+              "count": 2.0
+            },
+            {
+              "expert": 1,
+              "count": 2.0
+            },
+            {
+              "expert": 112,
+              "count": 2.0
+            },
+            {
+              "expert": 206,
+              "count": 2.0
+            },
+            {
+              "expert": 45,
+              "count": 2.0
+            },
+            {
+              "expert": 81,
+              "count": 2.0
+            },
+            {
+              "expert": 116,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 132,
+          "top_experts": [
+            {
+              "expert": 38,
+              "count": 3.0
+            },
+            {
+              "expert": 253,
+              "count": 3.0
+            },
+            {
+              "expert": 225,
+              "count": 3.0
+            },
+            {
+              "expert": 151,
+              "count": 3.0
+            },
+            {
+              "expert": 54,
+              "count": 3.0
+            },
+            {
+              "expert": 112,
+              "count": 2.0
+            },
+            {
+              "expert": 89,
+              "count": 2.0
+            },
+            {
+              "expert": 201,
+              "count": 2.0
+            },
+            {
+              "expert": 192,
+              "count": 2.0
+            },
+            {
+              "expert": 141,
+              "count": 2.0
+            },
+            {
+              "expert": 116,
+              "count": 2.0
+            },
+            {
+              "expert": 76,
+              "count": 2.0
+            },
+            {
+              "expert": 88,
+              "count": 2.0
+            },
+            {
+              "expert": 45,
+              "count": 2.0
+            },
+            {
+              "expert": 171,
+              "count": 2.0
+            },
+            {
+              "expert": 0,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 132,
+          "top_experts": [
+            {
+              "expert": 223,
+              "count": 4.0
+            },
+            {
+              "expert": 146,
+              "count": 3.0
+            },
+            {
+              "expert": 69,
+              "count": 3.0
+            },
+            {
+              "expert": 208,
+              "count": 3.0
+            },
+            {
+              "expert": 106,
+              "count": 2.0
+            },
+            {
+              "expert": 224,
+              "count": 2.0
+            },
+            {
+              "expert": 37,
+              "count": 2.0
+            },
+            {
+              "expert": 58,
+              "count": 2.0
+            },
+            {
+              "expert": 10,
+              "count": 2.0
+            },
+            {
+              "expert": 220,
+              "count": 2.0
+            },
+            {
+              "expert": 34,
+              "count": 2.0
+            },
+            {
+              "expert": 9,
+              "count": 2.0
+            },
+            {
+              "expert": 182,
+              "count": 2.0
+            },
+            {
+              "expert": 62,
+              "count": 2.0
+            },
+            {
+              "expert": 113,
+              "count": 2.0
+            },
+            {
+              "expert": 86,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "deepseek_arch",
+      "category": "moe",
+      "token_count": 26,
+      "hash_layers": {
+        "0": {
+          "total_routes": 156,
+          "top_experts": [
+            {
+              "expert": 132,
+              "count": 5.0
+            },
+            {
+              "expert": 107,
+              "count": 4.0
+            },
+            {
+              "expert": 182,
+              "count": 4.0
+            },
+            {
+              "expert": 106,
+              "count": 4.0
+            },
+            {
+              "expert": 138,
+              "count": 3.0
+            },
+            {
+              "expert": 154,
+              "count": 3.0
+            },
+            {
+              "expert": 44,
+              "count": 3.0
+            },
+            {
+              "expert": 27,
+              "count": 3.0
+            },
+            {
+              "expert": 29,
+              "count": 3.0
+            },
+            {
+              "expert": 62,
+              "count": 3.0
+            },
+            {
+              "expert": 74,
+              "count": 3.0
+            },
+            {
+              "expert": 69,
+              "count": 3.0
+            },
+            {
+              "expert": 1,
+              "count": 3.0
+            },
+            {
+              "expert": 216,
+              "count": 2.0
+            },
+            {
+              "expert": 71,
+              "count": 2.0
+            },
+            {
+              "expert": 30,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 156,
+          "top_experts": [
+            {
+              "expert": 43,
+              "count": 5.0
+            },
+            {
+              "expert": 91,
+              "count": 4.0
+            },
+            {
+              "expert": 172,
+              "count": 4.0
+            },
+            {
+              "expert": 229,
+              "count": 4.0
+            },
+            {
+              "expert": 15,
+              "count": 4.0
+            },
+            {
+              "expert": 155,
+              "count": 4.0
+            },
+            {
+              "expert": 36,
+              "count": 4.0
+            },
+            {
+              "expert": 114,
+              "count": 4.0
+            },
+            {
+              "expert": 68,
+              "count": 3.0
+            },
+            {
+              "expert": 25,
+              "count": 3.0
+            },
+            {
+              "expert": 109,
+              "count": 3.0
+            },
+            {
+              "expert": 210,
+              "count": 3.0
+            },
+            {
+              "expert": 86,
+              "count": 3.0
+            },
+            {
+              "expert": 192,
+              "count": 3.0
+            },
+            {
+              "expert": 77,
+              "count": 3.0
+            },
+            {
+              "expert": 66,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 156,
+          "top_experts": [
+            {
+              "expert": 247,
+              "count": 3.0
+            },
+            {
+              "expert": 190,
+              "count": 3.0
+            },
+            {
+              "expert": 188,
+              "count": 3.0
+            },
+            {
+              "expert": 1,
+              "count": 3.0
+            },
+            {
+              "expert": 237,
+              "count": 3.0
+            },
+            {
+              "expert": 20,
+              "count": 3.0
+            },
+            {
+              "expert": 174,
+              "count": 3.0
+            },
+            {
+              "expert": 77,
+              "count": 3.0
+            },
+            {
+              "expert": 74,
+              "count": 3.0
+            },
+            {
+              "expert": 125,
+              "count": 3.0
+            },
+            {
+              "expert": 141,
+              "count": 3.0
+            },
+            {
+              "expert": 40,
+              "count": 3.0
+            },
+            {
+              "expert": 73,
+              "count": 2.0
+            },
+            {
+              "expert": 84,
+              "count": 2.0
+            },
+            {
+              "expert": 71,
+              "count": 2.0
+            },
+            {
+              "expert": 153,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "summarize_paper",
+      "category": "research",
+      "token_count": 21,
+      "hash_layers": {
+        "0": {
+          "total_routes": 126,
+          "top_experts": [
+            {
+              "expert": 138,
+              "count": 3.0
+            },
+            {
+              "expert": 29,
+              "count": 3.0
+            },
+            {
+              "expert": 10,
+              "count": 3.0
+            },
+            {
+              "expert": 73,
+              "count": 2.0
+            },
+            {
+              "expert": 219,
+              "count": 2.0
+            },
+            {
+              "expert": 229,
+              "count": 2.0
+            },
+            {
+              "expert": 235,
+              "count": 2.0
+            },
+            {
+              "expert": 30,
+              "count": 2.0
+            },
+            {
+              "expert": 169,
+              "count": 2.0
+            },
+            {
+              "expert": 14,
+              "count": 2.0
+            },
+            {
+              "expert": 150,
+              "count": 2.0
+            },
+            {
+              "expert": 120,
+              "count": 2.0
+            },
+            {
+              "expert": 156,
+              "count": 2.0
+            },
+            {
+              "expert": 112,
+              "count": 2.0
+            },
+            {
+              "expert": 69,
+              "count": 2.0
+            },
+            {
+              "expert": 11,
+              "count": 2.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 126,
+          "top_experts": [
+            {
+              "expert": 224,
+              "count": 4.0
+            },
+            {
+              "expert": 104,
+              "count": 4.0
+            },
+            {
+              "expert": 140,
+              "count": 2.0
+            },
+            {
+              "expert": 209,
+              "count": 2.0
+            },
+            {
+              "expert": 92,
+              "count": 2.0
+            },
+            {
+              "expert": 66,
+              "count": 2.0
+            },
+            {
+              "expert": 44,
+              "count": 2.0
+            },
+            {
+              "expert": 117,
+              "count": 2.0
+            },
+            {
+              "expert": 169,
+              "count": 2.0
+            },
+            {
+              "expert": 37,
+              "count": 2.0
+            },
+            {
+              "expert": 195,
+              "count": 2.0
+            },
+            {
+              "expert": 48,
+              "count": 2.0
+            },
+            {
+              "expert": 216,
+              "count": 2.0
+            },
+            {
+              "expert": 132,
+              "count": 2.0
+            },
+            {
+              "expert": 75,
+              "count": 2.0
+            },
+            {
+              "expert": 73,
+              "count": 2.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 126,
+          "top_experts": [
+            {
+              "expert": 40,
+              "count": 4.0
+            },
+            {
+              "expert": 115,
+              "count": 3.0
+            },
+            {
+              "expert": 26,
+              "count": 3.0
+            },
+            {
+              "expert": 98,
+              "count": 3.0
+            },
+            {
+              "expert": 108,
+              "count": 3.0
+            },
+            {
+              "expert": 61,
+              "count": 3.0
+            },
+            {
+              "expert": 55,
+              "count": 3.0
+            },
+            {
+              "expert": 185,
+              "count": 2.0
+            },
+            {
+              "expert": 247,
+              "count": 2.0
+            },
+            {
+              "expert": 59,
+              "count": 2.0
+            },
+            {
+              "expert": 24,
+              "count": 2.0
+            },
+            {
+              "expert": 210,
+              "count": 2.0
+            },
+            {
+              "expert": 128,
+              "count": 2.0
+            },
+            {
+              "expert": 74,
+              "count": 2.0
+            },
+            {
+              "expert": 10,
+              "count": 2.0
+            },
+            {
+              "expert": 231,
+              "count": 2.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "creative_design",
+      "category": "creative",
+      "token_count": 14,
+      "hash_layers": {
+        "0": {
+          "total_routes": 84,
+          "top_experts": [
+            {
+              "expert": 216,
+              "count": 2.0
+            },
+            {
+              "expert": 198,
+              "count": 2.0
+            },
+            {
+              "expert": 169,
+              "count": 2.0
+            },
+            {
+              "expert": 156,
+              "count": 2.0
+            },
+            {
+              "expert": 113,
+              "count": 2.0
+            },
+            {
+              "expert": 144,
+              "count": 2.0
+            },
+            {
+              "expert": 101,
+              "count": 2.0
+            },
+            {
+              "expert": 56,
+              "count": 2.0
+            },
+            {
+              "expert": 174,
+              "count": 2.0
+            },
+            {
+              "expert": 184,
+              "count": 1.0
+            },
+            {
+              "expert": 167,
+              "count": 1.0
+            },
+            {
+              "expert": 128,
+              "count": 1.0
+            },
+            {
+              "expert": 19,
+              "count": 1.0
+            },
+            {
+              "expert": 14,
+              "count": 1.0
+            },
+            {
+              "expert": 150,
+              "count": 1.0
+            },
+            {
+              "expert": 120,
+              "count": 1.0
+            }
+          ]
+        },
+        "1": {
+          "total_routes": 84,
+          "top_experts": [
+            {
+              "expert": 90,
+              "count": 2.0
+            },
+            {
+              "expert": 235,
+              "count": 2.0
+            },
+            {
+              "expert": 154,
+              "count": 2.0
+            },
+            {
+              "expert": 104,
+              "count": 2.0
+            },
+            {
+              "expert": 34,
+              "count": 2.0
+            },
+            {
+              "expert": 247,
+              "count": 2.0
+            },
+            {
+              "expert": 3,
+              "count": 2.0
+            },
+            {
+              "expert": 156,
+              "count": 2.0
+            },
+            {
+              "expert": 21,
+              "count": 2.0
+            },
+            {
+              "expert": 32,
+              "count": 2.0
+            },
+            {
+              "expert": 84,
+              "count": 1.0
+            },
+            {
+              "expert": 141,
+              "count": 1.0
+            },
+            {
+              "expert": 17,
+              "count": 1.0
+            },
+            {
+              "expert": 144,
+              "count": 1.0
+            },
+            {
+              "expert": 146,
+              "count": 1.0
+            },
+            {
+              "expert": 44,
+              "count": 1.0
+            }
+          ]
+        },
+        "2": {
+          "total_routes": 84,
+          "top_experts": [
+            {
+              "expert": 159,
+              "count": 3.0
+            },
+            {
+              "expert": 131,
+              "count": 2.0
+            },
+            {
+              "expert": 40,
+              "count": 2.0
+            },
+            {
+              "expert": 24,
+              "count": 2.0
+            },
+            {
+              "expert": 26,
+              "count": 2.0
+            },
+            {
+              "expert": 86,
+              "count": 2.0
+            },
+            {
+              "expert": 214,
+              "count": 2.0
+            },
+            {
+              "expert": 12,
+              "count": 2.0
+            },
+            {
+              "expert": 58,
+              "count": 2.0
+            },
+            {
+              "expert": 182,
+              "count": 2.0
+            },
+            {
+              "expert": 112,
+              "count": 2.0
+            },
+            {
+              "expert": 127,
+              "count": 1.0
+            },
+            {
+              "expert": 11,
+              "count": 1.0
+            },
+            {
+              "expert": 168,
+              "count": 1.0
+            },
+            {
+              "expert": 248,
+              "count": 1.0
+            },
+            {
+              "expert": 59,
+              "count": 1.0
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "prewarm_hotset_estimate": {
+    "experts_per_layer": 16,
+    "total_layers": 43,
+    "total_experts": 688,
+    "total_bytes": 8810135552,
+    "total_gib": 8.205078125
+  },
+  "global_hash_coverage_curve": [
+    {
+      "top_k": 8,
+      "avg": 0.10003035822707955,
+      "min": 0.09608378870673953,
+      "max": 0.10245901639344263,
+      "by_layer": {
+        "0": 0.10154826958105646,
+        "1": 0.10245901639344263,
+        "2": 0.09608378870673953
+      }
+    },
+    {
+      "top_k": 16,
+      "avg": 0.17744383727990284,
+      "min": 0.16848816029143898,
+      "max": 0.18351548269581056,
+      "by_layer": {
+        "0": 0.18032786885245902,
+        "1": 0.18351548269581056,
+        "2": 0.16848816029143898
+      }
+    },
+    {
+      "top_k": 32,
+      "avg": 0.2956891317547055,
+      "min": 0.2896174863387978,
+      "max": 0.30145719489981787,
+      "by_layer": {
+        "0": 0.30145719489981787,
+        "1": 0.2959927140255009,
+        "2": 0.2896174863387978
+      }
+    },
+    {
+      "top_k": 64,
+      "avg": 0.4710078931390407,
+      "min": 0.4663023679417122,
+      "max": 0.4744990892531876,
+      "by_layer": {
+        "0": 0.4744990892531876,
+        "1": 0.4663023679417122,
+        "2": 0.4722222222222222
+      }
+    }
+  ],
+  "prewarm_estimates_by_top_k": [
+    {
+      "top_k": 8,
+      "layers": 43,
+      "experts": 344,
+      "total_bytes": 4405067776,
+      "total_gib": 4.1025390625
+    },
+    {
+      "top_k": 16,
+      "layers": 43,
+      "experts": 688,
+      "total_bytes": 8810135552,
+      "total_gib": 8.205078125
+    },
+    {
+      "top_k": 32,
+      "layers": 43,
+      "experts": 1376,
+      "total_bytes": 17620271104,
+      "total_gib": 16.41015625
+    },
+    {
+      "top_k": 64,
+      "layers": 43,
+      "experts": 2752,
+      "total_bytes": 35240542208,
+      "total_gib": 32.8203125
+    }
+  ],
+  "limitations": [
+    "Hash-routing layers are exact because ffn_gate_tid2eid maps token ids directly to experts.",
+    "Later routed layers use exp_probs_b as a prompt-independent prior; full prompt-specific routing needs llama.cpp runtime instrumentation."
+  ]
+}
