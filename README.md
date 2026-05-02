@@ -68,6 +68,7 @@ cache, so pages remain reclaimable.
 - Model sources and parser artifacts: [docs/model-sources-and-parsers.md](docs/model-sources-and-parsers.md)
 - Rebuild `packed_experts_q4`: [docs/packed-experts-q4.md](docs/packed-experts-q4.md)
 - Applying this on larger-memory machines: [docs/appendix-other-machines.md](docs/appendix-other-machines.md)
+- English video script and recording runbook: [docs/video/README.md](docs/video/README.md)
 - 5-hour benchmark summary: [docs/results/deepseek_q4_longrun_5h/README.md](docs/results/deepseek_q4_longrun_5h/README.md)
 - 5-hour aggregate CSV: [docs/results/deepseek_q4_longrun_5h/summary.csv](docs/results/deepseek_q4_longrun_5h/summary.csv)
 - Decode baseline addendum: [docs/results/deepseek_q4_decode_baseline/summary.md](docs/results/deepseek_q4_decode_baseline/summary.md)

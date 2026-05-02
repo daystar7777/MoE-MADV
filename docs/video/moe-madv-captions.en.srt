@@ -1,0 +1,97 @@
+1
+00:00:00,000 --> 00:00:07,000
+This is DeepSeek V4 Flash, a 284-billion-parameter Mixture-of-Experts model.
+
+2
+00:00:07,000 --> 00:00:14,000
+The GGUF file used here is about 150 gigabytes on Hugging Face.
+
+3
+00:00:14,000 --> 00:00:21,000
+The machine is a 64 gigabyte M1 Max.
+
+4
+00:00:21,000 --> 00:00:31,000
+So the question is not just whether the machine can compute the model.
+It is whether the operating system can bring the right expert weights into memory at the right time.
+
+5
+00:00:31,000 --> 00:00:41,000
+Dense models tend to reuse the same mapped weight ranges during decode.
+DeepSeek V4 Flash is different.
+
+6
+00:00:41,000 --> 00:00:50,000
+It routes each token through a changing subset of experts, so decode can become dominated by page-in latency.
+
+7
+00:00:50,000 --> 00:01:00,000
+The benchmark model is lovedheart slash DeepSeek-V4-Flash-GGUF, using the MXFP4_MOE GGUF file.
+
+8
+00:01:00,000 --> 00:01:08,000
+The model file itself is not included in GitHub. The repository includes scripts, patches, charts, and reproduction notes.
+
+9
+00:01:08,000 --> 00:01:18,000
+For the video, I show live token generation so viewers can see the local model actually producing text.
+
+10
+00:01:18,000 --> 00:01:28,000
+The optimization is intentionally small. The model stays mmap-backed, and CPU repacking is disabled.
+
+11
+00:01:28,000 --> 00:01:40,000
+After the MoE router chooses the active experts, the runtime calls MADV_WILLNEED on those expert matrix ranges.
+
+12
+00:01:40,000 --> 00:01:49,000
+The operating system still owns the file-backed cache, so pages remain reclaimable.
+
+13
+00:01:49,000 --> 00:02:00,000
+The clean decode comparison uses the same model, the same prompts, and no static prewarm in either case.
+
+14
+00:02:00,000 --> 00:02:09,000
+With the expert page hint disabled, decode generation averaged 0.98 tokens per second.
+
+15
+00:02:09,000 --> 00:02:18,000
+With routing-aware MADV_WILLNEED enabled, it averaged 1.23 tokens per second.
+
+16
+00:02:18,000 --> 00:02:26,000
+That is a 25.4 percent throughput gain without changing the model.
+
+17
+00:02:26,000 --> 00:02:37,000
+The long-run data also showed that prefill and decode should be optimized differently.
+
+18
+00:02:37,000 --> 00:02:48,000
+Prefill behaves like broad layer-level page-in throughput. Decode is more latency-sensitive.
+
+19
+00:02:48,000 --> 00:02:59,000
+That is why a single global cache policy is probably not enough for this kind of model.
+
+20
+00:02:59,000 --> 00:03:11,000
+The repository includes parser artifacts, benchmark data, charts, and a rebuild process for the packed expert export.
+
+21
+00:03:11,000 --> 00:03:24,000
+This is not a claim that a 64 gigabyte machine is the ideal way to run a model this large.
+
+22
+00:03:24,000 --> 00:03:38,000
+It is a demonstration that for sparse MoE models, local inference is often about memory residency and page-in timing, not just raw compute.
+
+23
+00:03:38,000 --> 00:03:48,000
+MoE-MADV means Mixture-of-Experts plus MADV_WILLNEED.
+
+24
+00:03:48,000 --> 00:04:00,000
+The project is available at github.com slash daystar7777 slash MoE-MADV.

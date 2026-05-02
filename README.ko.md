@@ -151,6 +151,8 @@ scripts/start_deepseek_q4_longrun_5h.sh
   [docs/results/deepseek_q4_longrun_5h/summary.csv](docs/results/deepseek_q4_longrun_5h/summary.csv)
 - 디코드 baseline 추가 결과:
   [docs/results/deepseek_q4_decode_baseline/summary.md](docs/results/deepseek_q4_decode_baseline/summary.md)
+- 영어 영상 스크립트와 녹화 런북:
+  [docs/video/README.md](docs/video/README.md)
 
 ## `packed_experts_q4`는 무엇인가
 
