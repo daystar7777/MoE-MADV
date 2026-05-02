@@ -198,3 +198,6 @@ User pointed out that public GitHub material should lead with decode generation 
 
 ### 2026-05-02 16:42 | gpt-5-codex | NOTE
 Added a public-facing appendix "Attempts and Dead Ends" to the DeepSeek Q4 performance report. It records runtime/model-path attempts, cache and I/O dead ends, measurement instrumentation lessons, postponed ideas, and the final conservative strategy. The appendix includes the Qwen direct-port decision, MLX/HF shard path postponement, tecaprovn model-switch cancellation, CPU repack memory pressure fix, static prewarm not winning steady state, over-aggressive prewarm merge gaps, larger pread chunk regressions, mmap demand-fault bottleneck, LLAMA_MMAP_RANDOM not defaulting, trace instrumentation tradeoffs, and the missing-traces issue from the first 5-hour run.
+
+### 2026-05-02 17:00 | gpt-5-codex | NOTE
+Prepared GitHub publication for daystar7777/MoE-MADV. Replaced the README symlink with a public MoE-MADV README, copied curated long-run/decode-baseline results under docs/results, added the headline decode SVG chart, preserved the remote MIT LICENSE via merge, cleaned failed parent-repo tmp_pack_* files, and added an agent-work-mem credit section to the README.

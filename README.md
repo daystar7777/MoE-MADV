@@ -116,3 +116,19 @@ the right expert pages resident at the right time.
 This work started from `danveloper/flash-moe`. The original flash-moe README and
 engineering context are preserved in [CLAUDE.md](CLAUDE.md). This repo focuses
 on the DeepSeek V4 Flash Q4 / GGUF / `MADV_WILLNEED` experiment.
+
+## Built With Agent Work Mem
+
+This project was developed with
+[agent-work-mem](https://github.com/daystar7777/agent-work-mem), a lightweight
+shared memory protocol for long-running AI coding work.
+
+It mattered here because the experiment was not a single prompt. It involved
+model downloads, failed runtime paths, local patches, benchmark runs, resumed
+sessions, and a 5-hour data collection pass. `agent-work-mem` kept the working
+state explicit: what had been tried, what failed, which model files were safe to
+ignore, and which benchmark results were trustworthy enough to publish.
+
+For projects where multiple AI sessions need to continue the same technical
+thread without losing context, `agent-work-mem` is a small tool with a very
+practical payoff.
