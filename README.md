@@ -4,6 +4,8 @@ DeepSeek V4 Flash is a 284B-parameter MoE model. This repo documents a local
 inference experiment that runs the 150 GB `MXFP4_MOE` GGUF file on a 64GB Apple
 Silicon machine by optimizing mmap-backed expert paging with `MADV_WILLNEED`.
 
+[한국어 README](README.ko.md)
+
 ![Decode speed headline](docs/assets/deepseek-q4-decode-headline.svg)
 
 ## Headline Result
