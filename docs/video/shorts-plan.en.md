@@ -45,6 +45,28 @@ Start live generation in the main terminal:
 scripts/run_moe_madv_live_generation_demo.sh
 ```
 
+## Render And Voiceover
+
+```bash
+scripts/render_moe_madv_shorts.py
+
+swift scripts/encode_frames_avfoundation.swift \
+  docs/video/build/frames \
+  docs/video/build/moe-madv-shorts-draft.mp4 \
+  12 \
+  720
+
+scripts/generate_moe_madv_voiceover.py
+
+swift scripts/mux_audio_avfoundation.swift \
+  docs/video/build/moe-madv-shorts-draft.mp4 \
+  docs/video/build/moe-madv-shorts-voiceover.mp3 \
+  docs/video/build/moe-madv-shorts-final.mp4
+```
+
+Default narration voice: `River - Relaxed, Neutral, Informative` from
+ElevenLabs. Override with `ELEVENLABS_VOICE_ID` in `.env` if needed.
+
 ## Edit Structure
 
 ### 0-3s: Hook

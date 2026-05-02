@@ -35,6 +35,14 @@ MoE-MADV: routing-aware page-in hints for local MoE inference
   read, and page-in rate.
 - [../../scripts/open_moe_madv_recording_apps.sh](../../scripts/open_moe_madv_recording_apps.sh):
   opens System Information and Activity Monitor for recording.
+- [../../scripts/render_moe_madv_shorts.py](../../scripts/render_moe_madv_shorts.py):
+  renders the 9:16 Shorts frames from the captured run and monitor CSV.
+- [../../scripts/encode_frames_avfoundation.swift](../../scripts/encode_frames_avfoundation.swift):
+  encodes rendered frames into MP4 using macOS AVFoundation.
+- [../../scripts/generate_moe_madv_voiceover.py](../../scripts/generate_moe_madv_voiceover.py):
+  generates the English Shorts voiceover with ElevenLabs.
+- [../../scripts/mux_audio_avfoundation.swift](../../scripts/mux_audio_avfoundation.swift):
+  adds the generated audio track to the Shorts MP4.
 - [../../scripts/run_moe_madv_video_tour.sh](../../scripts/run_moe_madv_video_tour.sh):
   optional terminal tour helper for screen recording.
 
@@ -82,6 +90,43 @@ scripts/open_moe_madv_recording_apps.sh
 OUT=logs/video_monitor_$(date +%Y%m%d_%H%M%S).csv \
   scripts/run_moe_madv_resource_monitor.sh
 ```
+
+## Render The Shorts Draft
+
+After capturing or reusing `docs/video/build/live-generation-latest.log` and
+`docs/video/build/resource-monitor-latest.csv`:
+
+```bash
+# Render 720 vertical frames and the draft subtitle file.
+scripts/render_moe_madv_shorts.py
+
+# Encode a 60s 1080x1920 MP4.
+swift scripts/encode_frames_avfoundation.swift \
+  docs/video/build/frames \
+  docs/video/build/moe-madv-shorts-draft.mp4 \
+  12 \
+  720
+```
+
+To add English narration, put the ElevenLabs API key in `.env` or `../.env`:
+
+```bash
+elevenlabs_api_key=...
+```
+
+Then run:
+
+```bash
+scripts/generate_moe_madv_voiceover.py
+
+swift scripts/mux_audio_avfoundation.swift \
+  docs/video/build/moe-madv-shorts-draft.mp4 \
+  docs/video/build/moe-madv-shorts-voiceover.mp3 \
+  docs/video/build/moe-madv-shorts-final.mp4
+```
+
+The generated build outputs stay under `docs/video/build/`, which is ignored by
+Git.
 
 For a guided terminal tour:
 

@@ -22,6 +22,7 @@ __pycache__/
 *.egg-info/
 *.so
 .python-version
+.env
 
 # Local model caches and downloaded metadata
 models/
@@ -40,6 +41,7 @@ AIMemory/
 *.npz
 logs/
 *.log
+docs/video/build/
 
 # Test binaries and experiment data
 metal_infer/test_lzfse
